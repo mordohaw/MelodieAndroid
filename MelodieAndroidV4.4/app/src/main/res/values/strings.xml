@@ -1,0 +1,12 @@
+<resources>
+        <string name="app_name">Android version of Melodie</string>
+
+        <string name="action_settings">Settings</string>
+
+        <string name="process">Process</string>
+        <string name="ligne">Ligne</string>
+        <string name="station">Station</string>
+
+        <string name="FirstActivity">Cell operating mode</string>
+        <string name="SecondActivity">Balance of production</string>
+</resources>
