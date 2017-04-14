@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">Version Android de Melodie</string>
 
-    <string name="action_settings">Paramètres</string>
+    <string name="settings">Paramètres</string>
 
     <string name="process">Processus</string>
     <string name="ligne">Ligne</string>
