@@ -11,4 +11,6 @@
     <string name="menu">Menu</string>
     <string name="FirstActivity">Cell operating mode</string>
     <string name="SecondActivity">Balance of production</string>
+
+    <string name="movies_categories_key">categoriesKey</string>
 </resources>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+
+    <PreferenceCategory android:title="Réseau">
+
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Luminosité">
+
+    </PreferenceCategory>
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="checkBoxPref"
+        android:summaryOff="Résumé quand pas sélectionné"
+        android:summaryOn="Résumé quand sélectionné"
+        android:title="Titre" />
+
+    <EditTextPreference
+        android:key="editTextPref"
+        android:dialogTitle="Titre de la boîte"
+        android:positiveButtonText="Je valide !"
+        android:negativeButtonText="Je valide pas !"
+        android:title="tuto"
+        android:summary="enter your text "
+        android:dependency="checkBoxPref" />
+
+
+    <ListPreference
+
+        android:key="listPref"
+
+        android:dialogTitle="Choisissez une couleur"
+
+        android:entries="@array/liste_couleurs_fr"
+
+        android:entryValues="@array/liste_couleurs"
+
+        android:title="Choisir couleur" />
+</PreferenceScreen>

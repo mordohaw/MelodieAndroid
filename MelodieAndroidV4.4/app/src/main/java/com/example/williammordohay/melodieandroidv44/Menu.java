@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.williammordohay.melodieandroidv44.Settings.SettingsMain;
+
 public class Menu extends AppCompatActivity {
 
     @Override
@@ -14,7 +16,7 @@ public class Menu extends AppCompatActivity {
     }
 
     public void goToParameters(View v){
-        startActivity(new Intent(this, Parameters.class));
+        startActivity(new Intent(this, SettingsMain.class));
     }
 
     public void quitCurrentActivity(View v){

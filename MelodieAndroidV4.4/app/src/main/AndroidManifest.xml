@@ -19,9 +19,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Parameters" />
+        <activity android:name=".Settings.SettingsMain" />
         <activity android:name=".FirstActivity" />
         <activity android:name=".SecondActivity"></activity>
+        <activity
+            android:name=".MyPreferenceActivity"
+            android:label="@string/settings" >
+        </activity>
+        <activity
+           android:name=".Settings.SettingFragShow">
+        </activity>
     </application>
 
 </manifest>
