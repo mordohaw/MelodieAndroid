@@ -23,14 +23,17 @@ public class SettingsMain extends AppCompatActivity {
     }
 
     public void showFrag(View v){
+        //Go to fragment settings activity
         startActivity(new Intent(this,SettingFragShow.class));
 
     }
 
     public void showVal(View v){
+        //Create SharedPreferences to load values
         SharedPreferences SharedParam= PreferenceManager.getDefaultSharedPreferences(this);
-        EditText editTxt=(EditText)findViewById(R.id.editText);
-        String s = SharedParam.getString("editTextPref","no value");
+        EditText editTxt=(EditText)findViewById(R.id.URL_content);
+        //load the value enter by user in editURL. Default value is "no value" here
+        String s = SharedParam.getString("editURL","no value");
         editTxt.setText(s);
 
     }

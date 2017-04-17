@@ -17,12 +17,12 @@
         android:title="Titre" />
 
     <EditTextPreference
-        android:key="editTextPref"
+        android:key="editURL"
         android:dialogTitle="Titre de la boîte"
-        android:positiveButtonText="Je valide !"
-        android:negativeButtonText="Je valide pas !"
-        android:title="tuto"
-        android:summary="enter your text "
+        android:positiveButtonText="Valider"
+        android:negativeButtonText="Annuler"
+        android:title="URL"
+        android:summary="@string/URL_parameters_text"
         android:dependency="checkBoxPref" />
 
 

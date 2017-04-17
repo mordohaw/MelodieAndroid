@@ -18,6 +18,7 @@ public class SettingFragShow extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         FragmentManager fm = getFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
+        //load the fragment
         ft.replace(android.R.id.content, new SettingFragment());
         ft.commit();
     }

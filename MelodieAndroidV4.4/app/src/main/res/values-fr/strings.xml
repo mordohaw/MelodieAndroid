@@ -10,4 +10,8 @@
 
     <string name="FirstActivity">Modes de marche cellules</string>
     <string name="SecondActivity">Bilan de production</string>
+
+
+    <string name="URL_parameters_text">entrez URL pour la connection</string>
+    <string name="URL_value">valeur de l\'URL</string>
 </resources>

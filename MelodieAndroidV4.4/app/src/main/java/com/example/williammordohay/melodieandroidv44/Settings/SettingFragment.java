@@ -13,6 +13,7 @@ public class SettingFragment extends PreferenceFragment {
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
+        //load the preference xml
         addPreferencesFromResource(R.xml.preference);
     }
 }
