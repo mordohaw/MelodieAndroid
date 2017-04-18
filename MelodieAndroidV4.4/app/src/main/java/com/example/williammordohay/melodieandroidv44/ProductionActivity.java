@@ -4,15 +4,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-public class SecondActivity extends AppCompatActivity {
+public class ProductionActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_second);
+        setContentView(R.layout.activity_production);
     }
 
     public void quitCurrentActivity(View v){
-        SecondActivity.this.finish();
+        ProductionActivity.this.finish();
     }
 }

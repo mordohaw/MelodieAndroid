@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.williammordohay.melodieandroidv44.FirstActivity">
+    tools:context="com.example.williammordohay.melodieandroidv44.MachineActivity">
 
     <ImageButton
         android:id="@+id/imageButton"
@@ -23,7 +23,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="33dp"
-        android:text="@string/FirstActivity" />
+        android:text="@string/MachineActivity" />
 
     <ImageView
         android:id="@+id/MelodieLogo"
@@ -56,149 +56,149 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/FirstActivity"
+                    android:text="@string/MachineActivity"
                     android:textSize="10sp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/FirstActivity" />
+                    android:text="@string/MachineActivity" />
             </LinearLayout>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/FirstActivity" />
+                android:text="@string/MachineActivity" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/FirstActivity" />
+                android:text="@string/MachineActivity" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/FirstActivity" />
+                android:text="@string/MachineActivity" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/FirstActivity" />
+                android:text="@string/MachineActivity" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/FirstActivity" />
+                android:text="@string/MachineActivity" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/FirstActivity" />
+                android:text="@string/MachineActivity" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/FirstActivity" />
+                android:text="@string/MachineActivity" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/FirstActivity" />
+                android:text="@string/MachineActivity" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/FirstActivity" />
+                android:text="@string/MachineActivity" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/FirstActivity" />
+                android:text="@string/MachineActivity" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/FirstActivity" />
+                android:text="@string/MachineActivity" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/FirstActivity" />
+                android:text="@string/MachineActivity" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/FirstActivity" />
+                android:text="@string/MachineActivity" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/FirstActivity" />
+                android:text="@string/MachineActivity" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/FirstActivity" />
+                android:text="@string/MachineActivity" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/FirstActivity" />
+                android:text="@string/MachineActivity" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/FirstActivity" />
+                android:text="@string/MachineActivity" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/FirstActivity" />
+                android:text="@string/MachineActivity" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/FirstActivity" />
+                android:text="@string/MachineActivity" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/FirstActivity" />
+                android:text="@string/MachineActivity" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/FirstActivity" />
+                android:text="@string/MachineActivity" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/FirstActivity" />
+                android:text="@string/MachineActivity" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/FirstActivity" />
+                android:text="@string/MachineActivity" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/FirstActivity" />
+                android:text="@string/MachineActivity" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/FirstActivity" />
+                android:text="@string/MachineActivity" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/FirstActivity" />
+                android:text="@string/MachineActivity" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/FirstActivity" />
+                android:text="@string/MachineActivity" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/FirstActivity" /><TextView
+                android:text="@string/MachineActivity" /><TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/FirstActivity" />
+            android:text="@string/MachineActivity" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/FirstActivity" />
+                android:text="@string/MachineActivity" />
 
 
 
@@ -206,8 +206,6 @@
 
         </LinearLayout>
     </ScrollView>
-
-
 
 
 </RelativeLayout>

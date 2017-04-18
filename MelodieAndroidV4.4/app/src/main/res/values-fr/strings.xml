@@ -21,8 +21,8 @@
     <string name="Ok">Valider</string>
     <string name="cancel">Annuler</string>
     <string name="settings">Paramètres</string>
-    <string name="FirstActivity">Modes de marche cellules</string>
-    <string name="SecondActivity">Bilan de production</string>
+    <string name="MachineActivity">Suivi machines</string>
+    <string name="ProductionActivity">Suivi Production</string>
 
     <!-- Dialog Window
     -->

@@ -42,11 +42,11 @@ public class Menu extends AppCompatActivity {
     }
 
     public void goToFirstActivity(View v){
-        startActivity(new Intent(this, FirstActivity.class));
+        startActivity(new Intent(this, MachineActivity.class));
     }
 
     public void goToSecondActivity(View v){
-        startActivity(new Intent(this, SecondActivity.class));
+        startActivity(new Intent(this, ProductionActivity.class));
     }
 
 }

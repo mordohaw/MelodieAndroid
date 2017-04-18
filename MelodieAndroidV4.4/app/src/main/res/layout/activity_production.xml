@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.williammordohay.melodieandroidv44.SecondActivity">
+    tools:context="com.example.williammordohay.melodieandroidv44.ProductionActivity">
 
     <ImageButton
         android:id="@+id/imageButton"
@@ -23,7 +23,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="33dp"
-        android:text="@string/SecondActivity" />
+        android:text="@string/ProductionActivity" />
 
     <ImageView
         android:id="@+id/imageView"
