@@ -32,9 +32,9 @@ public class SettingsMain extends AppCompatActivity {
         //Create SharedPreferences to load values
         SharedPreferences SharedParam= PreferenceManager.getDefaultSharedPreferences(this);
         EditText editTxt=(EditText)findViewById(R.id.URL_content);
-        //load the value enter by user in editURL. Default value is "no value" here
-        String s = SharedParam.getString("editURL","no value");
-        editTxt.setText(s);
+        //load the value enter by user in editURL. Default value is "http://val-prod-002/MelodieNet/Modules/EcransDeBase/Bienvenue.aspx" here
+        String stringUrl = SharedParam.getString("editURL","http://val-prod-002/MelodieNet/Modules/EcransDeBase/Bienvenue.aspx");
+        editTxt.setText(stringUrl);
 
     }
 

@@ -9,6 +9,9 @@
     <PreferenceCategory android:title="Luminosité">
 
     </PreferenceCategory>
+    <PreferenceCategory android:title="@string/URL_adress">
+
+
     <CheckBoxPreference
         android:defaultValue="true"
         android:key="checkBoxPref"
@@ -25,7 +28,7 @@
         android:summary="@string/URL_parameters_text"
         android:dependency="checkBoxPref" />
 
-
+    </PreferenceCategory>
     <ListPreference
 
         android:key="listPref"

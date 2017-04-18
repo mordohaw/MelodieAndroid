@@ -2,16 +2,25 @@
 <resources>
     <string name="app_name">Version Android de Melodie</string>
 
-    <string name="settings">Paramètres</string>
+
 
     <string name="process">Processus</string>
     <string name="ligne">Ligne</string>
     <string name="station">Station</string>
 
-    <string name="FirstActivity">Modes de marche cellules</string>
-    <string name="SecondActivity">Bilan de production</string>
 
+    <!-- URL strings
+   -->
 
     <string name="URL_parameters_text">entrez URL pour la connection</string>
     <string name="URL_value">valeur de l\'URL</string>
+    <string name="URL_adress">adresse URL</string>
+
+    <!-- Button
+    -->
+    <string name="Ok">Valider</string>
+    <string name="cancel">Annuler</string>
+    <string name="settings">Paramètres</string>
+    <string name="FirstActivity">Modes de marche cellules</string>
+    <string name="SecondActivity">Bilan de production</string>
 </resources>
