@@ -25,4 +25,11 @@
     <string name="menu">Menu</string>
     <string name="FirstActivity">Cell operating mode</string>
     <string name="SecondActivity">Balance of production</string>
+
+    <!-- Dialog Window
+    -->
+    <string name="check_dialog_message">Do you want to leave ? </string>
+    <string name="Yes">Yes</string>
+    <string name="No">No</string>
+    <string name="check_dialog_title">Quit</string>
 </resources>

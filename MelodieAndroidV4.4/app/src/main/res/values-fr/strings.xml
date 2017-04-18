@@ -23,4 +23,11 @@
     <string name="settings">Paramètres</string>
     <string name="FirstActivity">Modes de marche cellules</string>
     <string name="SecondActivity">Bilan de production</string>
+
+    <!-- Dialog Window
+    -->
+    <string name="check_dialog_message">Voulez-vous quitter ?</string>
+    <string name="Yes">Oui</string>
+    <string name="No">Non</string>
+    <string name="check_dialog_title">Quitter</string>
 </resources>

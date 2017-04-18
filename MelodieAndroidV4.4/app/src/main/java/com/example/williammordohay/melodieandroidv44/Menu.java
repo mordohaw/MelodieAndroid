@@ -1,5 +1,7 @@
 package com.example.williammordohay.melodieandroidv44;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,7 +22,23 @@ public class Menu extends AppCompatActivity {
     }
 
     public void quitCurrentActivity(View v){
-        Menu.this.finish();
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(R.string.check_dialog_message)
+                .setTitle(R.string.check_dialog_title)
+                .setPositiveButton(R.string.Yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // CONFIRM
+                        Menu.this.finish();
+                    }
+                })
+                .setNegativeButton(R.string.No, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // CANCEL
+                    }
+                });
+        // Create the AlertDialog object
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
     public void goToFirstActivity(View v){
