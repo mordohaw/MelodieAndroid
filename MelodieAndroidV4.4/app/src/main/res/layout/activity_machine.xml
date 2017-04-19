@@ -16,7 +16,7 @@
         app:srcCompat="@android:drawable/ic_media_previous" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/titleView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="25sp"
@@ -40,7 +40,7 @@
         <ListView
             android:id="@+id/CellsView"
             android:layout_width="wrap_content"
-            android:layout_below="@id/textView"
+            android:layout_below="@id/titleView"
             android:layout_above="@id/MelodieLogo"
             android:layout_height="match_parent">
 

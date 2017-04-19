@@ -1,10 +1,12 @@
 package com.example.williammordohay.melodieandroidv44;
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.williammordohay.melodieandroidv44.Cell.CellAdapter;
 import com.example.williammordohay.melodieandroidv44.Cell.CellObject;
@@ -23,7 +25,9 @@ public class MachineActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_machine);
+
         populateListView();
+
     }
 
     public void generateCells(){
@@ -45,8 +49,8 @@ public class MachineActivity extends AppCompatActivity {
     }
 
     public void populateListView(){
-        mListView=(ListView) findViewById(R.id.CellsView);
         generateCells();
+        mListView=(ListView) findViewById(R.id.CellsView);
         adapter=new CellAdapter(this,cells);
         mListView.setAdapter(adapter);
 

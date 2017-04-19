@@ -1,6 +1,7 @@
 package com.example.williammordohay.melodieandroidv44.Cell;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.annotation.IdRes;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
@@ -56,7 +57,11 @@ public class CellAdapter extends ArrayAdapter<CellObject> {
         //On rempli la vue
         viewHolder.num.setText(String.valueOf(currentCell.getCellNumber()));
         viewHolder.text.setText(currentCell.getCellText());
-        viewHolder.color.setText(currentCell.getColourCode());
+        viewHolder.color.setText("");
+        //viewHolder.color.setText(currentCell.getColourCode());
+
+        //Set color with the field ColourCode in object currentCell
+        viewHolder.color.setBackgroundColor(Color.parseColor(String.valueOf(currentCell.getColourCode())));
 
         viewCellObjectMap.put(convertView, currentCell);
 
