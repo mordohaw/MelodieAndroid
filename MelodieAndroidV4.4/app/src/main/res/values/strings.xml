@@ -10,6 +10,7 @@
 
     <string name="movies_categories_key">categoriesKey</string>
 
+
     <!-- URL strings
     -->
     <string name="URL_parameters_text">enter the URL for connection</string>

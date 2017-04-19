@@ -25,6 +25,7 @@
         android:layout_marginTop="33dp"
         android:text="@string/MachineActivity" />
 
+
     <ImageView
         android:id="@+id/MelodieLogo"
         android:layout_width="135dp"
@@ -36,15 +37,17 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 
+    <ListView
+        android:id="@+id/CellsView"
+        android:layout_width="wrap_content"
+        android:layout_below="@id/titleView"
+        android:layout_above="@id/MelodieLogo"
+        android:layout_height="match_parent">
 
-        <ListView
-            android:id="@+id/CellsView"
-            android:layout_width="wrap_content"
-            android:layout_below="@id/titleView"
-            android:layout_above="@id/MelodieLogo"
-            android:layout_height="match_parent">
+    </ListView>
 
-        </ListView>
+
+
 
 
 </RelativeLayout>
