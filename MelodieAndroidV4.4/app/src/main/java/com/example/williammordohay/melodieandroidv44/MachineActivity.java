@@ -6,6 +6,9 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.example.williammordohay.melodieandroidv44.Cell.CellAdapter;
+import com.example.williammordohay.melodieandroidv44.Cell.CellObject;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +17,8 @@ public class MachineActivity extends AppCompatActivity {
     private ArrayList cells = new ArrayList();
 
     private ListView mListView;
-    private List<CellObject> cellObjectList = new ArrayList<>();
+    private List<CellObject> cellObjectList = new ArrayList<CellObject>();
+    private CellAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,12 +45,11 @@ public class MachineActivity extends AppCompatActivity {
     }
 
     public void populateListView(){
+        mListView=(ListView) findViewById(R.id.CellsView);
         generateCells();
-        ArrayAdapter<CellObject> adapter = new ArrayAdapter<CellObject>(
-                this,
-                R.layout.row_machine,
-                cells
-                );
+        adapter=new CellAdapter(this,cells);
+        mListView.setAdapter(adapter);
+
     }
 
 }

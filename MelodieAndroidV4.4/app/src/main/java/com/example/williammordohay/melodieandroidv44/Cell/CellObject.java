@@ -1,4 +1,4 @@
-package com.example.williammordohay.melodieandroidv44;
+package com.example.williammordohay.melodieandroidv44.Cell;
 
 /**
  * Created by william.mordohay on 18/04/2017.
