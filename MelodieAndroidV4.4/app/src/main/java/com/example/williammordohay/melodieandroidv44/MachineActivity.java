@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.williammordohay.melodieandroidv44.Cell.CellAdapter;
 import com.example.williammordohay.melodieandroidv44.Cell.CellObject;
@@ -12,6 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MachineActivity extends AppCompatActivity {
+
+    int i=0;
 
     private ListView mListView;
     private List<CellObject> cellObjectList = new ArrayList<>();
@@ -22,8 +25,29 @@ public class MachineActivity extends AppCompatActivity {
         setContentView(R.layout.activity_machine);
 
         populateMachineView();
+        //cellObjectList.remove(8);
+
+        //mListView.invalidateViews();
+        /*while(true){
+            //Toast.makeText(getApplicationContext(), i, Toast.LENGTH_SHORT).show();
+            adapter.notifyDataSetChanged();
+            i++;
+        }*/
 
     }
+
+    /*private void updateData() {
+        List<CellObject> newCellObjectList = cellObjectList;
+        adapter=new CellAdapter(this,newCellObjectList);
+        mListView.setAdapter(adapter);
+
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                adapter.notifyDataSetChanged();
+            }
+        });
+    }*/
 
     public void generateCells(){
 
