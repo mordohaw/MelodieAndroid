@@ -1,5 +1,6 @@
 package com.example.williammordohay.melodieandroidv44;
 
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,40 +15,31 @@ import java.util.List;
 
 public class MachineActivity extends AppCompatActivity {
 
-    int i=0;
+    int i=8;
 
+    SwipeRefreshLayout swipeRefreshLayout;
     private ListView mListView;
     private List<CellObject> cellObjectList = new ArrayList<>();
     private CellAdapter adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_machine);
+        mListView=(ListView) findViewById(R.id.CellsView);
 
         populateMachineView();
-        //cellObjectList.remove(8);
 
-        //mListView.invalidateViews();
-        /*while(true){
-            //Toast.makeText(getApplicationContext(), i, Toast.LENGTH_SHORT).show();
-            adapter.notifyDataSetChanged();
-            i++;
-        }*/
+        swipeRefreshLayout = (SwipeRefreshLayout)findViewById(R.id.SwipeRefresh);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                refresh();
+            }
+        });
 
     }
 
-    /*private void updateData() {
-        List<CellObject> newCellObjectList = cellObjectList;
-        adapter=new CellAdapter(this,newCellObjectList);
-        mListView.setAdapter(adapter);
-
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                adapter.notifyDataSetChanged();
-            }
-        });
-    }*/
 
     public void generateCells(){
 
@@ -68,10 +60,49 @@ public class MachineActivity extends AppCompatActivity {
     }
 
     public void populateMachineView(){
+        //populate the ListView
         generateCells();
-        mListView=(ListView) findViewById(R.id.CellsView);
         adapter=new CellAdapter(this,cellObjectList);
         mListView.setAdapter(adapter);
+
+    }
+
+    public void refresh(){
+
+
+        Toast.makeText(this, "Refreshing...", Toast.LENGTH_SHORT).show();
+
+        //set the refresh
+        mListView.invalidateViews();
+        swipeRefreshLayout.setRefreshing(true);
+
+        //refresh long-time task in background thread
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    //dummy delay for 1 second
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+                //update ui on UI thread
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        //set the action on up dating
+                        cellObjectList.remove(i);
+                        i--;
+                        //Update the list
+                        mListView.invalidateViews();
+                        swipeRefreshLayout.setRefreshing(false);
+                    }
+                });
+
+            }
+        }).start();
+
 
     }
 
