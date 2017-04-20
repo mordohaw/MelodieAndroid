@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.williammordohay.melodieandroidv44.R;
@@ -39,6 +40,7 @@ public class CellAdapter extends ArrayAdapter<CellObject> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.row_machine,parent, false);
         }
 
+
         //check if the view is not empty
         CellObjectViewHolder viewHolder = (CellObjectViewHolder) convertView.getTag();
         if(viewHolder==null){
@@ -46,8 +48,13 @@ public class CellAdapter extends ArrayAdapter<CellObject> {
             viewHolder = new CellObjectViewHolder();
             viewHolder.num=(TextView) convertView.findViewById(R.id.num);
             viewHolder.text=(TextView) convertView.findViewById(R.id.text);
-            viewHolder.color=(TextView) convertView.findViewById(R.id.color);
+            //viewHolder.color=(TextView) convertView.findViewById(R.id.color);
+
+            viewHolder.image=(ImageView) convertView.findViewById(R.id.image);
             convertView.setTag(viewHolder);
+        }
+        else{
+            viewHolder = (CellObjectViewHolder) convertView.getTag();
         }
 
         // On récupère l'item correspondant à la position dans la list<CellObject>
@@ -56,11 +63,11 @@ public class CellAdapter extends ArrayAdapter<CellObject> {
         //On rempli la vue
         viewHolder.num.setText(String.valueOf(currentCell.getCellNumber()));
         viewHolder.text.setText(currentCell.getCellText());
-        viewHolder.color.setText("");
-        //viewHolder.color.setText(currentCell.getColourCode());
+        viewHolder.image.setImageResource(currentCell.getIdImage());
 
+        //viewHolder.color.setText("");
         //Set color with the field ColourCode in object currentCell
-        viewHolder.color.setBackgroundColor(Color.parseColor(String.valueOf(currentCell.getColourCode())));
+        //viewHolder.color.setBackgroundColor(Color.parseColor(String.valueOf(currentCell.getColourCode())));
 
         viewCellObjectMap.put(convertView, currentCell);
 
@@ -71,5 +78,6 @@ public class CellAdapter extends ArrayAdapter<CellObject> {
         public TextView num;
         public TextView text;
         public TextView color;
+        public ImageView image;
     }
 }

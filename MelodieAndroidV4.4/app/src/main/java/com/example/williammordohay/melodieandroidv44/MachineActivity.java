@@ -42,7 +42,6 @@ public class MachineActivity extends AppCompatActivity {
 
 
     public void generateCells(){
-
         this.cellObjectList.add(new CellObject(1410, "Production", "#00FF00"));
         this.cellObjectList.add(new CellObject(1413, "Maintenance", "#FF0000"));
         this.cellObjectList.add(new CellObject(1490, "Communicating problems", "#2C75FF"));
