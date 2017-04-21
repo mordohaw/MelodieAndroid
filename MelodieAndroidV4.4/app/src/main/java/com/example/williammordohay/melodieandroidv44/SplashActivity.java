@@ -1,6 +1,8 @@
 package com.example.williammordohay.melodieandroidv44;
 
 import android.content.Intent;
+import android.os.AsyncTask;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Window;
@@ -10,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 public class SplashActivity extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,9 +28,13 @@ public class SplashActivity extends AppCompatActivity {
         final Animation animationTranslate = AnimationUtils.loadAnimation(getBaseContext(),R.anim.translate_effect);
         final Animation animationScale = AnimationUtils.loadAnimation(getBaseContext(),R.anim.scale_effect);
 
+        ivMelodie.setVisibility(ivMelodie.INVISIBLE);
         Toast.makeText(this, R.string.welcoming_message, Toast.LENGTH_SHORT).show();
         ivFsa.startAnimation(alphaAnimation);
+        ivMelodie.setVisibility(ivMelodie.VISIBLE);
         ivMelodie.startAnimation(animationScale);
+
+
 
         alphaAnimation.setAnimationListener(new Animation.AnimationListener(){
             @Override
@@ -37,7 +44,6 @@ public class SplashActivity extends AppCompatActivity {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-
                 ivFsa.startAnimation(animationLeave);
                 finish();
                 Intent myIntent = new Intent(SplashActivity.this, Menu.class);
@@ -46,8 +52,9 @@ public class SplashActivity extends AppCompatActivity {
 
             @Override
             public void onAnimationRepeat(Animation animation) {
-
             }
         });
     }
+
+
 }

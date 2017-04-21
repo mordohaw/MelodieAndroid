@@ -47,7 +47,7 @@ public class WebService {
         return null;
     }
 
-    private List<CellObject> getCells(){
+    private List<Object> getData(){
 
         try{
             //Send the request
@@ -58,7 +58,7 @@ public class WebService {
                 InputStreamReader reader = new InputStreamReader(inputStream);
 
                 //return the list from Json
-                return gson.fromJson(reader, new TypeToken<List<CellObject>>(){}.getType());
+                return gson.fromJson(reader, new TypeToken<List<Object>>(){}.getType());
             }
         }
         catch(Exception e){
