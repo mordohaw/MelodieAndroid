@@ -32,4 +32,12 @@
     <string name="Yes">Yes</string>
     <string name="No">No</string>
     <string name="check_dialog_title">Quit</string>
+    <string name="welcoming_message">Hello, Welcome !</string>
+    <string name="refresh">Refreshing...</string>
+
+    <!-- Layout Strings
+    -->
+    <string name="ref">Ref</string>
+    <string name="good">Good</string>
+    <string name="bad">Bad</string>
 </resources>

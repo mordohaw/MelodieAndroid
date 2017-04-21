@@ -29,4 +29,12 @@
     <string name="Yes">Oui</string>
     <string name="No">Non</string>
     <string name="check_dialog_title">Quitter</string>
+    <string name="welcoming_message">Bonjour, bienvenu !</string>
+    <string name="refresh">Rafraichissement...</string>
+
+
+    <!-- Layout Strings
+    -->
+    <string name="good">Bons</string>
+    <string name="bad">Mauvais</string>
 </resources>

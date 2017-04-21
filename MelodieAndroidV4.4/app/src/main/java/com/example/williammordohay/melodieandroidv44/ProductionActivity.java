@@ -84,7 +84,7 @@ public class ProductionActivity extends AppCompatActivity {
     private void refresh(){
 
 
-        Toast.makeText(this, "Refreshing...", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, R.string.refresh, Toast.LENGTH_SHORT).show();
 
         //set the refresh
         mListView.invalidateViews();

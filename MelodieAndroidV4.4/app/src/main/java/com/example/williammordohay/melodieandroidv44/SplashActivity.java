@@ -7,6 +7,7 @@ import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -24,6 +25,7 @@ public class SplashActivity extends AppCompatActivity {
         final Animation animationTranslate = AnimationUtils.loadAnimation(getBaseContext(),R.anim.translate_effect);
         final Animation animationScale = AnimationUtils.loadAnimation(getBaseContext(),R.anim.scale_effect);
 
+        Toast.makeText(this, R.string.welcoming_message, Toast.LENGTH_SHORT).show();
         ivFsa.startAnimation(alphaAnimation);
         ivMelodie.startAnimation(animationScale);
 
