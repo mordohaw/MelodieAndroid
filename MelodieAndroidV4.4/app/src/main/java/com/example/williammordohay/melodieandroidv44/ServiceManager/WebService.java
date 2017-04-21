@@ -1,23 +1,31 @@
 package com.example.williammordohay.melodieandroidv44.ServiceManager;
 
-import com.example.williammordohay.melodieandroidv44.ServiceManager.Json;
+
+import android.util.Log;
+
+import com.example.williammordohay.melodieandroidv44.Cell.CellObject;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-//import com.google.gson.Gson;
+import java.util.List;
+
+import static com.example.williammordohay.melodieandroidv44.Settings.SettingsMain.urlValue;
 
 /**
  * Created by william.mordohay on 14/04/2017.
  */
 
 public class WebService {
-    private  final String URL = "http://val-prod-002/MelodieNet/Modules/EcransDeBase/Bienvenue.aspx";
+    private  final String URL = urlValue;
 
-    Json gson;
+    Gson gson;
 
     public WebService(){
-        gson = new Json();
+        gson = new Gson();
     }
     private InputStream sendRequest(URL url) throws Exception{
         try{
@@ -38,4 +46,25 @@ public class WebService {
         }
         return null;
     }
+
+    private List<CellObject> getCells(){
+
+        try{
+            //Send the request
+            InputStream inputStream = sendRequest(new URL(URL));
+            //Check the inputStream
+            if(inputStream != null){
+                //read the inputStream
+                InputStreamReader reader = new InputStreamReader(inputStream);
+
+                //return the list from Json
+                return gson.fromJson(reader, new TypeToken<List<CellObject>>(){}.getType());
+            }
+        }
+        catch(Exception e){
+            Log.e("WebService","Can't get the data !");
+        }
+        return null;
+    }
 }
+
