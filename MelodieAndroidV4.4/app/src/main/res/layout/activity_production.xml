@@ -69,15 +69,20 @@
             android:layout_weight="0.25"/>
 
     </LinearLayout>
-
-    <ListView
-        android:id="@+id/ProductView"
-        android:layout_width="wrap_content"
-        android:layout_below="@id/listLegend"
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/SwipeRefresh"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
         android:layout_above="@id/MelodieLogo"
-        android:layout_height="match_parent">
+        android:layout_below="@id/listLegend">
+
+        <ListView
+            android:id="@+id/ProductView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
 
     </ListView>
+    </android.support.v4.widget.SwipeRefreshLayout>
 
 
 

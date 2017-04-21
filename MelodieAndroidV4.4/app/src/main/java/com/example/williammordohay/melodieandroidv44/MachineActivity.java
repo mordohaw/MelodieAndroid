@@ -17,7 +17,7 @@ public class MachineActivity extends AppCompatActivity {
 
     int i=8;
 
-    SwipeRefreshLayout swipeRefreshLayout;
+    private SwipeRefreshLayout swipeRefreshLayout;
     private ListView mListView;
     private List<CellObject> cellObjectList = new ArrayList<>();
     private CellAdapter adapter;
@@ -66,7 +66,7 @@ public class MachineActivity extends AppCompatActivity {
 
     }
 
-    public void refresh(){
+    private void refresh(){
 
 
         Toast.makeText(this, "Refreshing...", Toast.LENGTH_SHORT).show();
@@ -91,8 +91,11 @@ public class MachineActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         //set the action on up dating
-                        cellObjectList.remove(i);
-                        i--;
+                        if(i>=0){
+                            cellObjectList.remove(i);
+                            i--;
+                        }
+
                         //Update the list
                         mListView.invalidateViews();
                         swipeRefreshLayout.setRefreshing(false);
