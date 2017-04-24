@@ -15,16 +15,15 @@
         tools:layout_editor_absoluteX="112dp"
         tools:layout_editor_absoluteY="167dp"
         android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="81dp"
-        android:layout_marginTop="191dp" />
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="150dp"/>
 
     <ImageView
         android:id="@+id/melodieView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
         app:srcCompat="@drawable/melodie"
-        android:layout_below="@+id/logoView"
+        android:layout_marginBottom="70dp"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>
