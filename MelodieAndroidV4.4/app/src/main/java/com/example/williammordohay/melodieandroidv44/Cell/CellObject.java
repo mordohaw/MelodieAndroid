@@ -10,6 +10,7 @@ import com.example.williammordohay.melodieandroidv44.R;
 
 public class CellObject {
 
+
     private int cellNumber;
     private String cellText;
     private String colourCode;
@@ -41,6 +42,18 @@ public class CellObject {
                 this.idImage=R.drawable.stop;
                 break;
         }
+    }
+
+    public void setCellNumber(int cellNumber) {
+        this.cellNumber = cellNumber;
+    }
+
+    public void setCellText(String cellText) {
+        this.cellText = cellText;
+    }
+
+    public void setColourCode(String colourCode) {
+        this.colourCode = colourCode;
     }
 
     public int getCellNumber() {

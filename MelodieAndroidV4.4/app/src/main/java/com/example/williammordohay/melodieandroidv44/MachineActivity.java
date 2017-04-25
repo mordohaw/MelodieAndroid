@@ -1,5 +1,10 @@
 package com.example.williammordohay.melodieandroidv44;
 
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,13 +14,17 @@ import android.widget.Toast;
 
 import com.example.williammordohay.melodieandroidv44.Cell.CellAdapter;
 import com.example.williammordohay.melodieandroidv44.Cell.CellObject;
+import com.example.williammordohay.melodieandroidv44.ServiceManager.WebService;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MachineActivity extends AppCompatActivity {
 
     int i=8;
+    URL urlService;
 
     private SwipeRefreshLayout swipeRefreshLayout;
     private ListView mListView;
@@ -69,7 +78,7 @@ public class MachineActivity extends AppCompatActivity {
     private void refresh(){
 
 
-        Toast.makeText(this, R.string.refresh, Toast.LENGTH_SHORT).show();
+        Toast.makeText(MachineActivity.this, R.string.refresh, Toast.LENGTH_SHORT).show();
 
         //set the refresh
         mListView.invalidateViews();
@@ -91,6 +100,22 @@ public class MachineActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         //set the action on up dating
+                        //Create SharedPreferences to load values
+                        SharedPreferences SharedParam= PreferenceManager.getDefaultSharedPreferences(MachineActivity.this);
+                        //load the value enter by user in editURL. Default value is "http://val-prod-002/MelodieNet/Modules/EcransDeBase/Bienvenue.aspx" here
+                        String stringUrl = SharedParam.getString("editURL","http://val-prod-002/MelodieNet/Modules/EcransDeBase/Bienvenue.aspx");
+                        try {
+                            urlService = new URL(stringUrl);
+                        } catch (MalformedURLException e) {
+                            e.printStackTrace();
+                        }
+                        WebService myWebService = new WebService();
+                        if(urlService!=null){
+                            cellObjectList=myWebService.getCells(urlService);
+                        }
+                        else{
+                            Toast.makeText(MachineActivity.this, "L'URL entrée ne convient pas, veuillez la modifier la dans les paramètres", Toast.LENGTH_SHORT).show();
+                        }
                         if(i>=0){
                             cellObjectList.remove(i);
                             i--;
@@ -107,5 +132,6 @@ public class MachineActivity extends AppCompatActivity {
 
 
     }
+
 
 }

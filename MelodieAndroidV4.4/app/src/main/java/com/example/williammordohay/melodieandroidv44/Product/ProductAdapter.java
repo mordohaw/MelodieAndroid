@@ -46,6 +46,10 @@ public class ProductAdapter extends ArrayAdapter<ProductObject> {
             viewHolder.badNum=(TextView) convertView.findViewById(R.id.bad);
             convertView.setTag(viewHolder);
         }
+        else{
+            //increase performance
+            viewHolder = (ProductObjectViewHolder) convertView.getTag();
+        }
 
         // On récupère l'item correspondant à la position dans la list<ProductObject>
         ProductObject currentProduct = getItem(position);

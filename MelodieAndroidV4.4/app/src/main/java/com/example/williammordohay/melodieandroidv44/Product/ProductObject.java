@@ -16,6 +16,18 @@ public class ProductObject {
         this.badProductNumber=bad;
     }
 
+    public void setReference(String reference) {
+        this.reference = reference;
+    }
+
+    public void setGoodProductNumber(int goodProductNumber) {
+        this.goodProductNumber = goodProductNumber;
+    }
+
+    public void setBadProductNumber(int badProductNumber) {
+        this.badProductNumber = badProductNumber;
+    }
+
     public String getReference() {
         return reference;
     }

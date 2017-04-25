@@ -8,10 +8,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import com.example.williammordohay.melodieandroidv44.MachineActivity;
 import com.example.williammordohay.melodieandroidv44.R;
 
 public class SettingsMain extends AppCompatActivity {
-    public static String urlValue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,8 +35,8 @@ public class SettingsMain extends AppCompatActivity {
         EditText editTxt=(EditText)findViewById(R.id.URL_content);
         //load the value enter by user in editURL. Default value is "http://val-prod-002/MelodieNet/Modules/EcransDeBase/Bienvenue.aspx" here
         String stringUrl = SharedParam.getString("editURL","http://val-prod-002/MelodieNet/Modules/EcransDeBase/Bienvenue.aspx");
-        urlValue=stringUrl;
         editTxt.setText(stringUrl);
+
 
     }
 

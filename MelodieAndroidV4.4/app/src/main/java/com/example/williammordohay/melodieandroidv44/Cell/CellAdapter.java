@@ -54,6 +54,7 @@ public class CellAdapter extends ArrayAdapter<CellObject> {
             convertView.setTag(viewHolder);
         }
         else{
+            //increase performance
             viewHolder = (CellObjectViewHolder) convertView.getTag();
         }
 
