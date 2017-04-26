@@ -24,7 +24,6 @@ import java.util.List;
 public class MachineActivity extends AppCompatActivity {
 
     int i=8;
-    URL urlService;
 
     private SwipeRefreshLayout swipeRefreshLayout;
     private ListView mListView;
@@ -104,18 +103,9 @@ public class MachineActivity extends AppCompatActivity {
                         SharedPreferences SharedParam= PreferenceManager.getDefaultSharedPreferences(MachineActivity.this);
                         //load the value enter by user in editURL. Default value is "http://val-prod-002/MelodieNet/Modules/EcransDeBase/Bienvenue.aspx" here
                         String stringUrl = SharedParam.getString("editURL","http://val-prod-002/MelodieNet/Modules/EcransDeBase/Bienvenue.aspx");
-                        try {
-                            urlService = new URL(stringUrl);
-                        } catch (MalformedURLException e) {
-                            e.printStackTrace();
-                        }
-                        WebService myWebService = new WebService();
-                        if(urlService!=null){
-                            cellObjectList=myWebService.getCells(urlService);
-                        }
-                        else{
-                            Toast.makeText(MachineActivity.this, "L'URL entrée ne convient pas, veuillez la modifier la dans les paramètres", Toast.LENGTH_SHORT).show();
-                        }
+                        //get the cells List
+                        cellObjectList = getCellsList(stringUrl);
+                        //exemple
                         if(i>=0){
                             cellObjectList.remove(i);
                             i--;
@@ -131,6 +121,14 @@ public class MachineActivity extends AppCompatActivity {
         }).start();
 
 
+    }
+    public List<CellObject> getCellsList(String URL){
+        WebService myWebService = new WebService();
+        myWebService.setURL(URL);
+        if(myWebService.getURL()!=null){
+            return(myWebService.getCells());
+        }
+        return null;
     }
 
 

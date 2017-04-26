@@ -19,7 +19,9 @@ import java.util.List;
  */
 
 public class WebService {
-    private  static String URL=null;
+
+
+    private  String URL=null;
 
     Gson gson;
 
@@ -46,7 +48,7 @@ public class WebService {
         return null;
     }
 
-    public List<CellObject> getCells(URL urlAdress) {
+    public List<CellObject> getCells() {
 
         try{
             //Send the request
@@ -85,6 +87,14 @@ public class WebService {
             Log.e("WebService","Can't get the Products data !");
         }
         return null;
+    }
+
+    public void setURL(String URL) {
+        this.URL = URL;
+    }
+
+    public String getURL() {
+        return URL;
     }
 }
 
