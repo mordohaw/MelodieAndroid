@@ -22,8 +22,9 @@
         android:id="@+id/melodieView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/melodie"
-        android:layout_marginBottom="70dp"
+        android:layout_marginBottom="36dp"
+        app:srcCompat="@drawable/logo_melodie_min"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="94dp" />
 </RelativeLayout>

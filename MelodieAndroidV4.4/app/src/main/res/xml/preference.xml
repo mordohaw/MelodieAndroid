@@ -3,12 +3,6 @@
 
 
 
-    <PreferenceCategory android:title="Réseau">
-
-    </PreferenceCategory>
-    <PreferenceCategory android:title="Luminosité">
-
-    </PreferenceCategory>
     <PreferenceCategory android:title="@string/URL_adress">
 
 
