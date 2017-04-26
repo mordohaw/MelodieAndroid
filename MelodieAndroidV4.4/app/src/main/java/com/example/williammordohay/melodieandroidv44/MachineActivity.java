@@ -105,10 +105,15 @@ public class MachineActivity extends AppCompatActivity {
                         String stringUrl = SharedParam.getString("editURL","http://val-prod-002/MelodieNet/Modules/EcransDeBase/Bienvenue.aspx");
                         //get the cells List
                         cellObjectList = getCellsList(stringUrl);
-                        //exemple
-                        if(i>=0){
-                            cellObjectList.remove(i);
-                            i--;
+                        if(cellObjectList != null){
+                            //exemple
+                            if(i>=0){
+                                cellObjectList.remove(i);
+                                i--;
+                            }
+                        }
+                        else{
+                            Toast.makeText(MachineActivity.this, "Failure on refreshing", Toast.LENGTH_SHORT).show();
                         }
 
                         //Update the list
