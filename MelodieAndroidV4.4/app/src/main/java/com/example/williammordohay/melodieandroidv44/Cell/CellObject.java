@@ -27,7 +27,7 @@ public class CellObject {
         this.colourCode=code;
         switch (this.cellText){
             case "Production" :
-                this.idImage=R.drawable.checked_green;
+                this.idImage=R.drawable.check_ssfond;
                 break;
 
             case "Maintenance" :
@@ -39,7 +39,7 @@ public class CellObject {
                 break;
 
             case "Stop" :
-                this.idImage=R.drawable.stop;
+                this.idImage=R.drawable.stop_ssfond;
                 break;
         }
     }
