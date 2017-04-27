@@ -1,7 +1,9 @@
 package com.example.williammordohay.melodieandroidv44.Settings;
 
 import android.os.Bundle;
+import android.preference.EditTextPreference;
 import android.preference.PreferenceFragment;
+import android.preference.SwitchPreference;
 
 import com.example.williammordohay.melodieandroidv44.R;
 
@@ -15,5 +17,11 @@ public class SettingFragment extends PreferenceFragment {
         super.onCreate(savedInstanceState);
         //load the preference xml
         addPreferencesFromResource(R.xml.preference);
+        SwitchPreference switchPref = (SwitchPreference) findPreference("switch_preference");
+        EditTextPreference urlPref = (EditTextPreference) findPreference("editURL");
+        if(!switchPref.isChecked()){
+            urlPref.setText("http://val-prod-002/MelodieNet/Modules/EcransDeBase/Bienvenue.aspx");
+        }
+
     }
 }

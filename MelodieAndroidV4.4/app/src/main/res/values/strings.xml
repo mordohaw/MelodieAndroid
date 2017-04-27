@@ -15,6 +15,8 @@
     <string name="URL_parameters_text">enter the URL for connection</string>
     <string name="URL_value">URL value</string>
     <string name="URL_adress">URL adress</string>
+    <string name="switch_url_text">Use edit URL</string>
+    <string name="url_dialog_title">Edit the URL</string>
 
     <!-- Button
     -->

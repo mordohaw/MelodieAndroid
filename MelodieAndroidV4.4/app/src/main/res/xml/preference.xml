@@ -7,21 +7,19 @@
     <PreferenceCategory android:title="@string/URL_adress">
 
 
-    <CheckBoxPreference
-        android:defaultValue="true"
-        android:key="checkBoxPref"
-        android:summaryOff="Résumé quand pas sélectionné"
-        android:summaryOn="Résumé quand sélectionné"
-        android:title="Titre" />
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="switch_preference"
+            android:title="@string/switch_url_text" />
 
-    <EditTextPreference
+        <EditTextPreference
         android:key="editURL"
-        android:dialogTitle="Titre de la boîte"
+        android:dialogTitle="@string/url_dialog_title"
         android:positiveButtonText="Valider"
         android:negativeButtonText="Annuler"
         android:title="URL"
         android:summary="@string/URL_parameters_text"
-        android:dependency="checkBoxPref" />
+        android:dependency="switch_preference" />
 
     </PreferenceCategory>
     <ListPreference

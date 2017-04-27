@@ -1,7 +1,6 @@
 package com.example.williammordohay.melodieandroidv44;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
@@ -10,11 +9,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
-import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.williammordohay.melodieandroidv44.Cell.CellAdapter;
@@ -26,8 +21,6 @@ import com.example.williammordohay.melodieandroidv44.ServiceManager.WebService;
 import java.util.ArrayList;
 import java.util.List;
 
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by william.mordohay on 27/04/2017.

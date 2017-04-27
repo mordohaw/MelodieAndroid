@@ -14,6 +14,8 @@
     <string name="URL_parameters_text">entrez URL pour la connection</string>
     <string name="URL_value">valeur de l\'URL</string>
     <string name="URL_adress">adresse URL</string>
+    <string name="switch_url_text">Utiliser un URL modifié</string>
+    <string name="url_dialog_title">Modifier l\'URL</string>
 
     <!-- Button
     -->
@@ -29,7 +31,7 @@
     <string name="Yes">Oui</string>
     <string name="No">Non</string>
     <string name="check_dialog_title">Quitter</string>
-    <string name="welcoming_message">Bonjour, bienvenu !</string>
+    <string name="welcoming_message">Bonjour, bienvenue !</string>
     <string name="refresh">Rafraichissement...</string>
 
 
