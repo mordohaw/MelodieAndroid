@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
-import com.example.williammordohay.melodieandroidv44.MachineActivity;
 import com.example.williammordohay.melodieandroidv44.R;
 
 public class SettingsMain extends AppCompatActivity {

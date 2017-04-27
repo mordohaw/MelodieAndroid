@@ -25,8 +25,9 @@ public class WebService {
 
     Gson gson;
 
-    public WebService(){
-        gson = new Gson();
+    public WebService(String urlValue){
+        this.gson = new Gson();
+        this.URL=urlValue;
     }
     private InputStream sendRequest(URL url) throws Exception{
         try{

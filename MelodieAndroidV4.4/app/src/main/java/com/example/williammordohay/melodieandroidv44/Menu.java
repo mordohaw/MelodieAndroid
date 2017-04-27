@@ -10,6 +10,7 @@ import android.view.View;
 import com.example.williammordohay.melodieandroidv44.Settings.SettingsMain;
 
 public class Menu extends AppCompatActivity {
+    private boolean choiceMachineTracking=true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,12 +42,19 @@ public class Menu extends AppCompatActivity {
         dialog.show();
     }
 
+    public void sharingChoiceValue(View v){
+        Intent getButtonSelected = new Intent(Menu.this, ViewsActivity.class);
+        getButtonSelected.putExtra("userChoice",choiceMachineTracking);
+        startActivity(getButtonSelected);
+    }
     public void goToFirstActivity(View v){
-        startActivity(new Intent(this, MachineActivity.class));
+        choiceMachineTracking=true;
+        sharingChoiceValue(v);
     }
 
     public void goToSecondActivity(View v){
-        startActivity(new Intent(this, ProductionActivity.class));
+        choiceMachineTracking=false;
+        sharingChoiceValue(v);
     }
 
 }

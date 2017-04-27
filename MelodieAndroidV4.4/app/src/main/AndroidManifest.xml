@@ -20,8 +20,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".Settings.SettingsMain" />
-        <activity android:name=".MachineActivity" />
-        <activity android:name=".ProductionActivity" />
         <activity android:name=".Settings.SettingFragShow"></activity>
         <activity android:name=".SplashActivity">
             <intent-filter>
@@ -30,6 +28,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ViewsActivity"/>
     </application>
 
 </manifest>
