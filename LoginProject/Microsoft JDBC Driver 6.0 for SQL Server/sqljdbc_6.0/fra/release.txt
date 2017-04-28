@@ -1,0 +1,169 @@
+Informations sur la version
+ Pilote Microsoft JDBC 6.0 pour SQL Server
+ Mai 2016
+
+------------
+INTRODUCTION
+------------
+Le présent fichier contient des informations importantes ou de dernière minute qui complètent la documentation
+ du pilote JDBC 6.0 Microsoft pour SQL Server. Il est recommandé de lire ce fichier entièrement
+ avant de procéder à l’installation du pilote JDBC.
+
+Nous attachons une grande importance à vos commentaires
+ et nous efforcerons de les prendre en compte le plus rapidement possible. Pour plus d’informations sur l’envoi de commentaires à l’aide des blogs et des forums en ligne
+ relatifs au pilote JDBC, visitez la page consacrée au pilote SQL 6.0 Microsoft pour SQL Server à l’adresse http://msdn.microsoft.com/data/jdbc.
+
+
+------------
+INSTALLATION
+------------
+Les instructions relatives à l'installation du pilote JDBC se trouvent dans le fichier install.txt.  Référez-vous à ce fichier pour plus d’informations sur l’installation
+ du pilote JDBC sur les systèmes d’exploitation Windows et Unix.
+
+
+---------------------------
+SYSTÈMES D'EXPLOITATION PRIS EN CHARGE
+---------------------------
+Les systèmes d’exploitation pris en charge pour le pilote JDBC 6.0 Microsoft pour SQL Server sont les suivants :
+  Windows Server 2008 SP2
+  Windows Server 2008 R2 SP1
+  Windows Server 2012
+  Windows Server 2012 R2
+  Windows Vista SP2
+  Windows 7 SP1
+  Windows 8
+  Windows 8.1
+  Windows 10
+  Linux
+  Unix
+
+La liste ci-dessus présente certains des systèmes d'exploitation pris en charge. Le pilote JDBC est conçu pour
+ fonctionner sur tout système d’exploitation prenant en charge l’utilisation d'une machine virtuelle Java (JVM). Toutefois, seuls
+ les systèmes d’exploitation Oracle Solaris (x86), SUSE Linux et Windows Vista Service Pack 2 ou version ultérieure
+ ont été testés.
+
+
+----------------
+CONTENU DE LA VERSION
+----------------
+Le fichier exécutable zip ou tar du pilote JDBC 6.0 Microsoft pour SQL Server décompresse les fichiers suivants
+ aux emplacements spécifiés, relatifs au répertoire d’installation sélectionné :
+
+<répertoire d'installation>\sqljdbc_<version>\<langue>\install.txt
+<répertoire d'installation>\sqljdbc_<version>\<langue>\release.txt
+<répertoire d'installation>\sqljdbc_<version>\<langue>\license.txt
+<répertoire d'installation>\sqljdbc_<version>\<langue>\sqljdbc.jar
+<répertoire d'installation>\sqljdbc_<version>\<langue>\sqljdbc4.jar
+<répertoire d’installation>\sqljdbc_<version>\<langage>\sqljdbc41.jar
+<répertoire d’installation>\sqljdbc_<version>\<langage>\sqljdbc42.jar
+<répertoire d'installation>\sqljdbc_<version>\<langue>\auth\x86\sqljdbc_auth.dll
+<répertoire d'installation>\sqljdbc_<version>\<langue>\auth\x64\sqljdbc_auth.dll
+<répertoire d’installation>\sqljdbc_<version>\<langue>\samples\<fichiers exemples...>
+<répertoire d'installation>\sqljdbc_<version>\<langue>\xa\xa_install.sql
+<répertoire d'installation>\sqljdbc_<version>\<langue>\xa\x86\sqljdbc_xa.dll
+<répertoire d'installation>\sqljdbc_<version>\<langue>\xa\x64\sqljdbc_xa.dll
+
+Pour plus d’informations sur chaque composant, consultez la documentation en ligne
+ sur le pilote Microsoft JDBC pour SQL Server : 
+https://msdn.microsoft.com/fr-fr/library/dn197850(v=sql.10).aspx
+
+Documentation :
+-------------
+Les informations sur la version, les instructions d'installation et les termes du contrat de licence sont inclus dans ce package. 
+Le reste de la documentation est disponible en ligne.
+
+Veuillez noter que les fichiers d’aide hors connexion ne sont plus disponibles. 
+
+
+Fichiers JAR :
+---------
+Pour prendre en charge la compatibilité descendante et les scénarios possibles de mise à niveau, JDBC Driver 6.0 comprend
+ quatre bibliothèques de classes JAR dans chaque package d’installation : sqljdbc.jar, sqljdbc4.jar, sqljdbc41.jar
+ et sqljdbc42.jar.  
+
+Remarque importante : sqljdbc.jar et sqljdbc4.jar sont fournis uniquement à des fins de compatibilité descendante et ne contiennent pas
+ les nouvelles fonctionnalités incluses dans cette version.  Seuls sqljdbc41.jar et sqljdbc42.jar
+ contiennent les nouvelles fonctionnalités.
+
+
+Fichiers propres aux fonctionnalités :
+---------
+Azure Active Directory et les composants de l’authentification intégrée (sous Windows) sont inclus dans le répertoire auth.
+
+Les composants de transaction distribuée JDBC sont inclus dans le répertoire xa.
+
+
+Exemples :
+-------
+Les exemples d’applications qui illustrent diverses fonctionnalités du pilote JDBC sont inclus dans le répertoire
+ d’exemples. Pour plus d’informations sur chaque exemple et leur exécution, reportez-vous à la documentation
+ en ligne.
+
+
+-----------
+LISTE DE MODIFICATIONS
+-----------
+Modifications de 4.2 à 6.0 :
+
+Nouvelle fonctionnalité : Chiffrement intégral - Les développeurs d’applications peuvent à présent utiliser la fonctionnalité Chiffrement intégral
+ disponible depuis SQL Server 2016 CTP (ou version ultérieure). Le pilote JDBC active le chiffrement intégral en chiffrant et déchiffrant de manière transparente
+ les données sensibles stockées dans des colonnes de base de données chiffrées dans SQL Server. Pour plus d’informations
+ sur l’utilisation de la fonctionnalité Chiffrement intégral avec le pilote JDBC, consultez la documentation MSDN. 
+
+Nouvelle fonctionnalité : Nom de domaine international - Le pilote JDBC prend désormais en charge les noms de domaines internationaux pour
+ les noms de serveur et d’instance. Pour plus d’informations sur l’utilisation des noms de domaines internationaux avec le pilote JDBC, consultez la documentation MSDN.
+
+Nouvelle fonctionnalité : Paramètres table - Les paramètres table fournissent un moyen simple de marshaler plusieurs lignes de données
+ d’une application cliente vers SQL Server sans avoir recours à plusieurs allers-retours ou à une logique côté serveur spéciale pour traiter les données. 
+Vous pouvez utiliser des paramètres table pour encapsuler des lignes de données dans une application cliente et envoyer les données au serveur dans une
+ commande paramétrable unique. Pour plus d’informations sur l’utilisation des paramètres table, consultez la documentation MSDN.
+
+Nouvelle fonctionnalité : Azure Active Directory (AAD) - L’authentification AAD est un mécanisme de connexion à Azure SQL Database v12 à l’aide
+ d’identités dans AAD. Utilisez l’authentification AAD pour gérer de manière centralisée les identités des utilisateurs de base de données et comme alternative à
+ l’authentification SQL Server. Le pilote JDBC 6.0 vous permet de spécifier vos informations d’identification dans la chaîne de connexion JDBC
+ pour vous connecter à la base de données SQL Azure. Pour plus d’informations sur la définition des propriétés de connexion pour le pilote JDBC, consultez la documentation MSDN.
+
+Amélioration : Groupes de disponibilité AlwaysOn (AG) - Le pilote prend désormais en charge les connexions transparentes aux groupes de disponibilité
+ AlwaysOn. Le pilote détecte rapidement la topologie AlwaysOn actuelle de votre infrastructure serveur et se connecte au
+ serveur actif en toute transparence. Pour plus d’informations sur la définition des propriétés de connexion pour le pilote JDBC, consultez la
+ documentation MSDN.
+
+Amélioration : le pilote JDBC prend désormais en charge la récupération des métadonnées de paramètres avec des instructions préparées pour les requêtes complexes
+ telles que les sous-requêtes et/ou les jointures. Notez que cette amélioration est disponible uniquement lorsque vous utilisez SQL Server 2012 et les versions plus récentes.
+
+
+------------
+PROBLÈMES CONNUS
+------------
+Voici une liste des problèmes connus liés au pilote JDBC 6.0 Microsoft pour SQL Server :
+
+1) LIMITATIONS DES MÉTADONNÉES DE PARAMÈTRES LORS DE L’UTILISATION DE SQL SERVER 2008 OU 2008 R2
+
+1.a) PreparedStatement.getParameterMetadata() lève une SQLException en cas d’utilisation
+ avec une requête MERGE paramétrable.
+1.b) Les métadonnées de paramètres pour les instructions préparées ne fonctionnent pas avec les requêtes comportant des sous-requêtes/jointures.
+
+
+2) Java Kerberos et machines virtuelles IBM
+
+Si vous exécutez le pilote dans un environnement Windows, vous devrez éventuellement spécifier le nom du principal dans le
+ fichier de configuration pour que Java Kerberos puisse fonctionner. Exemple : 
+SQLJDBCDriver {
+  com.ibm.security.auth.module.Krb5LoginModule required
+  seDefaultCcache=true
+  credsType=initiator
+  principal=principalname@principaldomain;
+};
+
+
+3) SUPPRESSION DE CONNEXION AVEC SQL AZURE
+
+Lors de la connexion à SQL Azure, les connexions inactives peuvent être arrêtées par un composant réseau (tel un pare-feu)
+ après une période d’inactivité. Pour éviter la suppression des connexions inactives par un composant réseau,
+ les paramètres de Registre suivants (ou leurs équivalents non-Windows) doivent être définis sur le système d’exploitation
+ dans lequel le pilote est chargé :
+           
+Registry Setting                                                                   Recommended value
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\KeepAliveTime            30000
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\KeepAliveInterval         1000
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\TcpMaxDataRetransmission  10
