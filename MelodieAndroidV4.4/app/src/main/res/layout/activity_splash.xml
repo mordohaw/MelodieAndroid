@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="38dp"
-        app:srcCompat="@drawable/logo_melodie_min"
+        app:srcCompat="@drawable/logo_melodie_ssfond"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>
