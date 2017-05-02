@@ -1,12 +1,10 @@
-package com.example.williammordohay.melodieandroidv44;
+package com.example.williammordohay.melodieandroidv44.Activities;
 
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
 
-import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.view.View;
@@ -16,6 +14,7 @@ import com.example.williammordohay.melodieandroidv44.Cell.CellAdapter;
 import com.example.williammordohay.melodieandroidv44.Cell.CellObject;
 import com.example.williammordohay.melodieandroidv44.Product.ProductAdapter;
 import com.example.williammordohay.melodieandroidv44.Product.ProductObject;
+import com.example.williammordohay.melodieandroidv44.R;
 import com.example.williammordohay.melodieandroidv44.ServiceManager.WebService;
 
 import java.util.ArrayList;

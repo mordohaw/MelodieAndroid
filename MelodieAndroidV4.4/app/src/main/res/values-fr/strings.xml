@@ -39,4 +39,10 @@
     -->
     <string name="good">Bons</string>
     <string name="bad">Mauvais</string>
+
+    <!-- login strings
+    -->
+    <string name="Username">Identifiant</string>
+    <string name="sign_up_password">Mot de passe</string>
+    <string name="Login">Login</string>
 </resources>

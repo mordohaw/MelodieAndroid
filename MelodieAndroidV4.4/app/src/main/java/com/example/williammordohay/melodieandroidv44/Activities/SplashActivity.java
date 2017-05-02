@@ -1,15 +1,14 @@
-package com.example.williammordohay.melodieandroidv44;
+package com.example.williammordohay.melodieandroidv44.Activities;
 
 import android.content.Intent;
-import android.os.AsyncTask;
-import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.example.williammordohay.melodieandroidv44.R;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -46,7 +45,7 @@ public class SplashActivity extends AppCompatActivity {
             public void onAnimationEnd(Animation animation) {
                 ivFsa.startAnimation(animationLeave);
                 finish();
-                Intent myIntent = new Intent(SplashActivity.this, Menu.class);
+                Intent myIntent = new Intent(SplashActivity.this, LoginActivity.class);
                 startActivity(myIntent);
             }
 

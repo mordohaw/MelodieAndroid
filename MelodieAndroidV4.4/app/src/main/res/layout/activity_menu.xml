@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/generalBackground"
-    tools:context="com.example.williammordohay.melodieandroidv44.Menu">
+    tools:context="com.example.williammordohay.melodieandroidv44.Activities.MenuActivity">
     <ImageButton
         android:id="@+id/quitButton"
         android:layout_width="40dp"

@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Menu">
+        <activity android:name=".Activities.MenuActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,15 +20,16 @@
             </intent-filter>
         </activity>
         <activity android:name=".Settings.SettingsMain" />
-        <activity android:name=".Settings.SettingFragShow"></activity>
-        <activity android:name=".SplashActivity">
+        <activity android:name=".Settings.SettingFragShow" />
+        <activity android:name=".Activities.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ViewsActivity"/>
+        <activity android:name=".Activities.ViewsActivity" />
+        <activity android:name=".Activities.LoginActivity"></activity>
     </application>
 
 </manifest>

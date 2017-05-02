@@ -42,4 +42,10 @@
     <string name="ref">Ref</string>
     <string name="good">Good</string>
     <string name="bad">Bad</string>
+
+    <!-- login strings
+    -->
+    <string name="Username">Username</string>
+    <string name="sign_up_password">Password</string>
+    <string name="Login">Login</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.example.williammordohay.melodieandroidv44;
+package com.example.williammordohay.melodieandroidv44.Activities;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -7,9 +7,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.williammordohay.melodieandroidv44.R;
 import com.example.williammordohay.melodieandroidv44.Settings.SettingsMain;
 
-public class Menu extends AppCompatActivity {
+public class MenuActivity extends AppCompatActivity {
     private boolean choiceMachineTracking=true;
 
     @Override
@@ -29,7 +30,7 @@ public class Menu extends AppCompatActivity {
                 .setPositiveButton(R.string.Yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         // CONFIRM
-                        Menu.this.finish();
+                        MenuActivity.this.finish();
                     }
                 })
                 .setNegativeButton(R.string.No, new DialogInterface.OnClickListener() {
@@ -43,7 +44,7 @@ public class Menu extends AppCompatActivity {
     }
 
     public void sharingChoiceValue(View v){
-        Intent getButtonSelected = new Intent(Menu.this, ViewsActivity.class);
+        Intent getButtonSelected = new Intent(MenuActivity.this, ViewsActivity.class);
         getButtonSelected.putExtra("userChoice",choiceMachineTracking);
         startActivity(getButtonSelected);
     }
