@@ -35,6 +35,10 @@
     <string name="refresh">Rafraichissement...</string>
 
 
+    <string name="check_disconnect_message">Voulez vous vous déconnecter ? </string>
+    <string name="check_disconnect_title">Déconnexion</string>
+
+
     <!-- Layout Strings
     -->
     <string name="good">Bons</string>
@@ -45,4 +49,10 @@
     <string name="Username">Identifiant</string>
     <string name="sign_up_password">Mot de passe</string>
     <string name="Login">Login</string>
+    <string name="Welcoming_string">Bienvenue sur la version Android de Melodie</string>
+
+    <string name="Success">Connexion réussie</string>
+    <string name="Password_failure">échec de la connexion, mot de passe incorrect</string>
+    <string name="Login_failure">échec de la connexion, identifiant incorrect</string>
+    <string name="Not_enough_fields">Veuillez entrer un identifiant et un mot de passe</string>
 </resources>

@@ -5,8 +5,19 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+    android:background="@color/generalBackground"
     tools:context="com.example.williammordohay.melodieandroidv44.Activities.LoginActivity"
     android:weightSum="1">
+
+
+    <ImageButton
+        android:id="@+id/quitButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:onClick="quitCurrentActivity"
+        android:background="@color/quitColor"
+        android:layout_gravity="right"
+        app:srcCompat="@android:drawable/ic_lock_power_off" />
 
     <EditText
         android:id="@+id/loginUsername"
@@ -44,7 +55,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:gravity="center"
-        android:text="Welcome to Melodie Net mobile app " />
+        android:text="@string/Welcoming_string" />
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -60,6 +71,7 @@
         android:layout_height="78dp"
         android:layout_gravity="center"
         android:layout_marginBottom="21dp"
+        android:layout_marginTop="85dp"
         app:srcCompat="@drawable/logo_melodie_ssfond"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="392dp" />

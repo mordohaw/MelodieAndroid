@@ -37,6 +37,9 @@
     <string name="welcoming_message">Hello, Welcome !</string>
     <string name="refresh">Refreshing...</string>
 
+    <string name="check_disconnect_message">Do you want to disconnect ? </string>
+    <string name="check_disconnect_title">disconnection</string>
+
     <!-- Layout Strings
     -->
     <string name="ref">Ref</string>
@@ -48,4 +51,11 @@
     <string name="Username">Username</string>
     <string name="sign_up_password">Password</string>
     <string name="Login">Login</string>
+    <string name="Welcoming_string">Welcome to Melodie Net mobile app</string>
+
+    <string name="Success">Login Successfull</string>
+    <string name="Password_failure">Login failed, wrong password</string>
+    <string name="Login_failure">Login failed, wrong login</string>
+    <string name="Not_enough_fields">Please enter Username and Password</string>
+
 </resources>

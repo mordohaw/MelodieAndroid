@@ -1,5 +1,7 @@
 package com.example.williammordohay.melodieandroidv44.Activities;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.StrictMode;
@@ -76,6 +78,27 @@ public class LoginActivity extends AppCompatActivity {
         });
 
     }
+
+    public void quitCurrentActivity(View v){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(R.string.check_dialog_message)
+                .setTitle(R.string.check_dialog_title)
+                .setPositiveButton(R.string.Yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // CONFIRM
+                        LoginActivity.this.finish();
+                    }
+                })
+                .setNegativeButton(R.string.No, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // CANCEL
+                    }
+                });
+        // Create the AlertDialog object
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
     public class CheckLogin extends AsyncTask<String,String,String> {
 
         String informUser="";
@@ -90,7 +113,7 @@ public class LoginActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(String... params) {
             if(currentUsername.trim().equals("")|| currentPassword.trim().equals("")){
-                informUser="Please enter Username and Password";
+                informUser = getResources().getString(R.string.Not_enough_fields);
             }else{
                 try{
                     con=connectionFunction(databaseUsername,databasePassword,databaseName,databaseIp); //connection to DataBase
@@ -109,19 +132,19 @@ public class LoginActivity extends AppCompatActivity {
                         if(rs1.next())
                         {
                             if(checkPassword(stmt)){
-                                informUser = "Login successful";
+                                informUser = getResources().getString(R.string.Success);
                                 LoginSuccefully=true;
                                 con.close();
                             }
                             else
                             {
-                                informUser = "Login failed, wrong password";
+                                informUser = getResources().getString(R.string.Password_failure);
                                 LoginSuccefully = false;
                             }
                         }
                         else
                         {
-                            informUser = "Login failed, wrong login";
+                            informUser = getResources().getString(R.string.Login_failure);
                             LoginSuccefully = false;
                         }
                     }
@@ -142,7 +165,7 @@ public class LoginActivity extends AppCompatActivity {
             Toast.makeText(LoginActivity.this, s, Toast.LENGTH_SHORT).show();
             if(LoginSuccefully)
             {
-                Toast.makeText(LoginActivity.this , "Login Successfull" , Toast.LENGTH_LONG).show();
+                Toast.makeText(LoginActivity.this , R.string.Success , Toast.LENGTH_LONG).show();
                 startActivity(new Intent(LoginActivity.this, MenuActivity.class));
                 //finish();
             }

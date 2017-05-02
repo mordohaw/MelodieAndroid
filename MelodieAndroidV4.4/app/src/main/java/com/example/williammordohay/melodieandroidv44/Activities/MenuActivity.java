@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.williammordohay.melodieandroidv44.R;
+import com.example.williammordohay.melodieandroidv44.Settings.SettingFragShow;
 import com.example.williammordohay.melodieandroidv44.Settings.SettingsMain;
 
 public class MenuActivity extends AppCompatActivity {
@@ -20,13 +21,13 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     public void goToParameters(View v){
-        startActivity(new Intent(this, SettingsMain.class));
+        startActivity(new Intent(this, SettingFragShow.class));
     }
 
     public void quitCurrentActivity(View v){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage(R.string.check_dialog_message)
-                .setTitle(R.string.check_dialog_title)
+        builder.setMessage(R.string.check_disconnect_message)
+                .setTitle(R.string.check_disconnect_title)
                 .setPositiveButton(R.string.Yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         // CONFIRM
