@@ -143,6 +143,7 @@ public class LoginActivity extends AppCompatActivity {
         String querygetPassword = "select MOT_PASSE from dbo.T2_UTILISATEURS where NOM_UTILISATEUR= '" + currentUsername.toString()+"'  ";
         String currentPasswordHash = null;
         String passEnter,passBdd;
+        boolean StringAreEqual=false;
         try {
             passEnter = hashPassword(currentPassword);
             ResultSet rs2 = stmt.executeQuery(querygetPassword);
@@ -158,14 +159,14 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
             passBdd = builder.toString();
-            return(passEnter.equals(passBdd));
+            StringAreEqual =passEnter.equals(passBdd);
             //return(MessageDigest.isEqual (passEnter, passBdd));
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return false;
+        return(StringAreEqual);
     }
     public Connection connectionFunction(String user, String password, String database, String server)
     {
