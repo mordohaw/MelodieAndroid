@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/MelodieAndroidV4.4.iml" filepath="$PROJECT_DIR$/MelodieAndroidV4.4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AndroidRestWS.iml" filepath="$PROJECT_DIR$/AndroidRestWS.iml" />
       <module fileurl="file://$PROJECT_DIR$/android-async-http-1.4.9/android-async-http-1.4.9.iml" filepath="$PROJECT_DIR$/android-async-http-1.4.9/android-async-http-1.4.9.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/jtds-1.2.8/jtds-1.2.8.iml" filepath="$PROJECT_DIR$/jtds-1.2.8/jtds-1.2.8.iml" />
     </modules>
   </component>
 </project>

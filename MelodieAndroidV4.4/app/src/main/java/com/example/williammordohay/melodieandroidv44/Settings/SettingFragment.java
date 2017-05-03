@@ -20,7 +20,7 @@ public class SettingFragment extends PreferenceFragment {
         SwitchPreference switchPref = (SwitchPreference) findPreference("switch_preference");
         EditTextPreference urlPref = (EditTextPreference) findPreference("editURL");
         if(!switchPref.isChecked()){
-            urlPref.setText("http://val-prod-002/MelodieNet/Modules/EcransDeBase/Bienvenue.aspx");
+            urlPref.setText("http://val-prod-jfc/Essai_ASPNET_REST_Service/GetProductList/");
         }
 
     }

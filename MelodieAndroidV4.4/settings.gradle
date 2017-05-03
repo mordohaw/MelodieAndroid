@@ -1,1 +1,1 @@
-include ':app', ':jtds-1.2.8'
+include ':app', ':jtds-1.2.8', ':android-async-http-1.4.9'

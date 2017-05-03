@@ -38,6 +38,16 @@ public class WebService {
             /**
              * Connection to URL
              */
+            /*InputStream in = urlConnection.getInputStream();
+
+            InputStreamReader isw = new InputStreamReader(in);
+            int data = isw.read();
+            while (data != -1) {
+                char current = (char) data;
+                data = isw.read();
+                System.out.print(current);
+            }*/
+
             urlConnection.connect();
 
             if(urlConnection.getResponseCode()==HttpURLConnection.HTTP_OK){

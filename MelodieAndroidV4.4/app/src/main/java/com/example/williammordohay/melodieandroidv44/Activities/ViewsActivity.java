@@ -77,7 +77,7 @@ public class ViewsActivity extends AppCompatActivity {
     }
     public void populateProductView(){
         //populate the ProductListView
-        generateProducts();
+        //generateProducts();
         productAdapter=new ProductAdapter(this,productObjectList);
         mListView.setAdapter(productAdapter);
 
@@ -111,7 +111,7 @@ public class ViewsActivity extends AppCompatActivity {
                         //Create SharedPreferences to load values
                         SharedPreferences SharedParam= PreferenceManager.getDefaultSharedPreferences(ViewsActivity.this);
                         //load the value enter by user in editURL. Default value is "http://val-prod-002/MelodieNet/Modules/EcransDeBase/Bienvenue.aspx" here
-                        String stringUrl = SharedParam.getString("editURL","http://val-prod-002/MelodieNet/Modules/EcransDeBase/Bienvenue.aspx");
+                        String stringUrl = SharedParam.getString("editURL","http://val-prod-jfc/Essai_ASPNET_REST_Service/GetProductList/");
                         //get the List
                         if(choice){
                             //cellObjectList = getCellsList(stringUrl);
@@ -126,11 +126,13 @@ public class ViewsActivity extends AppCompatActivity {
                                 Toast.makeText(ViewsActivity.this, "Failure on refreshing", Toast.LENGTH_SHORT).show();
                             }
                         }else{
-                            //productObjectList = getProductList(stringUrl);
+                            productObjectList = getProductList(stringUrl);
+                            /*
                             if(i>=0){
                                 productObjectList.remove(i);
                                 i--;
                             }
+                            */
                         }
 
 
