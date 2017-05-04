@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.williammordohay.simplewsproject.Parameters.CellRunningModParam;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.loopj.android.http.AsyncHttpClient;
@@ -16,36 +17,63 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import cz.msebera.android.httpclient.Header;
 
+import static android.R.attr.value;
+
 public class MainActivity extends AppCompatActivity {
 
     private List<Product> productObjectList = new ArrayList<>();
+    private Product productObject;
+    private List<CellRunningModParam> MachineParamList = new ArrayList<>();
+    RequestParams parametres = new RequestParams();
+    boolean questionOnOneProduct;
+    String WebserviceURL;
     JSONArray testV;
     Gson gson;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        this.MachineParamList.add(new CellRunningModParam(1, 1411));
+
+        //HashMap<String, boolean> param = new HashMap<String, boolean>();
         //startService(new Intent(MainActivity.this, MonPremierService.class));
+
+
+
+        parametres.put("","2");
+        /* a décommenter params.put("numLigne", "1");
+        params.put("numStation", "1411");*/
+
+        //construction de l'URL
+        URI uri = null;
+        try {
+            uri = new URI("http://val-prod-jfc/Essai_ASPNET_REST_Service/GetProductDetail/"+ "2");
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+        questionOnOneProduct=true;
+
+        WebserviceURL = uri.toASCIIString();
     }
 
 
-    public void invokeWS(RequestParams params){
+    public void invokeWS(RequestParams params,String URL){
         gson=new Gson();
         // Make RESTful webservice call using AsyncHttpClient object
         AsyncHttpClient client = new AsyncHttpClient();
-        client.get("http://val-prod-jfc/Essai_ASPNET_REST_Service/GetProductList/",params ,new AsyncHttpResponseHandler() {
+        client.get(URL,params ,new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-                //try {
-                    // JSON Object  JSONObject obj = new JSONObject(response);
-
-                    // When the JSON response has status boolean value assigned with true
-                    //if(obj.getBoolean("status")){
                 String response="";
                 for(int i=0; i<responseBody.length; i++)
                     response = response + (char)responseBody[i];
@@ -56,22 +84,19 @@ public class MainActivity extends AppCompatActivity {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }*/
-                productObjectList=gson.fromJson(response,new TypeToken<List<Product>>(){}.getType());
+                if(!questionOnOneProduct){
+                    //return a product List
+                    productObjectList=gson.fromJson(response,new TypeToken<List<Product>>(){}.getType());
+                }
+                else{
+                    //return a simple product
+                    productObject=gson.fromJson(response,new TypeToken<Product>(){}.getType());
+                }
+
 
 
 
                 Toast.makeText(getApplicationContext(), "You are successfully logged in!", Toast.LENGTH_LONG).show();
-                   // }
-                    // Else display error message
-                    //else{
-                       // Toast.makeText(getApplicationContext(), obj.getString("error_msg"), Toast.LENGTH_LONG).show();
-                   // }
-                /*} catch (JSONException e) {
-                    // TODO Auto-generated catch block
-                    Toast.makeText(getApplicationContext(), "Error Occured [Server's JSON response might be invalid]!", Toast.LENGTH_LONG).show();
-                    e.printStackTrace();
-
-                }*/
 
             }
 
@@ -95,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
     public void Onclick(View v){
-        invokeWS(null);
+        invokeWS(null,WebserviceURL);
     }
 
 

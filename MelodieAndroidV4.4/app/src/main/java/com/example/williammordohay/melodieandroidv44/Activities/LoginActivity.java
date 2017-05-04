@@ -129,7 +129,7 @@ public class LoginActivity extends AppCompatActivity {
                         Statement stmt = con.createStatement();
                         ResultSet rs1 = stmt.executeQuery(queryUser);
 
-                        if(rs1.next())
+                        if(rs1.next())//If user is right
                         {
                             if(checkPassword(stmt)){
                                 informUser = getResources().getString(R.string.Success);
