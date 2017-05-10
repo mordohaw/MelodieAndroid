@@ -5,6 +5,8 @@
     <!-- Ajout des permissions pour utiliser internet dans l'application -->
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/logo_melodie_min"
@@ -16,7 +18,8 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.LAUNCHER" />
+                <!--<category android:name="android.intent.category.DEFAULT" />-->
             </intent-filter>
         </activity>
         <activity android:name=".Settings.SettingsMain" />
@@ -25,11 +28,16 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
+
             </intent-filter>
         </activity>
         <activity android:name=".Activities.ViewsActivity" />
-        <activity android:name=".Activities.LoginActivity"></activity>
+        <activity android:name=".Activities.LoginActivity" />
+
+        <service
+            android:name=".ServiceManager.WebService"
+            android:enabled="true"
+            android:exported="true"></service>
     </application>
 
 </manifest>

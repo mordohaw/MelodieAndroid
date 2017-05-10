@@ -29,7 +29,7 @@ import static android.R.attr.value;
 
 public class MainActivity extends AppCompatActivity {
 
-    private List<Product> productObjectList = new ArrayList<>();
+    private List<Line> productObjectList = new ArrayList<>();
     private Product productObject;
     private List<CellRunningModParam> MachineParamList = new ArrayList<>();
     RequestParams parametres = new RequestParams();
@@ -57,11 +57,11 @@ public class MainActivity extends AppCompatActivity {
         //construction de l'URL
         URI uri = null;
         try {
-            uri = new URI("http://val-prod-jfc/Essai_ASPNET_REST_Service/GetProductDetail/"+ "2");
+            uri = new URI("http://val-prod-jfc/MelodieNet_REST_Service/GetLinesList/");
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }
-        questionOnOneProduct=true;
+        questionOnOneProduct=false;
 
         WebserviceURL = uri.toASCIIString();
     }
@@ -86,15 +86,13 @@ public class MainActivity extends AppCompatActivity {
                 }*/
                 if(!questionOnOneProduct){
                     //return a product List
-                    productObjectList=gson.fromJson(response,new TypeToken<List<Product>>(){}.getType());
+                    productObjectList=gson.fromJson(response,new TypeToken<List<Line>>(){}.getType());
+                    //productObjectList=gson.fromJson(response,new TypeToken<List<Product>>(){}.getType());
                 }
                 else{
                     //return a simple product
                     productObject=gson.fromJson(response,new TypeToken<Product>(){}.getType());
                 }
-
-
-
 
                 Toast.makeText(getApplicationContext(), "You are successfully logged in!", Toast.LENGTH_LONG).show();
 

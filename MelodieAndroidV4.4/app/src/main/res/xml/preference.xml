@@ -22,15 +22,17 @@
         android:dependency="switch_preference" />
 
     </PreferenceCategory>
+    <PreferenceCategory android:title="Product lines">
     <ListPreference
 
-        android:key="listPref"
+        android:key="lineList"
 
-        android:dialogTitle="Choisissez une couleur"
+        android:dialogTitle="Select the product line"
 
         android:entries="@array/liste_couleurs_fr"
 
         android:entryValues="@array/liste_couleurs"
 
-        android:title="Choisir couleur" />
+        android:title="Choice product line" />
+    </PreferenceCategory>
 </PreferenceScreen>

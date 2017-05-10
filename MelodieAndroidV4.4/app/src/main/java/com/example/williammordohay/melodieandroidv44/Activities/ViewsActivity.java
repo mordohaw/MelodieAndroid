@@ -1,5 +1,7 @@
 package com.example.williammordohay.melodieandroidv44.Activities;
 
+import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -15,10 +17,23 @@ import com.example.williammordohay.melodieandroidv44.Cell.CellObject;
 import com.example.williammordohay.melodieandroidv44.Product.ProductAdapter;
 import com.example.williammordohay.melodieandroidv44.Product.ProductObject;
 import com.example.williammordohay.melodieandroidv44.R;
+import com.example.williammordohay.melodieandroidv44.ServiceManager.Request;
 import com.example.williammordohay.melodieandroidv44.ServiceManager.WebService;
+import com.example.williammordohay.melodieandroidv44.Settings.Line;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 
 /**
@@ -33,22 +48,29 @@ public class ViewsActivity extends AppCompatActivity {
     private List<ProductObject> productObjectList = new ArrayList<>();
     private CellAdapter cellAdapter;
     private ProductAdapter productAdapter;
-    private WebService myWebService;
+    Gson gson;
+    private Request currentRequest;
 
+    private String currentInputString;
     int i=8;
-    private boolean choice;
+    private boolean choice,bound;
+    private WebService mWebService;
+
+    private List<Line> lineObjectList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        gson=new Gson();
 
+        currentRequest = new Request("http://val-prod-jfc/MelodieNet_REST_Service/");
         choice = getIntent().getBooleanExtra("userChoice", true);
         if (choice == true) {
             //Machine Tracking case
             setContentView(R.layout.activity_machine);
             mListView=(ListView) findViewById(R.id.CellsView);
             populateMachineView();
-            i=8;
+
 
         } else if (choice == false) {
             //Production Tracking case
@@ -65,7 +87,10 @@ public class ViewsActivity extends AppCompatActivity {
                 refresh();
             }
         });
+        /*currentRequest=new Request("http://val-prod-jfc/MelodieNet_REST_Service/");
+        getList();*/
     }
+
 
 
     public void populateMachineView(){
@@ -77,11 +102,12 @@ public class ViewsActivity extends AppCompatActivity {
     }
     public void populateProductView(){
         //populate the ProductListView
-        //generateProducts();
+        generateProducts();
         productAdapter=new ProductAdapter(this,productObjectList);
         mListView.setAdapter(productAdapter);
 
     }
+
 
     private void refresh(){
 
@@ -113,6 +139,12 @@ public class ViewsActivity extends AppCompatActivity {
                         //load the value enter by user in editURL. Default value is "http://val-prod-002/MelodieNet/Modules/EcransDeBase/Bienvenue.aspx" here
                         String stringUrl = SharedParam.getString("editURL","http://val-prod-jfc/Essai_ASPNET_REST_Service/GetProductList/");
                         //get the List
+                        //Intent serviceIntent = new Intent(getBaseContext(), WebService.class);
+                        //Send the current activity to the service
+                        //serviceIntent.putExtra("booleanActivity", choice);
+                        //serviceIntent.putExtra("requestType", requestEnum.GETLINE);
+
+                        //startService(serviceIntent);
                         if(choice){
                             //cellObjectList = getCellsList(stringUrl);
                             if(cellObjectList != null){
@@ -126,7 +158,9 @@ public class ViewsActivity extends AppCompatActivity {
                                 Toast.makeText(ViewsActivity.this, "Failure on refreshing", Toast.LENGTH_SHORT).show();
                             }
                         }else{
-                            productObjectList = getProductList(stringUrl);
+                            populateProductView();
+                            //productObjectList = getProductList(stringUrl);
+
                             /*
                             if(i>=0){
                                 productObjectList.remove(i);
@@ -149,6 +183,9 @@ public class ViewsActivity extends AppCompatActivity {
     }
 
 
+    public List<Line> getList(){
+        return mWebService.getLineList();
+    }
     public void generateCells(){
         this.cellObjectList.add(new CellObject(1410, "Production", "#00FF00"));
         this.cellObjectList.add(new CellObject(1413, "Maintenance", "#FF0000"));
@@ -161,52 +198,75 @@ public class ViewsActivity extends AppCompatActivity {
         this.cellObjectList.add(new CellObject(2201, "Production", "#00FF00"));
 
     }
+
     public void generateProducts(){
+        String weekProdURL = currentRequest.getWeekProduction("1");
+        try {
+            currentInputString = new JSONTask().execute(weekProdURL).get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
 
-        this.productObjectList.add(new ProductObject("6-B9 G",1023,27));
-        this.productObjectList.add(new ProductObject("6-B9 G",1023,27));
-        this.productObjectList.add(new ProductObject("6-B9 G",1023,27));
-        this.productObjectList.add(new ProductObject("6-B9 G",1023,27));
-        this.productObjectList.add(new ProductObject("6-B9 G",1023,27));
-        this.productObjectList.add(new ProductObject("6-B9 G",1023,27));
-        this.productObjectList.add(new ProductObject("6-B9 G",1023,27));
-        this.productObjectList.add(new ProductObject("6-B9 G",1023,27));
-        this.productObjectList.add(new ProductObject("6-B9 G",1023,27));
-        this.productObjectList.add(new ProductObject("6-B9 G",1023,27));
-        this.productObjectList.add(new ProductObject("6-B9 G",1023,27));
-        this.productObjectList.add(new ProductObject("6-B9 G",1023,27));
-        this.productObjectList.add(new ProductObject("6-B9 G",1023,27));
-        this.productObjectList.add(new ProductObject("6-B9 G",1023,27));
-        this.productObjectList.add(new ProductObject("6-B9 G",1023,27));
-        this.productObjectList.add(new ProductObject("6-B9 G",1023,27));
-        this.productObjectList.add(new ProductObject("6-B9 G",1023,27));
-        this.productObjectList.add(new ProductObject("6-B9 G",1023,27));
-        this.productObjectList.add(new ProductObject("6-B9 G",1023,27));
-        this.productObjectList.add(new ProductObject("6-B9 G",1023,27));
-        this.productObjectList.add(new ProductObject("6-B9 G",1023,27));
-        this.productObjectList.add(new ProductObject("6-B9 G",1023,27));
-        this.productObjectList.add(new ProductObject("6-B9 G",1023,27));
-        this.productObjectList.add(new ProductObject("6-B9 G",1023,27));
-        this.productObjectList.add(new ProductObject("6-B9 G",1023,27));
-        this.productObjectList.add(new ProductObject("6-B9 G",1023,27));
-        this.productObjectList.add(new ProductObject("6-B9 G",1023,27));
+        this.productObjectList = gson.fromJson(currentInputString,new TypeToken<List<ProductObject>>(){}.getType());
+
 
     }
 
-    public WebService createWebService(String URL){
-        return(new WebService(URL));
-    }
+    public class JSONTask extends AsyncTask<String, String, String> {
 
-    public List<CellObject> getCellsList(String stringUrl){
-        myWebService=createWebService(stringUrl);
-        return (myWebService.getCells());
+        @Override
+        protected String doInBackground(String... params) {
+            HttpURLConnection connection=null;
+            BufferedReader reader=null;
+            try {
+                URL url = new URL(params[0]);
+                connection = (HttpURLConnection) url.openConnection();
+                //URL connection
+                connection.connect();
+                InputStream stream = new BufferedInputStream(connection.getInputStream());
+                //retourner le flux
+                reader = new BufferedReader(new InputStreamReader(stream));
 
-    }
-    private List<ProductObject> getProductList(String stringUrl) {
-        myWebService=createWebService(stringUrl);
-        return (myWebService.getProduct());
-    }
+                StringBuffer buffer = new StringBuffer();
+                String line = "";
+                while ((line = reader.readLine()) != null) {
+                    buffer.append(line);
 
+                }
+                return buffer.toString();
+
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } finally {
+                if (connection != null) {
+                    connection.disconnect();
+                }
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+            //Toast.makeText(ViewsActivity.this, result, Toast.LENGTH_SHORT).show();
+            //currentInputString=result;
+        }
+    }
     public void quitCurrentActivity(View v){
         ViewsActivity.this.finish();
     }

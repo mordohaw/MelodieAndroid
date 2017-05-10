@@ -56,8 +56,8 @@ public class ProductAdapter extends ArrayAdapter<ProductObject> {
 
         //On rempli la vue
         viewHolder.ref.setText(currentProduct.getReference());
-        viewHolder.goodNum.setText(String.valueOf(currentProduct.getGoodProductNumber()));
-        viewHolder.badNum.setText(String.valueOf(currentProduct.getBadProductNumber()));
+        viewHolder.goodNum.setText(String.valueOf(currentProduct.getGoodPartsQty()));
+        viewHolder.badNum.setText(String.valueOf(currentProduct.getBadPartsQty()));
 
         viewProductObjectMap.put(convertView, currentProduct);
 

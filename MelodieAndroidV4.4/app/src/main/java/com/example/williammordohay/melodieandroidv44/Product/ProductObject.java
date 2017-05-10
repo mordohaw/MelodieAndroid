@@ -6,38 +6,49 @@ package com.example.williammordohay.melodieandroidv44.Product;
 
 public class ProductObject {
 
+    private int lineNumber;
     private String reference;
-    private int goodProductNumber;
-    private int badProductNumber;
+    private int goodPartsQty;
+    private int badPartsQty;
 
-    public ProductObject(String ref,int good,int bad){
+    public ProductObject(int lineNumber,String ref,int good,int bad){
+        this.lineNumber=lineNumber;
         this.reference=ref;
-        this.goodProductNumber=good;
-        this.badProductNumber=bad;
+        this.goodPartsQty =good;
+        this.badPartsQty =bad;
     }
 
     public void setReference(String reference) {
         this.reference = reference;
     }
 
-    public void setGoodProductNumber(int goodProductNumber) {
-        this.goodProductNumber = goodProductNumber;
+    public void setGoodPartsQty(int goodPartsQty) {
+        this.goodPartsQty = goodPartsQty;
     }
 
-    public void setBadProductNumber(int badProductNumber) {
-        this.badProductNumber = badProductNumber;
+    public void setBadPartsQty(int badPartsQty) {
+        this.badPartsQty = badPartsQty;
     }
+
+    public int getLineNumber() {
+        return lineNumber;
+    }
+
+    public void setLineNumber(int lineNumber) {
+        this.lineNumber = lineNumber;
+    }
+
 
     public String getReference() {
         return reference;
     }
 
-    public int getGoodProductNumber() {
-        return goodProductNumber;
+    public int getGoodPartsQty() {
+        return goodPartsQty;
     }
 
-    public int getBadProductNumber() {
-        return badProductNumber;
+    public int getBadPartsQty() {
+        return badPartsQty;
     }
 
 

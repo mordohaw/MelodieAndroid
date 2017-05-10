@@ -1,7 +1,5 @@
 package com.example.williammordohay.melodieandroidv44.Cell;
 
-import android.graphics.drawable.Drawable;
-
 import com.example.williammordohay.melodieandroidv44.R;
 
 /**
@@ -12,7 +10,7 @@ public class CellObject {
 
 
     private int cellNumber;
-    private String cellText;
+    private String cellLabel;
     private String colourCode;
 
     public int getIdImage() {
@@ -23,9 +21,9 @@ public class CellObject {
 
     public CellObject(int number,String text,String code){
         this.cellNumber=number;
-        this.cellText=text;
+        this.cellLabel =text;
         this.colourCode=code;
-        switch (this.cellText){
+        switch (this.cellLabel){
             case "Production" :
                 this.idImage=R.drawable.check_ssfond;
                 break;
@@ -43,13 +41,17 @@ public class CellObject {
                 break;
         }
     }
+    public CellObject(int number,String text){
+        this.cellNumber=number;
+        this.cellLabel =text;
+    }
 
     public void setCellNumber(int cellNumber) {
         this.cellNumber = cellNumber;
     }
 
-    public void setCellText(String cellText) {
-        this.cellText = cellText;
+    public void setCellLabel(String cellLabel) {
+        this.cellLabel = cellLabel;
     }
 
     public void setColourCode(String colourCode) {
@@ -60,8 +62,8 @@ public class CellObject {
         return cellNumber;
     }
 
-    public String getCellText() {
-        return cellText;
+    public String getCellLabel() {
+        return cellLabel;
     }
     public String getColourCode() {
         return colourCode;

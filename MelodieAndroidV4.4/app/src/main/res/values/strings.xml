@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Android version of Melodie</string>
+    <string name="app_name">Melodie_Android_Client</string>
 
 
     <string name="process">Process</string>
