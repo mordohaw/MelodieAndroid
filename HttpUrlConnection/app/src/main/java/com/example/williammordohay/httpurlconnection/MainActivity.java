@@ -22,6 +22,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import javax.net.ssl.HttpsURLConnection;
 
@@ -45,13 +46,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Button btnData =(Button) findViewById(R.id.button);
         tvData =(TextView)findViewById(R.id.textView);
-        new JSONTask().execute("http://val-prod-jfc/MelodieNet_REST_Service/GetCellsList/2");
+        String lang = Locale.getDefault().getLanguage();//get the langage of the current device
+        tvData.setText(lang);
 
         btnData.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View v) {
-                //new JSONTask().execute("http://val-prod-jfc/MelodieNet_REST_Service/GetCellsList/2");
+                new JSONTask().execute("http://val-prod-jfc/MelodieNet_REST_Service/GetLoginAgreement/administrateur/c2fca02304de447157701d00c2d64094");
                 //bgrdTask=new BgrdTask();
                 //bgrdTask.execute("http://val-prod-jfc/MelodieNet_REST_Service/GetLinesList/");
             }
