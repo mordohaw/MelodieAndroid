@@ -1,4 +1,4 @@
-package com.example.williammordohay.melodieandroidv44.Settings;
+package com.example.williammordohay.melodieandroidv44;
 
 /**
  * Created by william.mordohay on 10/05/2017.

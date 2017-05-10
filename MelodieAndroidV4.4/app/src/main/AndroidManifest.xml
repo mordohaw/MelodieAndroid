@@ -34,10 +34,6 @@
         <activity android:name=".Activities.ViewsActivity" />
         <activity android:name=".Activities.LoginActivity" />
 
-        <service
-            android:name=".ServiceManager.WebService"
-            android:enabled="true"
-            android:exported="true"></service>
     </application>
 
 </manifest>

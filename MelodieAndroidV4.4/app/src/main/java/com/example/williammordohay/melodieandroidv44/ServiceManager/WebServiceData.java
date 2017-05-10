@@ -1,4 +1,4 @@
-package com.example.williammordohay.httpurlconnection;
+package com.example.williammordohay.melodieandroidv44.ServiceManager;
 
 import android.os.AsyncTask;
 
@@ -15,7 +15,7 @@ import java.net.URL;
  * Created by william.mordohay on 10/05/2017.
  */
 
-public class BgrdTask extends AsyncTask<String, String, String> {
+public class WebServiceData extends AsyncTask<String, String, String> {
 
     @Override
     protected String doInBackground(String... params) {
@@ -64,6 +64,7 @@ public class BgrdTask extends AsyncTask<String, String, String> {
     @Override
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
-
+        //Toast.makeText(ViewsActivity.this, result, Toast.LENGTH_SHORT).show();
+        //currentInputString=result;
     }
 }
