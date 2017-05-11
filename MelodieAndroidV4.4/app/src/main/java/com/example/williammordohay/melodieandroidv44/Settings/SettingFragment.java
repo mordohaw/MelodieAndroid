@@ -22,7 +22,7 @@ public class SettingFragment extends PreferenceFragment {
         SwitchPreference switchPref = (SwitchPreference) findPreference("switch_preference");
         EditTextPreference urlPref = (EditTextPreference) findPreference("editURL");
         if(!switchPref.isChecked()){
-            urlPref.setText("http://val-prod-jfc/Essai_ASPNET_REST_Service/GetProductList/");
+            urlPref.setText("http://val-prod-jfc/MelodieNet_REST_Service/");
         }
         ListPreference linePref = (ListPreference) findPreference("lineList");
         linePref.setEntries(new String[]{"1", "1"});

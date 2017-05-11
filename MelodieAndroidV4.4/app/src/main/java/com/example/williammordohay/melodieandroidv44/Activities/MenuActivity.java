@@ -55,8 +55,9 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     public void goToSecondActivity(View v){
-        choiceMachineTracking=false;
-        sharingChoiceValue(v);
+        startActivity(new Intent(MenuActivity.this, ProductionSpinnerActivity.class));
+        //choiceMachineTracking=false;
+        //sharingChoiceValue(v);
     }
 
 }

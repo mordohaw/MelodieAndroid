@@ -1,4 +1,4 @@
-package com.example.williammordohay.melodieandroidv44.Cell;
+package com.example.williammordohay.melodieandroidv44.RunningMode;
 
 import android.content.Context;
 import android.support.annotation.NonNull;

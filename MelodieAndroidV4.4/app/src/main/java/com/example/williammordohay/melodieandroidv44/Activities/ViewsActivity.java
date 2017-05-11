@@ -1,5 +1,6 @@
 package com.example.williammordohay.melodieandroidv44.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -10,8 +11,8 @@ import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.williammordohay.melodieandroidv44.Cell.CellAdapter;
-import com.example.williammordohay.melodieandroidv44.Cell.CellObject;
+import com.example.williammordohay.melodieandroidv44.RunningMode.CellAdapter;
+import com.example.williammordohay.melodieandroidv44.RunningMode.CellObject;
 import com.example.williammordohay.melodieandroidv44.Product.ProductAdapter;
 import com.example.williammordohay.melodieandroidv44.Product.ProductObject;
 import com.example.williammordohay.melodieandroidv44.R;
@@ -35,8 +36,8 @@ public class ViewsActivity extends AppCompatActivity {
     private SwipeRefreshLayout swipeRefreshLayout;
     private ListView mListView;
     private List<CellObject> cellObjectList = new ArrayList<>();
-    private List<ProductObject> productObjectList = new ArrayList<>();
     private CellAdapter cellAdapter;
+    private List<ProductObject> productObjectList = new ArrayList<>();
     private ProductAdapter productAdapter;
     Gson gson;
     private Request currentRequest;
@@ -64,9 +65,10 @@ public class ViewsActivity extends AppCompatActivity {
 
         } else if (choice == false) {
             //Production Tracking case
-            setContentView(R.layout.activity_production);
-            mListView=(ListView) findViewById(R.id.ProductView);
-            populateProductView();
+            //startActivity(new Intent(ViewsActivity.this, ProductionSpinnerActivity.class));
+            //setContentView(R.layout.activity_production);
+            //mListView=(ListView) findViewById(R.id.ProductView);
+            //populateProductView();
             i=25;
 
         }
@@ -77,8 +79,6 @@ public class ViewsActivity extends AppCompatActivity {
                 refresh();
             }
         });
-        /*currentRequest=new Request("http://val-prod-jfc/MelodieNet_REST_Service/");
-        getList();*/
     }
 
 
