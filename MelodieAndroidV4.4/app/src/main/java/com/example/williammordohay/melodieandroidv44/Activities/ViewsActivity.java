@@ -1,6 +1,5 @@
 package com.example.williammordohay.melodieandroidv44.Activities;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -16,7 +15,7 @@ import com.example.williammordohay.melodieandroidv44.RunningMode.CellObject;
 import com.example.williammordohay.melodieandroidv44.Product.ProductAdapter;
 import com.example.williammordohay.melodieandroidv44.Product.ProductObject;
 import com.example.williammordohay.melodieandroidv44.R;
-import com.example.williammordohay.melodieandroidv44.ServiceManager.Request;
+import com.example.williammordohay.melodieandroidv44.ServiceManager.RequestBuilder;
 import com.example.williammordohay.melodieandroidv44.ServiceManager.WebServiceData;
 import com.example.williammordohay.melodieandroidv44.Line;
 import com.google.gson.Gson;
@@ -40,7 +39,7 @@ public class ViewsActivity extends AppCompatActivity {
     private List<ProductObject> productObjectList = new ArrayList<>();
     private ProductAdapter productAdapter;
     Gson gson;
-    private Request currentRequest;
+    private RequestBuilder currentRequest;
 
     private String currentInputString;
     int i=8;
@@ -54,7 +53,7 @@ public class ViewsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         gson=new Gson();
 
-        currentRequest = new Request("http://val-prod-jfc/MelodieNet_REST_Service/");
+        currentRequest = new RequestBuilder("http://val-prod-jfc/MelodieNet_REST_Service/");
         choice = getIntent().getBooleanExtra("userChoice", true);
         if (choice == true) {
             //Machine Tracking case
@@ -65,7 +64,7 @@ public class ViewsActivity extends AppCompatActivity {
 
         } else if (choice == false) {
             //Production Tracking case
-            //startActivity(new Intent(ViewsActivity.this, ProductionSpinnerActivity.class));
+            //startActivity(new Intent(ViewsActivity.this, ProductionParamActivity.class));
             //setContentView(R.layout.activity_production);
             //mListView=(ListView) findViewById(R.id.ProductView);
             //populateProductView();

@@ -28,7 +28,8 @@ import static com.example.williammordohay.melodieandroidv44.Security.HashPasswor
 
 import com.example.williammordohay.melodieandroidv44.R;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity
+{
 
     Connection con;
     String databaseUsername,databasePassword,databaseName,databaseIp;
@@ -40,26 +41,19 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activite_connexion);
 
         //Getting the differents components
         loginUsername= (EditText) findViewById(R.id.loginUsername);
         bLogin = (Button) findViewById(R.id.loginButton);
         loginPassword = (EditText) findViewById(R.id.loginPassword);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
-        registerLink = (TextView) findViewById(R.id.registerLink);
         loginPassword.setHint(R.string.sign_up_password);
 
         progressBar.setVisibility(View.GONE);
-        registerLink.setOnClickListener(new View.OnClickListener(){
-
-            @Override
-            public void onClick(View v) {
-                //startActivity(new Intent(LoginActivity.this,RegisterActivity.class));
-            }
-        });
 
         //enter the different parameters for connection
+
         databaseIp="VAL-PROD-002";
         databaseName="MelodieNetTest";
         databaseUsername ="sa";
@@ -79,12 +73,15 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    public void quitCurrentActivity(View v){
+    public void quitCurrentActivity(View v)
+    {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(R.string.check_dialog_message)
                 .setTitle(R.string.check_dialog_title)
-                .setPositiveButton(R.string.Yes, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
+                .setPositiveButton(R.string.Yes, new DialogInterface.OnClickListener()
+                {
+                    public void onClick(DialogInterface dialog, int id)
+                    {
                         // CONFIRM
                         LoginActivity.this.finish();
                     }
@@ -99,7 +96,8 @@ public class LoginActivity extends AppCompatActivity {
         dialog.show();
     }
 
-    public class CheckLogin extends AsyncTask<String,String,String> {
+    public class CheckLogin extends AsyncTask<String,String,String>
+    {
 
         String informUser="";
         Boolean LoginSuccefully=false;
@@ -111,15 +109,22 @@ public class LoginActivity extends AppCompatActivity {
 
 
         @Override
-        protected String doInBackground(String... params) {
-            if(currentUsername.trim().equals("")|| currentPassword.trim().equals("")){
+        protected String doInBackground(String... params)
+        {
+            if(currentUsername.trim().equals("")|| currentPassword.trim().equals(""))
+            {
                 informUser = getResources().getString(R.string.Not_enough_fields);
-            }else{
-                try{
+            }else
+                {
+                try
+                {
                     con=connectionFunction(databaseUsername,databasePassword,databaseName,databaseIp); //connection to DataBase
-                    if(con==null){
+                    if(con==null)
+                    {
                         informUser="Check your internet access";
-                    }else{
+                    }
+                    else
+                        {
                         String queryUser= "select * from dbo.T2_UTILISATEURS where NOM_UTILISATEUR= '" + currentUsername.toString()+"'  ";
                         /*String query ="SELECT COUNT(*), \" + Constantes.T2_UTILISATEURS_NOM_UTILISATEUR + \", \" + Constantes.T2_UTILISATEURS_MOT_PASSE + \" \" +\n" +
                                 "FROM \" + Constantes.T2_UTILISATEURS" +
@@ -131,7 +136,8 @@ public class LoginActivity extends AppCompatActivity {
 
                         if(rs1.next())//If user is right
                         {
-                            if(checkPassword(stmt)){
+                            if(checkPassword(stmt))
+                            {
                                 informUser = getResources().getString(R.string.Success);
                                 LoginSuccefully=true;
                                 con.close();
@@ -160,7 +166,8 @@ public class LoginActivity extends AppCompatActivity {
 
 
         @Override
-        protected void onPostExecute(String s) {
+        protected void onPostExecute(String s)
+        {
             progressBar.setVisibility(View.GONE);
             Toast.makeText(LoginActivity.this, s, Toast.LENGTH_SHORT).show();
             if(LoginSuccefully)
@@ -172,12 +179,14 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    public boolean checkPassword(Statement stmt){
+    public boolean checkPassword(Statement stmt)
+    {
         String querygetPassword = "select MOT_PASSE from dbo.T2_UTILISATEURS where NOM_UTILISATEUR= '" + currentUsername.toString()+"'  ";
         String currentPasswordHash = null;
         String passEnter,passBdd;
         boolean StringAreEqual=false;
-        try {
+        try
+        {
             passEnter = hashPassword(currentPassword);
             ResultSet rs2 = stmt.executeQuery(querygetPassword);
             //String pass2S = rs2.toString();
@@ -185,8 +194,10 @@ public class LoginActivity extends AppCompatActivity {
 
             StringBuilder builder = new StringBuilder();
             int columnCount = rs2.getMetaData().getColumnCount();
-            while (rs2.next()) {
-                for (int i = 0; i < columnCount;) {
+            while (rs2.next())
+            {
+                for (int i = 0; i < columnCount;)
+                {
                     builder.append(rs2.getString(i + 1));
                     if (++i < columnCount) builder.append("");
                 }
@@ -194,9 +205,13 @@ public class LoginActivity extends AppCompatActivity {
             passBdd = builder.toString();
             StringAreEqual =passEnter.equals(passBdd);
             //return(MessageDigest.isEqual (passEnter, passBdd));
-        } catch (NoSuchAlgorithmException e) {
+        }
+        catch (NoSuchAlgorithmException e)
+        {
             e.printStackTrace();
-        } catch (SQLException e) {
+        }
+        catch (SQLException e)
+        {
             e.printStackTrace();
         }
         return(StringAreEqual);

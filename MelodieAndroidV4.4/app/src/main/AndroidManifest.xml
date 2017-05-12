@@ -18,7 +18,7 @@
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-                <!-- <category android:name="android.intent.category.DEFAULT" /> -->
+                <!--<category android:name="android.intent.category.DEFAULT" />-->
             </intent-filter>
         </activity>
         <activity android:name=".Settings.SettingsMain" />
@@ -30,7 +30,7 @@
         </activity>
         <activity android:name=".Activities.ViewsActivity" />
         <activity android:name=".Activities.LoginActivity" />
-        <activity android:name=".Activities.ProductionSpinnerActivity"></activity>
+        <activity android:name=".Activities.ProductionParamActivity"></activity>
         <activity android:name=".Activities.ProductionActivity"/>
     </application>
 

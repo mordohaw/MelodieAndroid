@@ -21,8 +21,10 @@ public class SettingFragment extends PreferenceFragment {
 
         SwitchPreference switchPref = (SwitchPreference) findPreference("switch_preference");
         EditTextPreference urlPref = (EditTextPreference) findPreference("editURL");
+        //put the default value with this URL
+        urlPref.setDefaultValue("val-prod-002/MelodieNet_REST_Service/");
         if(!switchPref.isChecked()){
-            urlPref.setText("http://val-prod-jfc/MelodieNet_REST_Service/");
+            urlPref.setText("http://val-prod-002/MelodieNet_REST_Service/");
         }
         ListPreference linePref = (ListPreference) findPreference("lineList");
         linePref.setEntries(new String[]{"1", "1"});

@@ -1,6 +1,8 @@
 package com.example.williammordohay.melodieandroidv44.Activities;
 
 import android.app.AlertDialog;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -9,7 +11,7 @@ import android.view.View;
 
 import com.example.williammordohay.melodieandroidv44.R;
 import com.example.williammordohay.melodieandroidv44.Settings.SettingFragShow;
-import com.example.williammordohay.melodieandroidv44.Settings.SettingsMain;
+import com.example.williammordohay.melodieandroidv44.Settings.SettingFragment;
 
 public class MenuActivity extends AppCompatActivity {
     private boolean choiceMachineTracking=true;
@@ -18,6 +20,13 @@ public class MenuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+
+        /*
+        FragmentManager fm = getFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        //load the fragment
+        ft.attach(SettingFragment);
+        //ft.commit();*/
     }
 
     public void goToParameters(View v){
@@ -55,7 +64,7 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     public void goToSecondActivity(View v){
-        startActivity(new Intent(MenuActivity.this, ProductionSpinnerActivity.class));
+        startActivity(new Intent(MenuActivity.this, ProductionParamActivity.class));
         //choiceMachineTracking=false;
         //sharingChoiceValue(v);
     }

@@ -3,7 +3,6 @@ package com.example.williammordohay.melodieandroidv44.Activities;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -13,7 +12,7 @@ import android.widget.Toast;
 import com.example.williammordohay.melodieandroidv44.Product.ProductAdapter;
 import com.example.williammordohay.melodieandroidv44.Product.ProductObject;
 import com.example.williammordohay.melodieandroidv44.R;
-import com.example.williammordohay.melodieandroidv44.ServiceManager.Request;
+import com.example.williammordohay.melodieandroidv44.ServiceManager.RequestBuilder;
 import com.example.williammordohay.melodieandroidv44.ServiceManager.WebServiceData;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -33,7 +32,7 @@ public class ProductionActivity extends AppCompatActivity {
     private ProductAdapter productAdapter;
     Gson gson;
     private String currentInputString,productionType,lineSelected,baseURL,currentProductURL;
-    private Request currentRequest;
+    private RequestBuilder currentRequest;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +41,7 @@ public class ProductionActivity extends AppCompatActivity {
         //load the value enter by user in editURL. Default value is "http://val-prod-002/MelodieNet/Modules/EcransDeBase/Bienvenue.aspx" here
         baseURL = SharedParam.getString("editURL","http://val-prod-jfc/MelodieNet_REST_Service/");
 
-        currentRequest = new Request(baseURL);
+        currentRequest = new RequestBuilder(baseURL);
 
         //On récupère la valeur
         Bundle extras = getIntent().getExtras();

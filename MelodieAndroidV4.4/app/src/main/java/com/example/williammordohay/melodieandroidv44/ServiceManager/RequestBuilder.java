@@ -4,10 +4,10 @@ package com.example.williammordohay.melodieandroidv44.ServiceManager;
  * Created by william.mordohay on 05/05/2017.
  */
 
-public class Request {
+public class RequestBuilder {
     private String baseUrl;
 
-    public Request(String baseUrl){
+    public RequestBuilder(String baseUrl){
         this.baseUrl=baseUrl;
     }
 

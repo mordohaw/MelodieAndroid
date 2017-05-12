@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/generalBackground"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.example.williammordohay.melodieandroidv44.Activities.ProductionSpinnerActivity">
+    tools:context="com.example.williammordohay.melodieandroidv44.Activities.ProductionParamActivity">
 
     <ImageButton
         android:id="@+id/previousButton"
