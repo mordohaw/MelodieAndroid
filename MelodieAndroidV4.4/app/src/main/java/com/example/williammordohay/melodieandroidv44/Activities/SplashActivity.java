@@ -24,7 +24,7 @@ public class SplashActivity extends AppCompatActivity {
 
         final Animation alphaAnimation = AnimationUtils.loadAnimation(getBaseContext(),R.anim.alpha_effect);
         final Animation animationLeave = AnimationUtils.loadAnimation(getBaseContext(),R.anim.abc_fade_out);
-        final Animation animationTranslate = AnimationUtils.loadAnimation(getBaseContext(),R.anim.translate_effect);
+        //final Animation animationTranslate = AnimationUtils.loadAnimation(getBaseContext(),R.anim.translate_effect);
         final Animation animationScale = AnimationUtils.loadAnimation(getBaseContext(),R.anim.scale_effect);
 
         ivMelodie.setVisibility(ivMelodie.INVISIBLE);

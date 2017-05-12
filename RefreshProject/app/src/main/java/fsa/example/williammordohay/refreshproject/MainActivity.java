@@ -1,4 +1,4 @@
-package com.example.williammordohay.refreshproject;
+package fsa.example.williammordohay.refreshproject;
 
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +9,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.example.williammordohay.refreshproject.R;
 
 import java.text.DateFormat;
 import java.util.ArrayList;

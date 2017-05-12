@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="fsa.williammordohay.melodienet_android_client">
+    <!-- On met le logo de melodie comme icone de l'application -->
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/logo_melodie"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:nomUtilisateur=".activites.ActiviteMenu">
+            <intent-filter>
+                <action android:nomUtilisateur="android.intent.action.MAIN" />
+
+                <!--<category android:nomUtilisateur="android.intent.category.LAUNCHER" />-->
+            </intent-filter>
+        </activity>
+        <activity android:nomUtilisateur=".activites.ActiviteLancement">
+            <intent-filter>
+                <action android:nomUtilisateur="android.intent.action.MAIN" />
+
+                <category android:nomUtilisateur="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
