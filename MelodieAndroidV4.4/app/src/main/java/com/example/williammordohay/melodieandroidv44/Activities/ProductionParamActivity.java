@@ -70,7 +70,7 @@ public class ProductionParamActivity extends AppCompatActivity {
             Toast.makeText(ProductionParamActivity.this, "Sorry, i can't find the WebService...", Toast.LENGTH_LONG).show();
             e.printStackTrace();
         }
-        if(currentInputString != "")
+        if(currentInputString != null)
         {
             //put the data in the arrayList productLineList
             this.productLineList = gson.fromJson(currentInputString,new TypeToken<List<Line>>(){}.getType());

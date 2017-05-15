@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/generalBackground"
+    tools:context="com.example.williammordohay.melodieandroidv44.Activities.WebLoginActivity"
+    android:weightSum="1">
+
+
+    <ImageButton
+        android:id="@+id/quitButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:onClick="quitCurrentActivity"
+        android:background="@color/quitColor"
+        android:layout_gravity="right"
+        app:srcCompat="@android:drawable/ic_lock_power_off" />
+
+    <EditText
+        android:id="@+id/loginUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="45dp"
+        android:ems="10"
+        android:hint="@string/Username"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/loginPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:inputType="textPassword"
+        android:layout_marginTop="45dp"
+        android:ems="10"
+        />
+
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="@string/Login" />
+
+    <TextView
+        android:id="@+id/registerLink"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="@string/Welcoming_string" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_marginTop="56dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.04" />
+
+    <ImageView
+        android:id="@+id/MelodieLogo"
+        android:layout_width="135dp"
+        android:layout_height="78dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="21dp"
+        android:layout_marginTop="85dp"
+        app:srcCompat="@drawable/logo_melodie_ssfond"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="392dp" />
+
+</LinearLayout>
+
+

@@ -1,4 +1,4 @@
-package fsa.williammordohay.melodienet_android_client;
+package fsa.williammordohay.melodienet_android_client.securite;
 
 /**
  * Created by william.mordohay on 12/05/2017.

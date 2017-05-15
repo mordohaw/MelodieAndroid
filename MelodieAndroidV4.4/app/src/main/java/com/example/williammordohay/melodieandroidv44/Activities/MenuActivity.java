@@ -20,13 +20,6 @@ public class MenuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
-
-        /*
-        FragmentManager fm = getFragmentManager();
-        FragmentTransaction ft = fm.beginTransaction();
-        //load the fragment
-        ft.attach(SettingFragment);
-        //ft.commit();*/
     }
 
     public void goToParameters(View v){

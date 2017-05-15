@@ -11,6 +11,9 @@ public class RequestBuilder {
         this.baseUrl=baseUrl;
     }
 
+    public String getLoginAgreement(String username, String password){
+        return(baseUrl+"GetLoginAgreement/"+username+"/"+password);
+    }
     public String getCellsList(String lineNumber){
         return(baseUrl+"GetCellsList/"+lineNumber);
     }
@@ -29,6 +32,10 @@ public class RequestBuilder {
     }
     public String getWeekProduction(String lineNumber){
         return(baseUrl+"GetWeekProduction/"+lineNumber);
+    }
+
+    public String postlangage(String langage){
+        return(baseUrl+"PostLanguage/"+langage);
     }
 
 }

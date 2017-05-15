@@ -2,5 +2,5 @@
 <resources>
     <!-- messages dialogue
     -->
-    <string nomUtilisateur="message_bienvenue">Bonjour, bienvenue !</string>
+    <string name="message_bienvenue">Bonjour, bienvenue !</string>
 </resources>

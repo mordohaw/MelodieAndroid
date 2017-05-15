@@ -45,7 +45,7 @@ public class SplashActivity extends AppCompatActivity {
             public void onAnimationEnd(Animation animation) {
                 ivFsa.startAnimation(animationLeave);
                 finish();
-                Intent myIntent = new Intent(SplashActivity.this, LoginActivity.class);
+                Intent myIntent = new Intent(SplashActivity.this, WebLoginActivity.class);
                 startActivity(myIntent);
             }
 
