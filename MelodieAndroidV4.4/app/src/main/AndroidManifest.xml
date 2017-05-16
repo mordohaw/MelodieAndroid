@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Activities.MenuActivity">
-            <intent-filter>
+           <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
 
@@ -27,6 +27,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -34,7 +35,8 @@
         <activity android:name=".Activities.LoginActivity" />
         <activity android:name=".Activities.ProductionParamActivity" />
         <activity android:name=".Activities.ProductionActivity" />
-        <activity android:name=".Activities.WebLoginActivity"></activity>
+        <activity android:name=".Activities.WebLoginActivity">
+        </activity>
     </application>
 
 </manifest>

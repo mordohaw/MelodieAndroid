@@ -12,6 +12,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
+import java.net.SocketTimeoutException;
 import java.net.URL;
 
 /**
@@ -29,8 +30,15 @@ public class WebServiceData extends AsyncTask<String, String, String> {
         BufferedReader reader=null;
         try {
             URL url = new URL(params[0]);
+
+
             connection = (HttpURLConnection) url.openConnection();
+
+            connection.setRequestMethod("GET");
             //URL connection
+            connection.setConnectTimeout(5000); //set timeout to 5 seconds
+
+
             connection.connect();
 
             if (connection.getResponseCode() == HttpURLConnection.HTTP_OK) {
@@ -51,9 +59,11 @@ public class WebServiceData extends AsyncTask<String, String, String> {
             }
 
         } catch (MalformedURLException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
+            return null;
         } catch (IOException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
+            return null;
         } finally {
             if (connection != null) {
                 connection.disconnect();
@@ -65,7 +75,7 @@ public class WebServiceData extends AsyncTask<String, String, String> {
             }
 
         }
-        return null;
+        //return null;
     }
 
     @Override

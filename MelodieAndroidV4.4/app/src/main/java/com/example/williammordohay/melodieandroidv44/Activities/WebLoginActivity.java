@@ -18,6 +18,7 @@ import com.example.williammordohay.melodieandroidv44.R;
 import com.example.williammordohay.melodieandroidv44.Security.ConnectionObject;
 import com.example.williammordohay.melodieandroidv44.ServiceManager.RequestBuilder;
 import com.example.williammordohay.melodieandroidv44.ServiceManager.WebServiceData;
+import com.example.williammordohay.melodieandroidv44.Settings.SettingFragShow;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -37,7 +38,6 @@ public class WebLoginActivity extends AppCompatActivity {
     String currentUsername, currentPassword;
     EditText loginUsername, loginPassword;
     Button bLogin;
-    ProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,10 +47,8 @@ public class WebLoginActivity extends AppCompatActivity {
         loginUsername = (EditText) findViewById(R.id.loginUsername);
         bLogin = (Button) findViewById(R.id.loginButton);
         loginPassword = (EditText) findViewById(R.id.loginPassword);
-        progressBar = (ProgressBar) findViewById(R.id.progressBar);
         loginPassword.setHint(R.string.sign_up_password);
 
-        progressBar.setVisibility(View.GONE);
 
         //check the login when click
         bLogin.setOnClickListener(new View.OnClickListener() {
@@ -84,16 +82,18 @@ public class WebLoginActivity extends AppCompatActivity {
         dialog.show();
     }
 
+    public void goToParameters(View v){
+        startActivity(new Intent(this, SettingFragShow.class));
+    }
     public void CheckLogin() {
 
-        String informUser = "", baseURL, loginURL, result = "";
-        Boolean LoginSuccefully = false;
+        String baseURL, loginURL, result = "";
         Gson gson = new Gson();
         RequestBuilder loginRequest;
 
 
         if (currentUsername.trim().equals("") || currentPassword.trim().equals("")) {
-            informUser = getResources().getString(R.string.Not_enough_fields);
+            Toast.makeText(WebLoginActivity.this, getResources().getString(R.string.Not_enough_fields), Toast.LENGTH_LONG).show();
         } else {
             SharedPreferences SharedParam = PreferenceManager.getDefaultSharedPreferences(WebLoginActivity.this);
             //load the value enter by user in editURL. Default value is "http://val-prod-jfc/MelodieNet_REST_Service/" here
@@ -124,7 +124,7 @@ public class WebLoginActivity extends AppCompatActivity {
                         e.printStackTrace();
                     } catch (ExecutionException e) {
                         e.printStackTrace();
-                        Toast.makeText(WebLoginActivity.this, "can't find the Webservice", Toast.LENGTH_LONG).show();
+                        Toast.makeText(WebLoginActivity.this, "can't find the Webservice : " +e.getMessage(), Toast.LENGTH_LONG).show();
                     }
 
                 } catch (NoSuchAlgorithmException e) {

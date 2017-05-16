@@ -57,13 +57,15 @@
         android:gravity="center"
         android:text="@string/Welcoming_string" />
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_marginTop="56dp"
+    <ImageButton
+        android:id="@+id/buttonParameters"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.04" />
+        android:layout_above="@+id/imageView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="17dp"
+        android:onClick="goToParameters"
+        app:srcCompat="@android:drawable/ic_menu_preferences" />
 
     <ImageView
         android:id="@+id/MelodieLogo"
@@ -71,11 +73,10 @@
         android:layout_height="78dp"
         android:layout_gravity="center"
         android:layout_marginBottom="21dp"
-        android:layout_marginTop="85dp"
+        android:layout_marginTop="65dp"
         app:srcCompat="@drawable/logo_melodie_ssfond"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="392dp" />
 
 </LinearLayout>
-
 

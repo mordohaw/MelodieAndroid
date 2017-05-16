@@ -47,7 +47,7 @@ public class LoginActivity extends AppCompatActivity
         loginUsername= (EditText) findViewById(R.id.loginUsername);
         bLogin = (Button) findViewById(R.id.loginButton);
         loginPassword = (EditText) findViewById(R.id.loginPassword);
-        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+       // progressBar = (ProgressBar) findViewById(R.id.progressBar);
         loginPassword.setHint(R.string.sign_up_password);
 
         progressBar.setVisibility(View.GONE);
