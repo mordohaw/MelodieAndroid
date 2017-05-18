@@ -49,14 +49,19 @@ public class ProductionParamActivity extends AppCompatActivity {
         populatelineSpinner();
 
     }
+
+    public String loadParameters(){
+        SharedPreferences SharedParam = PreferenceManager.getDefaultSharedPreferences(ProductionParamActivity.this);
+        //load the value enter by user in editURL. Default value is "http://val-prod-jfc/MelodieNet_REST_Service/" here
+        return(SharedParam.getString("editURL", "http://val-prod-jfc/MelodieNet_REST_Service/"));
+    }
+
     public void populatelineSpinner(){
         String spinnerURL,currentInputString="";
         Gson gson;
         gson=new Gson();
 
-        SharedPreferences SharedParam= PreferenceManager.getDefaultSharedPreferences(ProductionParamActivity.this);
-        //load the value enter by user in editURL. Default value is "http://val-prod-jfc/MelodieNet_REST_Service/" here
-        baseURL = SharedParam.getString("editURL","http://val-prod-jfc/MelodieNet_REST_Service/");
+        baseURL = loadParameters();
         spinnerRequest = new RequestBuilder(baseURL);
         spinnerURL=spinnerRequest.getLinesList();
 

@@ -28,6 +28,7 @@ public class WebServiceData extends AsyncTask<String, String, String> {
 
         HttpURLConnection connection=null;
         BufferedReader reader=null;
+        String resultat="";
         try {
             URL url = new URL(params[0]);
 
@@ -36,7 +37,7 @@ public class WebServiceData extends AsyncTask<String, String, String> {
 
             connection.setRequestMethod("GET");
             //URL connection
-            connection.setConnectTimeout(5000); //set timeout to 5 seconds
+            connection.setConnectTimeout(1500); //set timeout to 5 seconds
 
 
             connection.connect();
@@ -52,18 +53,13 @@ public class WebServiceData extends AsyncTask<String, String, String> {
                 while ((line = reader.readLine()) != null) {
                     buffer.append(line);
                 }
-                return buffer.toString();
-            }
-            else{
-                return null;
+                resultat = buffer.toString();
             }
 
         } catch (MalformedURLException e) {
-            //e.printStackTrace();
-            return null;
+            e.printStackTrace();
         } catch (IOException e) {
-            //e.printStackTrace();
-            return null;
+            e.printStackTrace();
         } finally {
             if (connection != null) {
                 connection.disconnect();
@@ -75,7 +71,7 @@ public class WebServiceData extends AsyncTask<String, String, String> {
             }
 
         }
-        //return null;
+        return resultat;
     }
 
     @Override

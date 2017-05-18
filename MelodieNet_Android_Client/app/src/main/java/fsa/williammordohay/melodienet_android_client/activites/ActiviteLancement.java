@@ -60,7 +60,7 @@ public class ActiviteLancement extends AppCompatActivity
             {
                 imgFin.startAnimation(animQuitter);
                 finish();
-                Intent demarrage = new Intent(ActiviteLancement.this, ActiviteMenu.class);
+                Intent demarrage = new Intent(ActiviteLancement.this, ActiviteAuthent.class);
                 startActivity(demarrage);
             }
 

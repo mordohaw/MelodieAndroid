@@ -5,10 +5,12 @@ import android.os.Bundle;
 
 import fsa.williammordohay.melodienet_android_client.R;
 
-public class ActiviteMenu extends AppCompatActivity {
+public class ActiviteMenu extends AppCompatActivity
+{
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activite_menu);
     }

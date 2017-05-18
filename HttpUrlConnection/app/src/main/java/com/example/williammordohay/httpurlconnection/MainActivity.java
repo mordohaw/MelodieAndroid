@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    String req2 =new BgrdTask().execute(" http://val-prod-jfc/MelodieNet_REST_Service/GetLinesList/").get();
+                    String req2 =new BgrdTask().execute(" http://val-prod-002/MelodieNet_REST_Service/GetLinesList/").get();
                     tvData.setText(req2);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    String req1 =new BgrdTask().execute("http://val-prod-jfc/MelodieNet_REST_Service/GetLoginAgreement/administrateur/c2fca02304de447157701d00c2d64094").get();
+                    String req1 =new BgrdTask().execute("http://val-prod-002/MelodieNet_REST_Service/GetLoginAgreement/administrateur/c2fca02304de447157701d00c2d64094").get();
                     tvData.setText(req1);
                 } catch (InterruptedException e) {
                     e.printStackTrace();

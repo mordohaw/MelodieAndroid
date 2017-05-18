@@ -2,17 +2,12 @@ package com.example.williammordohay.melodieandroidv44.ServiceManager;
 
 import android.os.AsyncTask;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.BufferedReader;
+
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.Locale;
 
 /**
  * Created by william.mordohay on 15/05/2017.
@@ -26,43 +21,39 @@ import java.util.Locale;
                 android.os.Debug.waitForDebugger();
 
             HttpURLConnection connection=null;
-            BufferedReader reader=null;
+            OutputStreamWriter out;
             try {
                 URL url = new URL(params[0]);
+                String lang = params[1];
+
                 connection = (HttpURLConnection) url.openConnection();
+                connection.setRequestMethod("POST");
+                connection.setConnectTimeout(15000 /* milliseconds */);
+
                 //URL connection
                 connection.connect();
 
-                if (connection.getResponseCode() == HttpURLConnection.HTTP_OK) {
-                    String lang = Locale.getDefault().getLanguage();//get the langage of the current device
-                    OutputStream out = new BufferedOutputStream(connection.getOutputStream());
+                out = new OutputStreamWriter(connection.getOutputStream());
+                out.write(lang);
 
-                    out.write(Integer.parseInt(lang));
-                    //retourner le flux
+                out.close();
 
+                //retourner le flux
+                return connection.getResponseMessage();
 
-                    return "success";
-                }
-                else{
-                    return "fail";
-                }
 
             } catch (MalformedURLException e) {
                 e.printStackTrace();
+                return("tata");
             } catch (IOException e) {
                 e.printStackTrace();
+                return("tata");
             } finally {
                 if (connection != null) {
                     connection.disconnect();
                 }
-                try {
-                    reader.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
             }
-            return null;
+
         }
 
         @Override
@@ -71,12 +62,7 @@ import java.util.Locale;
         }
 
 
-        @Override
-        protected void onPostExecute(String result) {
-            super.onPostExecute(result);
-            //Toast.makeText(ViewsActivity.this, result, Toast.LENGTH_SHORT).show();
-            //currentInputString=result;
-        }
+
     }
 
 

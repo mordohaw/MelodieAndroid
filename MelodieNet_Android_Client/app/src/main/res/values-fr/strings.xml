@@ -3,4 +3,31 @@
     <!-- messages dialogue
     -->
     <string name="message_bienvenue">Bonjour, bienvenue !</string>
+    <string name="demande_quitter">Voulez-vous quitter ? </string>
+    <string name="oui">Oui</string>
+    <string name="non">Non</string>
+    <string name="quitter_dialogue_titre">Quitter</string>
+    <string name="rafraichissement">Rafraichissement...</string>
+
+    <string name="demande_deconnexion">Voulez vous vous déconnecter ? </string>
+    <string name="demande_deco_titre">Déconnexion</string>
+
+    <!-- Authentification
+   -->
+    <string name="nom_utilisateur">Identifiant</string>
+    <string name="mot_de_passe">Mot de passe</string>
+    <string name="boutton_authent">Connexion</string>
+    <string name="texte_accueil">Bienvenue sur la version Android de Melodie Net</string>
+
+    <string name="succes_authent">Connexion réussie</string>
+    <string name="erreur_authent">échec de la connexion</string>
+    <string name="champs_vides">Veuillez entrer un identifiant et un mot de passe</string>
+
+    <!-- Paramètres
+  -->
+    <string name="url_edittext_texte">entrez URL pour la connection</string>
+    <string name="url_valeur">valeur de l\'URL</string>
+    <string name="url_categorie">adresse URL</string>
+    <string name="url_switch_titre">Utiliser un URL modifié</string>
+    <string name="url_edittext_titre">Modifier l\'URL</string>
 </resources>

@@ -1,6 +1,36 @@
 <resources>
+
+    <string name="app_name">MelodieNet_Android_Client</string>
     <!-- messages dialogue
     -->
-    <string name="app_name">MelodieNet_Android_Client</string>
     <string name="message_bienvenue">Hello, Welcome !</string>
+    <string name="demande_quitter">Do you want to leave ? </string>
+    <string name="oui">Yes</string>
+    <string name="non">No</string>
+    <string name="quitter_dialogue_titre">Quit</string>
+    <string name="rafraichissement">Refreshing...</string>
+
+    <string name="demande_deconnexion">Do you want to disconnect ? </string>
+    <string name="demande_deco_titre">Disconnection</string>
+
+    <!-- Authentification
+    -->
+    <string name="nom_utilisateur">Username</string>
+    <string name="mot_de_passe">Password</string>
+    <string name="boutton_authent">Login</string>
+    <string name="texte_accueil">Welcome to Melodie Net mobile app</string>
+
+    <string name="succes_authent">Login Successfull</string>
+    <string name="echec_authent">Login failed</string>
+    <string name="champs_vides">Please enter Username and Password</string>
+
+    <!-- Paramètres
+    -->
+    <string name="url_edittext_texte">enter the URL for connection</string>
+    <string name="url_valeur">URL value</string>
+    <string name="url_categorie">URL adress</string>
+    <string name="url_switch_titre">Use edit URL</string>
+    <string name="url_edittext_titre">Edit the URL</string>
+
+
 </resources>

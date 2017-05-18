@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/generalBackground">
+
+
+
+    <PreferenceCategory android:title="@string/url_categorie">
+
+
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="switch_preference"
+            android:title="@string/url_switch_titre" />
+
+        <EditTextPreference
+            android:key="editURL"
+            android:dialogTitle="@string/url_edittext_titre"
+            android:positiveButtonText="Valider"
+            android:negativeButtonText="Annuler"
+            android:title="URL"
+            android:summary="@string/url_edittext_texte"
+            android:dependency="switch_preference" />
+
+    </PreferenceCategory>
+</PreferenceScreen>
