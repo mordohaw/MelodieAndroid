@@ -32,5 +32,10 @@
     <string name="url_switch_titre">Use edit URL</string>
     <string name="url_edittext_titre">Edit the URL</string>
 
+    <!-- ActiviteMenu
+    -->
+    <string name="menu">Menu</string>
+    <string name="activite_modes_marche">Machine Tracking</string>
+    <string name="activite_production">Production Tracking</string>
 
 </resources>

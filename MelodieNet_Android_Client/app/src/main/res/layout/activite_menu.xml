@@ -1,18 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/generalBackground"
     tools:context="fsa.williammordohay.melodienet_android_client.activites.ActiviteMenu">
+    <ImageButton
+        android:id="@+id/quitButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:onClick="quitter"
+        android:background="@color/quitColor"
+        app:srcCompat="@android:drawable/ic_notification_clear_all"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true" />
 
     <TextView
+        android:id="@+id/titleMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="25sp"
+        android:layout_marginTop="25dp"
+        android:text="@string/menu"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
-</android.support.constraint.ConstraintLayout>
+    <Button
+        android:id="@+id/buttonFirstActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/activite_modes_marche"
+        android:onClick="AllerSuiviMachine"
+        android:layout_above="@+id/buttonSecondActivity"
+        android:layout_alignStart="@+id/buttonSecondActivity"
+        android:layout_marginBottom="82dp"
+        android:layout_alignEnd="@+id/buttonSecondActivity" />
+
+    <Button
+        android:id="@+id/buttonSecondActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/activite_production"
+        android:onClick="AllerSuiviProd"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <ImageButton
+        android:id="@+id/buttonParameters"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="17dp"
+        android:onClick="allerAuxParam"
+        app:srcCompat="@android:drawable/ic_menu_preferences"
+        android:layout_above="@+id/imageView"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="135dp"
+        android:layout_height="78dp"
+        app:srcCompat="@drawable/logo_melodie"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="392dp"
+        android:layout_marginBottom="19dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/buttonSecondActivity"
+        android:layout_alignEnd="@+id/buttonSecondActivity" />
+
+
+
+
+</RelativeLayout>
+

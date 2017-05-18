@@ -30,4 +30,9 @@
     <string name="url_categorie">adresse URL</string>
     <string name="url_switch_titre">Utiliser un URL modifié</string>
     <string name="url_edittext_titre">Modifier l\'URL</string>
+
+    <!-- ActiviteMenu
+       -->
+    <string name="activite_modes_marche">Suivi machines</string>
+    <string name="activite_production">Suivi Production</string>
 </resources>

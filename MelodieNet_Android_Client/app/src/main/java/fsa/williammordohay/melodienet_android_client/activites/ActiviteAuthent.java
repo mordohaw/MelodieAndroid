@@ -79,9 +79,9 @@ public class ActiviteAuthent extends AppCompatActivity {
                     if(loginResult != ""){
                         LoginObject connect = gson.fromJson(loginResult,LoginObject.class);
                         if (connect.isAgreement()) {
-                            String resultat = envoiLangue(authentRequete);
-                            Toast.makeText(ActiviteAuthent.this, R.string.succes_authent, Toast.LENGTH_LONG).show();
-                            startActivity(new Intent(ActiviteAuthent.this, ActiviteMenu.class));
+                            envoiLangue(authentRequete);
+                                Toast.makeText(ActiviteAuthent.this, R.string.succes_authent, Toast.LENGTH_LONG).show();
+                                startActivity(new Intent(ActiviteAuthent.this, ActiviteMenu.class));
                         } else {
                             Toast.makeText(ActiviteAuthent.this, R.string.echec_authent, Toast.LENGTH_LONG).show();
                         }
@@ -112,7 +112,7 @@ public class ActiviteAuthent extends AppCompatActivity {
         //load the value enter by user in editURL. Default value is "http://val-prod-jfc/MelodieNet_REST_Service/" here
         return(SharedParam.getString("editURL", "http://val-prod-002/MelodieNet_REST_Service/"));
     }
-    public String envoiLangue(ConstructeurUrl requete) {
+    public void envoiLangue(ConstructeurUrl requete) {
         String langURL, langPostResult="";
 
         String langString = Locale.getDefault().getLanguage();
@@ -124,7 +124,6 @@ public class ActiviteAuthent extends AppCompatActivity {
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
-        return langPostResult;
     }
 
     public void quitter(View v) {
