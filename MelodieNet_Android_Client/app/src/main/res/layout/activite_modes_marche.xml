@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/generalBackground"
+    tools:context="fsa.williammordohay.melodienet_android_client.activites.ActiviteModesMarche">
+
+    <ImageButton
+        android:id="@+id/previousButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:onClick="quitter"
+        android:background="@color/previous"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        app:srcCompat="@android:drawable/ic_media_previous" />
+
+    <TextView
+        android:id="@+id/titleView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="33dp"
+        android:text="@string/suivi_machines" />
+
+
+    <ImageView
+        android:id="@+id/MelodieLogo"
+        android:layout_width="135dp"
+        android:layout_height="78dp"
+        app:srcCompat="@drawable/logo_melodie"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="392dp"
+        android:layout_marginBottom="21dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/listLegend"
+        android:weightSum="1"
+        android:layout_below="@+id/titleView"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:id="@+id/ref"
+            android:layout_width="234dp"
+            android:layout_height="wrap_content"
+            android:text="@string/num_celulle"
+            android:textSize="18dp"
+            android:layout_weight="0.5"/>
+
+        <TextView
+            android:layout_width="213dp"
+            android:layout_height="wrap_content"
+            android:text="@string/texte_cellule"
+            android:id="@+id/good"
+            android:layout_weight="0.25"/>
+
+
+        <TextView
+            android:id="@+id/bad"
+            android:layout_width="139dp"
+            android:layout_height="wrap_content"
+            android:text="@string/code_couleur_celulle"
+            android:layout_weight="0.25"/>
+
+    </LinearLayout>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/SwipeRefresh"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_above="@id/MelodieLogo"
+        android:layout_below="@id/listLegend">
+        <ListView
+            android:id="@+id/liste_modes_marche"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+        </ListView>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
+
+
+</RelativeLayout>
+

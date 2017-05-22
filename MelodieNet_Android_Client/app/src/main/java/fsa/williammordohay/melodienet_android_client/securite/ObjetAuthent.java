@@ -4,11 +4,11 @@ package fsa.williammordohay.melodienet_android_client.securite;
  * Created by william.mordohay on 18/05/2017.
  */
 
-public class LoginObject {
+public class ObjetAuthent {
     private String name;
     private boolean agreement;
 
-    public LoginObject(boolean agreement, String name)
+    public ObjetAuthent(boolean agreement, String name)
     {
         this.name = name;
         this.agreement = agreement;

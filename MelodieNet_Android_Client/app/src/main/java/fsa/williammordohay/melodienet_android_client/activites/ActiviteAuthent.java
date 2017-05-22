@@ -23,7 +23,7 @@ import fsa.williammordohay.melodienet_android_client.connexionserviceweb.Constru
 import fsa.williammordohay.melodienet_android_client.connexionserviceweb.EcritureLangTel;
 import fsa.williammordohay.melodienet_android_client.connexionserviceweb.LectureDonneesWeb;
 import fsa.williammordohay.melodienet_android_client.parametres.VueParametres;
-import fsa.williammordohay.melodienet_android_client.securite.LoginObject;
+import fsa.williammordohay.melodienet_android_client.securite.ObjetAuthent;
 
 import static fsa.williammordohay.melodienet_android_client.securite.CryptageMdp.hashMdp;
 
@@ -31,7 +31,7 @@ public class ActiviteAuthent extends AppCompatActivity {
 
     String utilisateurActuel, motPasseActuel;
     EditText utilisateurActuelEditText, motPasseEditText;
-    Button AuthentBoutton;
+    Button authentBoutton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,11 +40,11 @@ public class ActiviteAuthent extends AppCompatActivity {
 
         //Remplir les différents composants
         utilisateurActuelEditText = (EditText) findViewById(R.id.loginUsername);
-        AuthentBoutton = (Button) findViewById(R.id.loginButton);
+        authentBoutton = (Button) findViewById(R.id.loginButton);
         motPasseEditText = (EditText) findViewById(R.id.loginPassword);
         motPasseEditText.setHint(R.string.mot_de_passe);
 
-        AuthentBoutton.setOnClickListener(new View.OnClickListener() {
+        authentBoutton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -77,7 +77,7 @@ public class ActiviteAuthent extends AppCompatActivity {
                     loginResult = new LectureDonneesWeb().execute(loginURL).get();
 
                     if(loginResult != ""){
-                        LoginObject connect = gson.fromJson(loginResult,LoginObject.class);
+                        ObjetAuthent connect = gson.fromJson(loginResult,ObjetAuthent.class);
                         if (connect.isAgreement()) {
                             envoiLangue(authentRequete);
                                 Toast.makeText(ActiviteAuthent.this, R.string.succes_authent, Toast.LENGTH_LONG).show();
@@ -121,8 +121,10 @@ public class ActiviteAuthent extends AppCompatActivity {
             langPostResult = new EcritureLangTel().execute(langURL, langString).get();
         } catch (InterruptedException e) {
             e.printStackTrace();
+            startActivity(new Intent(ActiviteAuthent.this, ActiviteAuthent.class));
         } catch (ExecutionException e) {
             e.printStackTrace();
+            startActivity(new Intent(ActiviteAuthent.this, ActiviteAuthent.class));
         }
     }
 

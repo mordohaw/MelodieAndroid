@@ -43,11 +43,11 @@ public class ActiviteMenu extends AppCompatActivity
         dialog.show();
     }
 
-    public void AllerSuiviMachine(View v){
+    public void allerSuiviMachine(View v){
         startActivity(new Intent(ActiviteMenu.this, ActiviteMachinesParam.class));
     }
 
-    public void AllerSuiviProd(View v){
+    public void allerSuiviProd(View v){
         startActivity(new Intent(ActiviteMenu.this, ActiviteProductionParam.class));
     }
 }

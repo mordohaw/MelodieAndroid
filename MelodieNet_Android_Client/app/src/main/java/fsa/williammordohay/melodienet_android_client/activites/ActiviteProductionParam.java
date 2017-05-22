@@ -5,7 +5,8 @@ import android.os.Bundle;
 
 import fsa.williammordohay.melodienet_android_client.R;
 
-public class ActiviteProductionParam extends AppCompatActivity {
+public class ActiviteProductionParam extends AppCompatActivity
+{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

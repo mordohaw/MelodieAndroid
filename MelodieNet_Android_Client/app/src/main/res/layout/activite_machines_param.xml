@@ -1,9 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/generalBackground"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="fsa.williammordohay.melodienet_android_client.activites.ActiviteMachinesParam">
 
-</android.support.constraint.ConstraintLayout>
+    <ImageButton
+        android:id="@+id/previousButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:onClick="quitter"
+        android:background="@color/previous"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        app:srcCompat="@android:drawable/ic_media_previous" />
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/mode_marche_param_titre"
+        android:gravity="center"
+        android:id="@+id/textView"
+        android:layout_below="@+id/previousButton"
+        android:layout_toEndOf="@+id/previousButton" />
+    <Spinner
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinnerNumLigne"
+        android:gravity="center"
+        android:layout_marginBottom="91dp"
+        android:layout_above="@+id/button3"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ok"
+        android:onClick="allerAModesMarche"
+        android:id="@+id/button3"
+        android:layout_marginBottom="35dp"
+        android:layout_above="@+id/MelodieLogo"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/MelodieLogo"
+        android:layout_width="135dp"
+        android:layout_height="78dp"
+        app:srcCompat="@drawable/logo_melodie"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="392dp"
+        android:layout_marginBottom="21dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/texte_num_ligne"
+        android:layout_alignBottom="@+id/spinnerNumLigne"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="34dp" />
+</RelativeLayout>

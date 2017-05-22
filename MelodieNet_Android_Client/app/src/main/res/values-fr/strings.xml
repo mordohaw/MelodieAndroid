@@ -35,4 +35,19 @@
        -->
     <string name="activite_modes_marche">Suivi machines</string>
     <string name="activite_production">Suivi Production</string>
+
+    <!-- Activites Param
+    -->
+    <string name="mode_marche_param_titre">Choisissez les paramètres des modes de marche</string>
+    <string name="texte_num_ligne">Numéro de ligne</string>
+
+    <!-- Activites Suivi-->
+        <!-- Suivi machines-->
+    <string name="suivi_machines">Suivi Machines</string>
+    <string name="num_celulle">Numéro</string>
+    <string name="texte_cellule">Détails</string>
+    <string name="code_couleur_celulle">couleur</string>
+
+        <!-- Suivi production-->
+    <string name="suivi_production">Suivi Production</string>
 </resources>

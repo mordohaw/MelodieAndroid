@@ -1,8 +1,7 @@
 <resources>
 
     <string name="app_name">MelodieNet_Android_Client</string>
-    <!-- messages dialogue
-    -->
+    <!-- messages dialogue-->
     <string name="message_bienvenue">Hello, Welcome !</string>
     <string name="demande_quitter">Do you want to leave ? </string>
     <string name="oui">Yes</string>
@@ -13,8 +12,7 @@
     <string name="demande_deconnexion">Do you want to disconnect ? </string>
     <string name="demande_deco_titre">Disconnection</string>
 
-    <!-- Authentification
-    -->
+    <!-- Authentification-->
     <string name="nom_utilisateur">Username</string>
     <string name="mot_de_passe">Password</string>
     <string name="boutton_authent">Login</string>
@@ -24,18 +22,30 @@
     <string name="echec_authent">Login failed</string>
     <string name="champs_vides">Please enter Username and Password</string>
 
-    <!-- Paramètres
-    -->
+    <!-- Paramètres -->
     <string name="url_edittext_texte">enter the URL for connection</string>
     <string name="url_valeur">URL value</string>
     <string name="url_categorie">URL adress</string>
     <string name="url_switch_titre">Use edit URL</string>
     <string name="url_edittext_titre">Edit the URL</string>
 
-    <!-- ActiviteMenu
-    -->
+    <!-- ActiviteMenu-->
     <string name="menu">Menu</string>
     <string name="activite_modes_marche">Machine Tracking</string>
     <string name="activite_production">Production Tracking</string>
 
+    <!-- Activites Param-->
+    <string name="mode_marche_param_titre">Choose the parameters for Running Mode</string>
+    <string name="ok">OK</string>
+    <string name="texte_num_ligne">Line Number</string>
+
+    <!-- Activites Suivi-->
+        <!-- Suivi machines-->
+    <string name="suivi_machines">Machine Tracking</string>
+    <string name="num_celulle">Number</string>
+    <string name="texte_cellule">Details</string>
+    <string name="code_couleur_celulle">Colour</string>
+
+    <!-- Suivi production-->
+    <string name="suivi_production">Production Tracking</string>
 </resources>

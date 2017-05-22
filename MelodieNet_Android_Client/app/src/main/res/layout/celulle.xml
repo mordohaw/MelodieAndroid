@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    >
+
+    <TextView
+        android:id="@+id/numero_cellule"
+        android:layout_width="234dp"
+        android:layout_height="wrap_content"
+        android:text="@string/num_celulle"
+        android:textSize="18dp"
+        android:layout_weight="0.5"/>
+
+    <TextView
+        android:layout_width="213dp"
+        android:layout_height="wrap_content"
+        android:text="@string/texte_cellule"
+        android:id="@+id/details_cellule"
+        android:layout_weight="0.25"/>
+
+
+    <TextView
+        android:id="@+id/couleur_cellule"
+        android:layout_width="139dp"
+        android:layout_height="wrap_content"
+        android:text="@string/code_couleur_celulle"
+        android:layout_weight="0.25"/>
+
+</LinearLayout>
