@@ -22,11 +22,9 @@ public abstract class ActiviteWebService extends AppCompatActivity {
         try {
             donneesEntrantes = new LectureDonneesWeb().execute(urlRequete).get();
         } catch (InterruptedException e) {
-            Toast.makeText(this, R.string.erreur_connexion, Toast.LENGTH_LONG).show();
             debugActivite(nomActivite);
             e.printStackTrace();
         } catch (ExecutionException e) {
-            Toast.makeText(this, R.string.erreur_connexion, Toast.LENGTH_LONG).show();
             debugActivite(nomActivite);
             e.printStackTrace();
         }
@@ -39,11 +37,9 @@ public abstract class ActiviteWebService extends AppCompatActivity {
         try {
             donneesEntrantes = new EcritureLangTel().execute(urlRequete,langue).get();
         } catch (InterruptedException e) {
-            Toast.makeText(this, R.string.erreur_connexion, Toast.LENGTH_LONG).show();
             debugActivite(nomActivite);
             e.printStackTrace();
         } catch (ExecutionException e) {
-            Toast.makeText(this, R.string.erreur_connexion, Toast.LENGTH_LONG).show();
             debugActivite(nomActivite);
             e.printStackTrace();
         }
@@ -52,12 +48,16 @@ public abstract class ActiviteWebService extends AppCompatActivity {
 
 
     public void debugActivite(String nomActivite){
+        Toast.makeText(this, R.string.erreur_connexion, Toast.LENGTH_LONG).show();
         switch(nomActivite){
             case "Authentification":
                 startActivity(new Intent(this, ActiviteAuthent.class));
                 break;
+            case "MachinesParam":
+                startActivity(new Intent(this, ActiviteMenu.class));
+                break;
             case "ModeMarche":
-                startActivity(new Intent(this, ActiviteModesMarche.class));
+                startActivity(new Intent(this, ActiviteMenu.class));
                 break;
         }
     }

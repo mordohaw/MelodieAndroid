@@ -23,7 +23,7 @@ import fsa.williammordohay.melodienet_android_client.infoentrantes.Cellule;
 import fsa.williammordohay.melodienet_android_client.connexionserviceweb.ConstructeurUrl;
 import fsa.williammordohay.melodienet_android_client.connexionserviceweb.LectureDonneesWeb;
 
-public class ActiviteMachinesParam extends AppCompatActivity {
+public class ActiviteMachinesParam extends ActiviteWebService {
 
 
 
@@ -67,34 +67,25 @@ public class ActiviteMachinesParam extends AppCompatActivity {
         urlSpinner=requeteSpinnerLigne.obtenirListeLignes();
 
             //get the data from WebService
-            try {
-                currentInputString = new LectureDonneesWeb().execute(urlSpinner).get();
-            } catch (InterruptedException e) {
-                Toast.makeText(ActiviteMachinesParam.this, "Sorry, i can't find the WebService...", Toast.LENGTH_LONG).show();
-                e.printStackTrace();
-            } catch (ExecutionException e) {
-                Toast.makeText(ActiviteMachinesParam.this, "Sorry, i can't find the WebService...", Toast.LENGTH_LONG).show();
-                e.printStackTrace();
-            }
-            if(currentInputString != null)
+        currentInputString = recupereDonnees("MachinesParam",urlSpinner);
+
+        if(currentInputString != null)
+        {
+            //put the data in the arrayList productLineList
+            this.listeLignes = objetGson.fromJson(currentInputString,new TypeToken<List<Ligne>>(){}.getType());
+
+
+            String ligneTab[] = new String[listeLignes.size()];
+
+            for(int i = 0; i< listeLignes.size(); i++)
             {
-                //put the data in the arrayList productLineList
-                this.listeLignes = objetGson.fromJson(currentInputString,new TypeToken<List<Ligne>>(){}.getType());
-
-
-                String ligneTab[] = new String[listeLignes.size()];
-
-                for(int i = 0; i< listeLignes.size(); i++)
-                {
                     ligneTab[i] = String.valueOf(listeLignes.get(i).getLigneNumber());
-                }
-
-
-                ArrayAdapter<String> lineNumberAdapter = new ArrayAdapter<>(this,
-                        R.layout.element_spinner,
-                        ligneTab);
-                spinnerLigne.setAdapter(lineNumberAdapter);
             }
+
+
+            ArrayAdapter<String> lineNumberAdapter = new ArrayAdapter<>(this, R.layout.element_spinner, ligneTab);
+            spinnerLigne.setAdapter(lineNumberAdapter);
+        }
             else
             {
                 Toast.makeText(ActiviteMachinesParam.this, "Sorry, i can't find the WebService...", Toast.LENGTH_LONG).show();
@@ -102,7 +93,7 @@ public class ActiviteMachinesParam extends AppCompatActivity {
             }
 
 
-        }
+    }
 
     public void quitter(View v){
         ActiviteMachinesParam.this.finish();
