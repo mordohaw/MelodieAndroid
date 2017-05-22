@@ -1,6 +1,5 @@
 package fsa.williammordohay.melodienet_android_client.activites;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -15,7 +14,6 @@ import com.google.gson.reflect.TypeToken;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 
 import fsa.williammordohay.melodienet_android_client.R;
 import fsa.williammordohay.melodienet_android_client.connexionserviceweb.ConstructeurUrl;
@@ -30,10 +28,9 @@ public class ActiviteModesMarche extends ActiviteWebService{
     private ListView vueListe;
     private List<ModeMarche> listeModes = new ArrayList<>();
     private List<Cellule> listeCellules = new ArrayList<>();
-    private List<ModeMarche> listeModesService = new ArrayList<>();
     private AdapteurModesMarche adapteurModesMarche;
     private Gson gson;
-    private String currentInputString,productionType,ligneSelectionnee,baseURL,modeMarcheURL;
+    private String currentInputString,ligneSelectionnee,baseURL,modeMarcheURL;
     private ConstructeurUrl constructRequetes;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,34 +47,8 @@ public class ActiviteModesMarche extends ActiviteWebService{
         vueListe = (ListView) findViewById(R.id.liste_modes_marche);
 
         listeCellules = recupereListeCellule(constructRequetes,ligneSelectionnee);
-        String resultatModesMarches=construitListeModes(listeCellules);
-        /*String resultatModesMarches="[";
-        for (Cellule c : listeCellules) {
-            modeMarcheURL=constructRequetes.obtenirModesMarche(ligneSelectionnee,String.valueOf(c.getCellNumber()));
+        rempliListe();
 
-            //get the data from WebService
-            try {
-                if(resultatModesMarches == "["){
-                    resultatModesMarches = resultatModesMarches + new LectureDonneesWeb().execute(modeMarcheURL).get();
-                }
-                else{
-                    resultatModesMarches = resultatModesMarches + "," + new LectureDonneesWeb().execute(modeMarcheURL).get();
-                }
-            } catch (InterruptedException e) {
-                Toast.makeText(ActiviteModesMarche.this, "Sorry, i can't find the WebService...", Toast.LENGTH_LONG).show();
-                startActivity(new Intent(this, ActiviteModesMarche.class));
-                e.printStackTrace();
-            } catch (ExecutionException e) {
-                Toast.makeText(ActiviteModesMarche.this, "Sorry, i can't find the WebService...", Toast.LENGTH_LONG).show();
-                startActivity(new Intent(ActiviteModesMarche.this, ActiviteModesMarche.class));
-                e.printStackTrace();
-            }
-        }
-        resultatModesMarches +="]";*/
-        listeModes = gson.fromJson(resultatModesMarches,new TypeToken<List<ModeMarche>>(){}.getType());
-
-        adapteurModesMarche=new AdapteurModesMarche(this,listeModes);
-        vueListe.setAdapter(adapteurModesMarche);
         vueRafraichissement = (SwipeRefreshLayout)findViewById(R.id.SwipeRefresh);
         vueRafraichissement.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -86,6 +57,14 @@ public class ActiviteModesMarche extends ActiviteWebService{
             }
         });
 
+    }
+
+    public void rempliListe(){
+        String resultatModesMarches=construitListeModes(listeCellules);
+        listeModes = gson.fromJson(resultatModesMarches,new TypeToken<List<ModeMarche>>(){}.getType());
+
+        adapteurModesMarche=new AdapteurModesMarche(this,listeModes);
+        vueListe.setAdapter(adapteurModesMarche);
     }
     public String chargeParam(){
         SharedPreferences SharedParam = PreferenceManager.getDefaultSharedPreferences(ActiviteModesMarche.this);
@@ -121,17 +100,8 @@ public class ActiviteModesMarche extends ActiviteWebService{
         celluleUrl=constructeurRequete.obtenirListeCellules(numLigne);
 
         //get the data from WebService
-        try {
-            currentInputString = new LectureDonneesWeb().execute(celluleUrl).get();
-        } catch (InterruptedException e) {
-            Toast.makeText(ActiviteModesMarche.this, "Sorry, i can't find the WebService...", Toast.LENGTH_LONG).show();
-            startActivity(new Intent(ActiviteModesMarche.this, ActiviteModesMarche.class));
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            Toast.makeText(ActiviteModesMarche.this, "Sorry, i can't find the WebService...", Toast.LENGTH_LONG).show();
-            startActivity(new Intent(ActiviteModesMarche.this, ActiviteModesMarche.class));
-            e.printStackTrace();
-        }
+        currentInputString = recupereDonnees("ModeMarche",celluleUrl);
+
         if(currentInputString != null){
             return gson.fromJson(currentInputString,new TypeToken<List<Cellule>>(){}.getType());
         }
@@ -141,7 +111,7 @@ public class ActiviteModesMarche extends ActiviteWebService{
     private void refresh(){
 
 
-        Toast.makeText(ActiviteModesMarche.this, R.string.refresh, Toast.LENGTH_SHORT).show();
+        Toast.makeText(ActiviteModesMarche.this, R.string.rafraichissement, Toast.LENGTH_SHORT).show();
 
         //set the refresh
         vueListe.invalidateViews();
@@ -165,7 +135,7 @@ public class ActiviteModesMarche extends ActiviteWebService{
                         //set the action on up dating
 
                         //startService(serviceIntent);
-                        populateProductView();
+                        rempliListe();
 
                         //Update the list
                         vueListe.invalidateViews();

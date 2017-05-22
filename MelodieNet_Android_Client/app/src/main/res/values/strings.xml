@@ -46,6 +46,6 @@
     <string name="texte_cellule">Details</string>
     <string name="code_couleur_celulle">Colour</string>
 
-    <!-- Suivi production-->
+        <!-- Suivi production-->
     <string name="suivi_production">Production Tracking</string>
 </resources>
