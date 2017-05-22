@@ -8,6 +8,7 @@
     <string name="non">No</string>
     <string name="quitter_dialogue_titre">Quit</string>
     <string name="rafraichissement">Refreshing...</string>
+    <string name="erreur_connexion">Sorry, i can\'t find the WebService...</string>
 
     <string name="demande_deconnexion">Do you want to disconnect ? </string>
     <string name="demande_deco_titre">Disconnection</string>

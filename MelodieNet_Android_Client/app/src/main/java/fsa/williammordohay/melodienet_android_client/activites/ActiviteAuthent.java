@@ -27,7 +27,7 @@ import fsa.williammordohay.melodienet_android_client.securite.ObjetAuthent;
 
 import static fsa.williammordohay.melodienet_android_client.securite.CryptageMdp.hashMdp;
 
-public class ActiviteAuthent extends AppCompatActivity {
+public class ActiviteAuthent extends ActiviteWebService {
 
     String utilisateurActuel, motPasseActuel;
     EditText utilisateurActuelEditText, motPasseEditText;
@@ -57,7 +57,7 @@ public class ActiviteAuthent extends AppCompatActivity {
 
     private void authentification() {
         String baseURL, loginURL, langURL;
-        String loginResult = "", langPostResult="";
+        String loginResultat = "";
         Gson gson = new Gson();
         ConstructeurUrl authentRequete;
 
@@ -73,11 +73,10 @@ public class ActiviteAuthent extends AppCompatActivity {
                 requestPassword = hashMdp(motPasseActuel);
                 loginURL = authentRequete.obtenirAccordLogin(requestUser, requestPassword);
                 //get the data from WebService
-                try {
-                    loginResult = new LectureDonneesWeb().execute(loginURL).get();
+                    loginResultat = recupereDonnees("Authentification",loginURL);
 
-                    if(loginResult != ""){
-                        ObjetAuthent connect = gson.fromJson(loginResult,ObjetAuthent.class);
+                    if(loginResultat != ""){
+                        ObjetAuthent connect = gson.fromJson(loginResultat,ObjetAuthent.class);
                         if (connect.isAgreement()) {
                             envoiLangue(authentRequete);
                                 Toast.makeText(ActiviteAuthent.this, R.string.succes_authent, Toast.LENGTH_LONG).show();
@@ -88,17 +87,6 @@ public class ActiviteAuthent extends AppCompatActivity {
                     }else{
                         Toast.makeText(ActiviteAuthent.this, "can't find the Webservice", Toast.LENGTH_LONG).show();
                     }
-
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                    //debug
-                    startActivity(new Intent(ActiviteAuthent.this, ActiviteAuthent.class));
-                } catch (ExecutionException e) {
-                    e.printStackTrace();
-                    //debug
-                    startActivity(new Intent(ActiviteAuthent.this, ActiviteAuthent.class));
-                    Toast.makeText(ActiviteAuthent.this, "can't find the Webservice : " +e.getMessage(), Toast.LENGTH_LONG).show();
-                }
 
             } catch (NoSuchAlgorithmException e) {
                 e.printStackTrace();
@@ -113,19 +101,11 @@ public class ActiviteAuthent extends AppCompatActivity {
         return(SharedParam.getString("editURL", "http://val-prod-002/MelodieNet_REST_Service/"));
     }
     public void envoiLangue(ConstructeurUrl requete) {
-        String langURL, langPostResult="";
+        String langURL, langueEnvoiResultat="";
 
         String langString = Locale.getDefault().getLanguage();
         langURL = requete.envoyerLang(langString);
-        try {
-            langPostResult = new EcritureLangTel().execute(langURL, langString).get();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-            startActivity(new Intent(ActiviteAuthent.this, ActiviteAuthent.class));
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-            startActivity(new Intent(ActiviteAuthent.this, ActiviteAuthent.class));
-        }
+        langueEnvoiResultat=envoiDonnees("Authentification",langURL,langString);
     }
 
     public void quitter(View v) {

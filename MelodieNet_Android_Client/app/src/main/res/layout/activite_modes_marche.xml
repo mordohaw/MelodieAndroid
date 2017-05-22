@@ -53,6 +53,7 @@
             android:layout_width="234dp"
             android:layout_height="wrap_content"
             android:text="@string/num_celulle"
+            android:textStyle="bold"
             android:textSize="18dp"
             android:layout_weight="0.5"/>
 
@@ -60,6 +61,7 @@
             android:layout_width="213dp"
             android:layout_height="wrap_content"
             android:text="@string/texte_cellule"
+            android:textStyle="bold"
             android:id="@+id/good"
             android:layout_weight="0.25"/>
 
@@ -69,6 +71,7 @@
             android:layout_width="139dp"
             android:layout_height="wrap_content"
             android:text="@string/code_couleur_celulle"
+            android:textStyle="bold"
             android:layout_weight="0.25"/>
 
     </LinearLayout>

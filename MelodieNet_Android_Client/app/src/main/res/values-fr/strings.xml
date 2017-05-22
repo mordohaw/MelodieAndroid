@@ -8,6 +8,7 @@
     <string name="non">Non</string>
     <string name="quitter_dialogue_titre">Quitter</string>
     <string name="rafraichissement">Rafraichissement...</string>
+    <string name="erreur_connexion">Désolé, le Service Web est introuvable...</string>
 
     <string name="demande_deconnexion">Voulez vous vous déconnecter ? </string>
     <string name="demande_deco_titre">Déconnexion</string>
@@ -46,7 +47,7 @@
     <string name="suivi_machines">Suivi Machines</string>
     <string name="num_celulle">Numéro</string>
     <string name="texte_cellule">Détails</string>
-    <string name="code_couleur_celulle">couleur</string>
+    <string name="code_couleur_celulle">Couleur</string>
 
         <!-- Suivi production-->
     <string name="suivi_production">Suivi Production</string>

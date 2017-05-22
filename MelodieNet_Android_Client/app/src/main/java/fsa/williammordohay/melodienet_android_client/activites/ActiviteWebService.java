@@ -6,6 +6,8 @@ import android.widget.Toast;
 
 import java.util.concurrent.ExecutionException;
 
+import fsa.williammordohay.melodienet_android_client.R;
+import fsa.williammordohay.melodienet_android_client.connexionserviceweb.EcritureLangTel;
 import fsa.williammordohay.melodienet_android_client.connexionserviceweb.LectureDonneesWeb;
 
 /**
@@ -15,25 +17,43 @@ import fsa.williammordohay.melodienet_android_client.connexionserviceweb.Lecture
 public abstract class ActiviteWebService extends AppCompatActivity {
 
     public String recupereDonnees(String nomActivite,String urlRequete){
-        //get the data from WebService
+        //réception de données provenants du service Web
         String donneesEntrantes="";
         try {
             donneesEntrantes = new LectureDonneesWeb().execute(urlRequete).get();
         } catch (InterruptedException e) {
-            Toast.makeText(this, "Sorry, i can't find the WebService...", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, R.string.erreur_connexion, Toast.LENGTH_LONG).show();
             debugActivite(nomActivite);
             e.printStackTrace();
         } catch (ExecutionException e) {
-            Toast.makeText(this, "Sorry, i can't find the WebService...", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, R.string.erreur_connexion, Toast.LENGTH_LONG).show();
             debugActivite(nomActivite);
             e.printStackTrace();
         }
         return donneesEntrantes;
     }
 
+    public String envoiDonnees(String nomActivite,String urlRequete, String langue){
+        //envoi de données au service Web
+        String donneesEntrantes="";
+        try {
+            donneesEntrantes = new EcritureLangTel().execute(urlRequete,langue).get();
+        } catch (InterruptedException e) {
+            Toast.makeText(this, R.string.erreur_connexion, Toast.LENGTH_LONG).show();
+            debugActivite(nomActivite);
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            Toast.makeText(this, R.string.erreur_connexion, Toast.LENGTH_LONG).show();
+            debugActivite(nomActivite);
+            e.printStackTrace();
+        }
+        return donneesEntrantes;
+    }
+
+
     public void debugActivite(String nomActivite){
         switch(nomActivite){
-            case "Authent":
+            case "Authentification":
                 startActivity(new Intent(this, ActiviteAuthent.class));
                 break;
             case "ModeMarche":
