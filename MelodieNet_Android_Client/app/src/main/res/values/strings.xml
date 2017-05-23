@@ -37,16 +37,22 @@
 
     <!-- Activites Param-->
     <string name="mode_marche_param_titre">Choose the parameters for Running Mode</string>
+    <string name="production_param_titre">Choose the parameters for Production</string>
     <string name="ok">OK</string>
     <string name="texte_num_ligne">Line Number</string>
+    <string name="texte_type_production">Production Date</string>
 
     <!-- Activites Suivi-->
-        <!-- Suivi machines-->
+    <!-- Suivi machines-->
     <string name="suivi_machines">Machine Tracking</string>
     <string name="num_celulle">Number</string>
     <string name="texte_cellule">Details</string>
     <string name="code_couleur_celulle">Colour</string>
 
-        <!-- Suivi production-->
+    <!-- Suivi production-->
     <string name="suivi_production">Production Tracking</string>
+    <string name="ref">Ref</string>
+    <string name="bon">Good</string>
+    <string name="mauvais">Bad</string>
+
 </resources>

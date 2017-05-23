@@ -1,6 +1,8 @@
 package fsa.williammordohay.melodienet_android_client.activites;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
@@ -60,5 +62,11 @@ public abstract class ActiviteWebService extends AppCompatActivity {
                 startActivity(new Intent(this, ActiviteMenu.class));
                 break;
         }
+    }
+
+    public String chargeParam(){
+        SharedPreferences SharedParam = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        //load the value enter by user in editURL. Default value is "http://val-prod-jfc/MelodieNet_REST_Service/" here
+        return(SharedParam.getString("editURL", "http://val-prod-jfc/MelodieNet_REST_Service/"));
     }
 }

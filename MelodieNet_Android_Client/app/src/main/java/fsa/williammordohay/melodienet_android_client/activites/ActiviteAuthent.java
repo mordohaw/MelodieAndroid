@@ -72,7 +72,7 @@ public class ActiviteAuthent extends ActiviteWebService {
             try {
                 requestPassword = hashMdp(motPasseActuel);
                 loginURL = authentRequete.obtenirAccordLogin(requestUser, requestPassword);
-                //get the data from WebService
+                //cherche les données sur le service Web
                     loginResultat = recupereDonnees("Authentification",loginURL);
 
                     if(loginResultat != ""){
@@ -85,7 +85,7 @@ public class ActiviteAuthent extends ActiviteWebService {
                             Toast.makeText(ActiviteAuthent.this, R.string.echec_authent, Toast.LENGTH_LONG).show();
                         }
                     }else{
-                        Toast.makeText(ActiviteAuthent.this, "can't find the Webservice", Toast.LENGTH_LONG).show();
+                        Toast.makeText(ActiviteAuthent.this, R.string.erreur_connexion, Toast.LENGTH_LONG).show();
                     }
 
             } catch (NoSuchAlgorithmException e) {
@@ -95,11 +95,6 @@ public class ActiviteAuthent extends ActiviteWebService {
         }
     }
 
-    public String chargeParam(){
-        SharedPreferences SharedParam = PreferenceManager.getDefaultSharedPreferences(ActiviteAuthent.this);
-        //load the value enter by user in editURL. Default value is "http://val-prod-jfc/MelodieNet_REST_Service/" here
-        return(SharedParam.getString("editURL", "http://val-prod-002/MelodieNet_REST_Service/"));
-    }
     public void envoiLangue(ConstructeurUrl requete) {
         String langURL, langueEnvoiResultat="";
 

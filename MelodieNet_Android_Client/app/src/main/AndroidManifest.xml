@@ -26,7 +26,8 @@
         <activity android:name=".parametres.VueParametres" />
         <activity android:name=".activites.ActiviteProductionParam" />
         <activity android:name=".activites.ActiviteMachinesParam" />
-        <activity android:name=".activites.ActiviteModesMarche"></activity>
+        <activity android:name=".activites.ActiviteModesMarche" />
+        <activity android:name=".activites.ActiviteProduction"></activity>
     </application>
 
 </manifest>

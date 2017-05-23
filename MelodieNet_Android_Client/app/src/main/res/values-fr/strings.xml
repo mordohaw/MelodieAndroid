@@ -40,7 +40,9 @@
     <!-- Activites Param
     -->
     <string name="mode_marche_param_titre">Choisissez les paramètres des modes de marche</string>
+    <string name="production_param_titre">Choisir les paramètres de la production</string>
     <string name="texte_num_ligne">Numéro de ligne</string>
+    <string name="texte_type_production">Période de production</string>
 
     <!-- Activites Suivi-->
         <!-- Suivi machines-->
@@ -51,4 +53,7 @@
 
         <!-- Suivi production-->
     <string name="suivi_production">Suivi Production</string>
+    <string name="ref">Ref</string>
+    <string name="bon">Bon</string>
+    <string name="mauvais">Mauvais</string>
 </resources>

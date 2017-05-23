@@ -2,31 +2,40 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="50dp"
     android:weightSum="1"
     >
 
     <TextView
         android:id="@+id/numero_cellule"
-        android:layout_width="234dp"
-        android:layout_height="wrap_content"
+        android:layout_width="40dp"
+        android:layout_height="fill_parent"
+        android:layout_weight="0.34"
+        android:gravity="center"
         android:text="@string/num_celulle"
-        android:textSize="18dp"
-        android:layout_weight="0.5"/>
+      />
 
     <TextView
-        android:layout_width="213dp"
-        android:layout_height="wrap_content"
-        android:text="@string/texte_cellule"
         android:id="@+id/details_cellule"
-        android:layout_weight="0.25"/>
+        android:layout_width="40dp"
+        android:gravity="center"
+        android:layout_height="match_parent"
+        android:layout_weight="0.42"
+
+        android:text="@string/texte_cellule" />
 
 
-    <TextView
+    <!--<TextView
         android:id="@+id/couleur_cellule"
         android:layout_width="139dp"
         android:layout_height="wrap_content"
         android:text="@string/code_couleur_celulle"
-        android:layout_weight="0.25"/>
+        android:layout_weight="0.25"/>-->
+    <ImageView
+        android:id="@+id/vue_image"
+        android:layout_width="40dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="right"
+        android:layout_weight="0.24" />
 
 </LinearLayout>

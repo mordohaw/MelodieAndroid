@@ -1,9 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/generalBackground"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="fsa.williammordohay.melodienet_android_client.activites.ActiviteProductionParam">
 
-</android.support.constraint.ConstraintLayout>
+    <ImageButton
+        android:id="@+id/previousButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:onClick="quitter"
+        android:background="@color/previous"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        app:srcCompat="@android:drawable/ic_media_previous" />
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/production_param_titre"
+        android:gravity="center"
+        android:id="@+id/textView"
+        android:layout_below="@+id/previousButton"
+        android:layout_toEndOf="@+id/previousButton" />
+    <Spinner
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/productTypeSpinner"
+        android:layout_below="@+id/textView"
+        android:layout_marginTop="69dp"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentEnd="true"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OK"
+        android:onClick="allerAProduction"
+        android:id="@+id/button3"
+        android:layout_marginBottom="35dp"
+        android:layout_above="@+id/MelodieLogo"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/MelodieLogo"
+        android:layout_width="135dp"
+        android:layout_height="78dp"
+        app:srcCompat="@drawable/logo_melodie"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="392dp"
+        android:layout_marginBottom="21dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Production Date"
+        android:layout_marginBottom="35dp"
+        android:layout_alignBottom="@+id/productTypeSpinner"
+        android:layout_centerHorizontal="true" />
+
+    <Spinner
+        android:id="@+id/lineNumberSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/lineNumberSpinner"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="13dp"
+        android:text="@string/texte_num_ligne" />
+</RelativeLayout>

@@ -15,22 +15,19 @@ import com.google.gson.reflect.TypeToken;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 
 import fsa.williammordohay.melodienet_android_client.infoentrantes.Ligne;
 import fsa.williammordohay.melodienet_android_client.R;
 import fsa.williammordohay.melodienet_android_client.infoentrantes.Cellule;
 import fsa.williammordohay.melodienet_android_client.connexionserviceweb.ConstructeurUrl;
-import fsa.williammordohay.melodienet_android_client.connexionserviceweb.LectureDonneesWeb;
 
 public class ActiviteMachinesParam extends ActiviteWebService {
 
 
 
     private List<Ligne> listeLignes = new ArrayList<>();
-    private List<Cellule> listeCellules = new ArrayList<>();
-    Spinner spinnerCellules,spinnerLigne;
-    String celulleChoisie,ligneChoisie, urlBase;
+    Spinner spinnerLigne;
+    String ligneChoisie, urlBase;
     private ConstructeurUrl requeteSpinner;
     Gson gson;
 
@@ -54,11 +51,6 @@ public class ActiviteMachinesParam extends ActiviteWebService {
         //rempliSpinnerCellules(requeteSpinner,gson);
     }
 
-    public String chargeParam(){
-        SharedPreferences SharedParam = PreferenceManager.getDefaultSharedPreferences(ActiviteMachinesParam.this);
-        //load the value enter by user in editURL. Default value is "http://val-prod-jfc/MelodieNet_REST_Service/" here
-        return(SharedParam.getString("editURL", "http://val-prod-jfc/MelodieNet_REST_Service/"));
-    }
     public void rempliSpinnerLignes(ConstructeurUrl requeteSpinnerLigne, Gson objetGson){
 
         String urlSpinner,currentInputString="";
@@ -104,7 +96,7 @@ public class ActiviteMachinesParam extends ActiviteWebService {
         modesMarcheIntent.putExtra("ligneSelect", ligneChoisie);
 
         startActivity(modesMarcheIntent);
-        //finish();*/
+        //finish();
 
     }
 }

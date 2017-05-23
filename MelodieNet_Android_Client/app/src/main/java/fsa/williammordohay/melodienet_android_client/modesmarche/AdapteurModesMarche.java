@@ -7,8 +7,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,6 +23,7 @@ import fsa.williammordohay.melodienet_android_client.R;
 
 public class AdapteurModesMarche extends ArrayAdapter<ModeMarche> {
     public Map<View,ModeMarche> mapModes = new HashMap<View, ModeMarche>();
+    public List<Integer> listeImages = new ArrayList<>();
 
 
     public AdapteurModesMarche(Context context, List<ModeMarche> modeMarches){
@@ -42,9 +45,8 @@ public class AdapteurModesMarche extends ArrayAdapter<ModeMarche> {
             viewHolder = new VueModes();
             viewHolder.num=(TextView) convertView.findViewById(R.id.numero_cellule);
             viewHolder.details=(TextView) convertView.findViewById(R.id.details_cellule);
-            viewHolder.couleur=(TextView) convertView.findViewById(R.id.couleur_cellule);
+            viewHolder.imageCelulle =(ImageView) convertView.findViewById(R.id.vue_image);
 
-            //viewHolder.image=(ImageView) convertView.findViewById(R.id.image);
             convertView.setTag(viewHolder);
         }
         else{
@@ -58,21 +60,41 @@ public class AdapteurModesMarche extends ArrayAdapter<ModeMarche> {
         //On rempli la vue
         viewHolder.num.setText(String.valueOf(modeMarcheCourant.getCellNumber()));
         viewHolder.details.setText(modeMarcheCourant.getModeLabel());
-        viewHolder.couleur.setText(String.valueOf(modeMarcheCourant.getModeColor()));
-        //viewHolder.couleur.setImageResource(currentCell.getIdImage());
+        //viewHolder.couleur.setText(String.valueOf(modeMarcheCourant.getModeColor()));
+        remplirListeImages();
+        int indiceCouleur = modeMarcheCourant.getModeColor();
 
-        //viewHolder.color.setText("");
-        //Set color with the field ColourCode in object currentCell
-        //viewHolder.color.setBackgroundColor(Color.parseColor(String.valueOf(currentCell.getColourCode())));
+        //charge l'image correspondant à l'indice de la couleur en la cherchant dans l'ArrayList "listeImages"
+        viewHolder.imageCelulle.setImageResource(listeImages.get(indiceCouleur-1));
+
 
         mapModes.put(convertView, modeMarcheCourant);
 
         return convertView;
     }
 
+    public void remplirListeImages(){
+        listeImages.add(R.drawable.image_000000);
+        listeImages.add(R.drawable.image_808080);
+        listeImages.add(R.drawable.image_f5f5f5);
+        listeImages.add(R.drawable.image_a0522d);
+        listeImages.add(R.drawable.image_ff0000);
+        listeImages.add(R.drawable.image_ff69b4);
+        listeImages.add(R.drawable.image_ee82ee);
+        listeImages.add(R.drawable.image_6a5acd);
+        listeImages.add(R.drawable.image_0000cd);
+        listeImages.add(R.drawable.image_1e90ff);
+        listeImages.add(R.drawable.image_00ced1);
+        listeImages.add(R.drawable.image_008b8b);
+        listeImages.add(R.drawable.image_32cd32);
+        listeImages.add(R.drawable.image_7cfc00);
+        listeImages.add(R.drawable.image_ffff00);
+        listeImages.add(R.drawable.image_ffa500);
+    }
+
     public class VueModes{
         public TextView num;
         public TextView details;
-        public TextView couleur;
+        public ImageView imageCelulle;
     }
 }
