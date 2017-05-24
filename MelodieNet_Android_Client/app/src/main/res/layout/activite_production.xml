@@ -51,23 +51,24 @@
             android:layout_width="234dp"
             android:layout_height="wrap_content"
             android:text="@string/ref"
+            android:textStyle="bold"
             android:textSize="18dp"
-            android:layout_weight="0.5"/>
+            android:layout_weight="0.2"/>
 
         <TextView
-            android:layout_width="213dp"
+            android:layout_width="60dp"
             android:layout_height="wrap_content"
+            android:textStyle="bold"
             android:text="@string/bon"
-            android:id="@+id/good"
-            android:layout_weight="0.25"/>
+            android:id="@+id/good" />
 
 
         <TextView
             android:id="@+id/bad"
-            android:layout_width="139dp"
+            android:layout_width="88dp"
+            android:textStyle="bold"
             android:layout_height="wrap_content"
-            android:text="@string/mauvais"
-            android:layout_weight="0.25"/>
+            android:text="@string/mauvais" />
 
     </LinearLayout>
     <android.support.v4.widget.SwipeRefreshLayout

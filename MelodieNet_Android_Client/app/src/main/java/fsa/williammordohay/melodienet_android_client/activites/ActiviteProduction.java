@@ -17,7 +17,8 @@ import fsa.williammordohay.melodienet_android_client.connexionserviceweb.Constru
 import fsa.williammordohay.melodienet_android_client.production.AdapteurProduction;
 import fsa.williammordohay.melodienet_android_client.production.Production;
 
-public class ActiviteProduction extends ActiviteWebService {
+public class ActiviteProduction extends ActiviteWebService
+{
 
     private SwipeRefreshLayout vueRafraichissement;
     private ListView vueListe;
@@ -29,7 +30,8 @@ public class ActiviteProduction extends ActiviteWebService {
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activite_production);
 
@@ -56,14 +58,16 @@ public class ActiviteProduction extends ActiviteWebService {
 
 
 
-    public void rempliVue() {
+    public void rempliVue()
+    {
         //populate the ProductListView
         listeProduction = genereProduction();
         adapteurProduction=new AdapteurProduction(this,listeProduction);
         vueListe.setAdapter(adapteurProduction);
     }
 
-    public List<Production> genereProduction() {
+    public List<Production> genereProduction()
+    {
         switch (productionChoisie) {
             case "GetHourProduction":
                 urlProduction = constructRequetes.obtenirProdHeure(ligneChoisie);
@@ -81,7 +85,8 @@ public class ActiviteProduction extends ActiviteWebService {
 
     }
 
-    private void rafraichirListe(){
+    private void rafraichirListe()
+    {
 
 
         Toast.makeText(ActiviteProduction.this, R.string.rafraichissement, Toast.LENGTH_SHORT).show();
@@ -91,20 +96,26 @@ public class ActiviteProduction extends ActiviteWebService {
         vueRafraichissement.setRefreshing(true);
 
         //rafraichirListe long-time task in background thread
-        new Thread(new Runnable() {
+        new Thread(new Runnable()
+        {
             @Override
-            public void run() {
-                try {
+            public void run()
+            {
+                try
+                {
                     //dummy delay for 1 second
                     Thread.sleep(1000);
-                } catch (InterruptedException e) {
+                } catch (InterruptedException e)
+                {
                     e.printStackTrace();
                 }
 
                 //update ui on UI thread
-                runOnUiThread(new Runnable() {
+                runOnUiThread(new Runnable()
+                {
                     @Override
-                    public void run() {
+                    public void run()
+                    {
                         //set the action on up dating
 
                         //startService(serviceIntent);
@@ -124,7 +135,8 @@ public class ActiviteProduction extends ActiviteWebService {
 
 
 
-    public void quitter(View v){
+    public void quitter(View v)
+    {
         ActiviteProduction.this.finish();
     }
 }

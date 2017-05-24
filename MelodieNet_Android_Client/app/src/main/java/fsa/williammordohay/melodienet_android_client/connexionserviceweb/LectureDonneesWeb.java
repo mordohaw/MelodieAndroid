@@ -16,10 +16,12 @@ import java.net.URL;
  * Created by william.mordohay on 16/05/2017.
  */
 
-public class LectureDonneesWeb extends AsyncTask<String, String, String>  {
+public class LectureDonneesWeb extends AsyncTask<String, String, String>
+{
 
     @Override
-    protected String doInBackground(String... params) {
+    protected String doInBackground(String... params)
+    {
         if(android.os.Debug.isDebuggerConnected())
             android.os.Debug.waitForDebugger();
 
@@ -28,7 +30,8 @@ public class LectureDonneesWeb extends AsyncTask<String, String, String>  {
         BufferedReader lecteur=null;
         InputStream fluxEntree;
         StringBuffer tampon;
-        try {
+        try
+        {
             URL url = new URL(params[0]);
 
 
@@ -41,7 +44,8 @@ public class LectureDonneesWeb extends AsyncTask<String, String, String>  {
 
             connexionService.connect();
 
-            if (connexionService.getResponseCode() == HttpURLConnection.HTTP_OK) {
+            if (connexionService.getResponseCode() == HttpURLConnection.HTTP_OK)
+            {
                 fluxEntree = new BufferedInputStream(connexionService.getInputStream());
 
                 //retourner le flux
@@ -55,17 +59,27 @@ public class LectureDonneesWeb extends AsyncTask<String, String, String>  {
                 reponse = tampon.toString();
             }
 
-        } catch (MalformedURLException e) {
+        }
+        catch (MalformedURLException e)
+        {
             e.printStackTrace();
-        } catch (IOException e) {
+        }
+        catch (IOException e)
+        {
             e.printStackTrace();
-        } finally {
-            if (connexionService != null) {
+        }
+        finally
+        {
+            if (connexionService != null)
+            {
                 connexionService.disconnect();
             }
-            try {
+            try
+            {
                 lecteur.close();
-            } catch (IOException e) {
+            }
+            catch (IOException e)
+            {
                 e.printStackTrace();
             }
 

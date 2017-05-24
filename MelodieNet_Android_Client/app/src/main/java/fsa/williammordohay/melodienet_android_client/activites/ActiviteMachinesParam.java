@@ -87,10 +87,12 @@ public class ActiviteMachinesParam extends ActiviteWebService {
 
     }
 
-    public void quitter(View v){
+    public void quitter(View v)
+    {
         ActiviteMachinesParam.this.finish();
     }
-    public void allerAModesMarche(View v){
+    public void allerAModesMarche(View v)
+    {
         Intent modesMarcheIntent = new Intent(ActiviteMachinesParam.this, ActiviteModesMarche.class);
         ligneChoisie =(spinnerLigne.getSelectedItem()).toString();
         modesMarcheIntent.putExtra("ligneSelect", ligneChoisie);

@@ -19,24 +19,29 @@ import fsa.williammordohay.melodienet_android_client.R;
  * Created by william.mordohay on 23/05/2017.
  */
 
-public class AdapteurProduction extends ArrayAdapter<Production> {
+public class AdapteurProduction extends ArrayAdapter<Production>
+{
     public Map<View,Production> mapProduction = new HashMap<>();
     
-    public AdapteurProduction(Context contexte, List<Production> produits){
+    public AdapteurProduction(Context contexte, List<Production> produits)
+    {
         super(contexte,0,produits);
     }
 
 
     @NonNull
     @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        if(convertView == null){
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent)
+    {
+        if(convertView == null)
+        {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.produit,parent, false);
         }
 
         //check if the view is not empty
         VueProduits viewHolder = (VueProduits ) convertView.getTag();
-        if(viewHolder==null){
+        if(viewHolder==null)
+        {
             // Associate View with object viewHolder
             viewHolder = new VueProduits();
             viewHolder.ref=(TextView) convertView.findViewById(R.id.ref);
@@ -44,7 +49,8 @@ public class AdapteurProduction extends ArrayAdapter<Production> {
             viewHolder.nbMauvais=(TextView) convertView.findViewById(R.id.bad);
             convertView.setTag(viewHolder);
         }
-        else{
+        else
+        {
             //increase performance
             viewHolder = (VueProduits) convertView.getTag();
         }
@@ -62,7 +68,8 @@ public class AdapteurProduction extends ArrayAdapter<Production> {
         return convertView;
     }
 
-    public class VueProduits{
+    public class VueProduits
+    {
         public TextView ref;
         public TextView nbBons;
         public TextView nbMauvais;

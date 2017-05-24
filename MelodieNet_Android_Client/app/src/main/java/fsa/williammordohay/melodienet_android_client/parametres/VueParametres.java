@@ -9,9 +9,11 @@ import android.support.v7.app.AppCompatActivity;
  * Created by william.mordohay on 18/05/2017.
  */
 
-public class VueParametres extends AppCompatActivity {
+public class VueParametres extends AppCompatActivity
+{
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         FragmentManager fm = getFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();

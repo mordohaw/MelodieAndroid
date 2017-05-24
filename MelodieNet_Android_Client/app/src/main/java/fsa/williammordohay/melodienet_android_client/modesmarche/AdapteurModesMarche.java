@@ -21,26 +21,31 @@ import fsa.williammordohay.melodienet_android_client.R;
  * Created by william.mordohay on 19/05/2017.
  */
 
-public class AdapteurModesMarche extends ArrayAdapter<ModeMarche> {
+public class AdapteurModesMarche extends ArrayAdapter<ModeMarche>
+{
     public Map<View,ModeMarche> mapModes = new HashMap<View, ModeMarche>();
     public List<Integer> listeImages = new ArrayList<>();
 
 
-    public AdapteurModesMarche(Context context, List<ModeMarche> modeMarches){
+    public AdapteurModesMarche(Context context, List<ModeMarche> modeMarches)
+    {
         super(context,0,modeMarches);
     }
 
     @NonNull
     @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        if(convertView == null){
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent)
+    {
+        if(convertView == null)
+        {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.celulle,parent, false);
         }
 
 
         //check if the view is not empty
         VueModes viewHolder = (VueModes) convertView.getTag();
-        if(viewHolder==null){
+        if(viewHolder==null)
+        {
             // Associate View with object viewHolder
             viewHolder = new VueModes();
             viewHolder.num=(TextView) convertView.findViewById(R.id.numero_cellule);
@@ -49,7 +54,8 @@ public class AdapteurModesMarche extends ArrayAdapter<ModeMarche> {
 
             convertView.setTag(viewHolder);
         }
-        else{
+        else
+        {
             //increase performance
             viewHolder = (VueModes) convertView.getTag();
         }
@@ -73,7 +79,8 @@ public class AdapteurModesMarche extends ArrayAdapter<ModeMarche> {
         return convertView;
     }
 
-    public void remplirListeImages(){
+    public void remplirListeImages()
+    {
         listeImages.add(R.drawable.image_000000);
         listeImages.add(R.drawable.image_808080);
         listeImages.add(R.drawable.image_f5f5f5);
@@ -92,7 +99,8 @@ public class AdapteurModesMarche extends ArrayAdapter<ModeMarche> {
         listeImages.add(R.drawable.image_ffa500);
     }
 
-    public class VueModes{
+    public class VueModes
+    {
         public TextView num;
         public TextView details;
         public ImageView imageCelulle;

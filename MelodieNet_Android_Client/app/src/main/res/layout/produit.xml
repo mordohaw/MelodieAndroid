@@ -11,22 +11,20 @@
         android:layout_width="234dp"
         android:layout_height="wrap_content"
         android:text="Ref"
-        android:textSize="18dp"
-        android:layout_weight="0.5"/>
+        android:textSize="18dp" />
 
     <TextView
-        android:layout_width="213dp"
+        android:layout_width="60dp"
         android:layout_height="wrap_content"
         android:text="Good"
-        android:id="@+id/good"
-        android:layout_weight="0.25"/>
+        android:id="@+id/good" />
 
 
     <TextView
         android:id="@+id/bad"
-        android:layout_width="139dp"
+        android:layout_width="84dp"
         android:layout_height="wrap_content"
         android:text="Bad"
-        android:layout_weight="0.25"/>
+        />
 
 </LinearLayout>

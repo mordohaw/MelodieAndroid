@@ -4,7 +4,8 @@ package fsa.williammordohay.melodienet_android_client.securite;
  * Created by william.mordohay on 18/05/2017.
  */
 
-public class ObjetAuthent {
+public class ObjetAuthent
+{
     private String name;
     private boolean agreement;
 

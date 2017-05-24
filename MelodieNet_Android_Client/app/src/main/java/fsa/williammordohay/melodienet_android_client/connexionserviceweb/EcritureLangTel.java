@@ -12,16 +12,19 @@ import java.net.URL;
  * Created by william.mordohay on 18/05/2017.
  */
 
-public class EcritureLangTel extends AsyncTask<String, String, String> {
+public class EcritureLangTel extends AsyncTask<String, String, String>
+{
     @Override
-    protected String doInBackground(String... params) {
+    protected String doInBackground(String... params)
+    {
         if(android.os.Debug.isDebuggerConnected())
             android.os.Debug.waitForDebugger();
 
         HttpURLConnection connexionService=null;
         OutputStreamWriter fluxSortie;
         String resultat="";
-        try {
+        try
+        {
             URL url = new URL(params[0]);
             String lang = params[1];
 
@@ -41,12 +44,19 @@ public class EcritureLangTel extends AsyncTask<String, String, String> {
             resultat = connexionService.getResponseMessage();
 
 
-        } catch (MalformedURLException e) {
+        }
+        catch (MalformedURLException e)
+        {
             e.printStackTrace();
-        } catch (IOException e) {
+        }
+        catch (IOException e)
+        {
             e.printStackTrace();
-        } finally {
-            if (connexionService != null) {
+        }
+        finally
+        {
+            if (connexionService != null)
+            {
                 connexionService.disconnect();
             }
         }

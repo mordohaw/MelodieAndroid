@@ -91,7 +91,8 @@ public class ActiviteProductionParam extends ActiviteWebService
         }
     }
 
-    public void allerAProduction(View v){
+    public void allerAProduction(View v)
+    {
         Intent productionIntent = new Intent(ActiviteProductionParam.this, ActiviteProduction.class);
         //Bundle to share both values
         Bundle bundleProduction = new Bundle();
@@ -111,7 +112,8 @@ public class ActiviteProductionParam extends ActiviteWebService
     }
 
 
-    public void quitter(View v){
+    public void quitter(View v)
+    {
         ActiviteProductionParam.this.finish();
     }
 

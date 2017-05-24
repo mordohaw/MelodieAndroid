@@ -20,7 +20,8 @@ import fsa.williammordohay.melodienet_android_client.infoentrantes.Cellule;
 import fsa.williammordohay.melodienet_android_client.modesmarche.AdapteurModesMarche;
 import fsa.williammordohay.melodienet_android_client.modesmarche.ModeMarche;
 
-public class ActiviteModesMarche extends ActiviteWebService{
+public class ActiviteModesMarche extends ActiviteWebService
+{
 
     private SwipeRefreshLayout vueRafraichissement;
     private ListView vueListe;
@@ -31,7 +32,8 @@ public class ActiviteModesMarche extends ActiviteWebService{
     private String informationEntrante,ligneSelectionnee, baseUrl, modeMarcheUrl;
     private ConstructeurUrl constructRequetes;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activite_modes_marche);
         gson=new Gson();
@@ -57,7 +59,8 @@ public class ActiviteModesMarche extends ActiviteWebService{
 
     }
 
-    public void rempliListe(){
+    public void rempliListe()
+    {
         String resultatModesMarches=construitListeModes(listeCellules);
         listeModes = gson.fromJson(resultatModesMarches,new TypeToken<List<ModeMarche>>(){}.getType());
 
@@ -65,18 +68,21 @@ public class ActiviteModesMarche extends ActiviteWebService{
         vueListe.setAdapter(adapteurModesMarche);
     }
 
-    public String construitListeModes(List<Cellule> listeCellules){
+    public String construitListeModes(List<Cellule> listeCellules)
+    {
         String listeModesMarche="[";
 
-        for (Cellule c : listeCellules) {
+        for (Cellule c : listeCellules)
+        {
             modeMarcheUrl =constructRequetes.obtenirModesMarche(ligneSelectionnee,String.valueOf(c.getCellNumber()));
 
 
             //get the data from WebService
             if(listeModesMarche == "["){
                 listeModesMarche = listeModesMarche + recupereDonnees("ModeMarche", modeMarcheUrl);;
-                }
-            else{
+            }
+            else
+            {
                 listeModesMarche = listeModesMarche + "," + recupereDonnees("ModeMarche", modeMarcheUrl);;
             }
 
@@ -87,7 +93,8 @@ public class ActiviteModesMarche extends ActiviteWebService{
         return listeModesMarche;
     }
 
-    public ArrayList<Cellule> recupereListeCellule(ConstructeurUrl constructeurRequete,String numLigne){
+    public ArrayList<Cellule> recupereListeCellule(ConstructeurUrl constructeurRequete,String numLigne)
+    {
         String celluleUrl,chaineEntrante = "";
 
         celluleUrl=constructeurRequete.obtenirListeCellules(numLigne);
@@ -95,13 +102,15 @@ public class ActiviteModesMarche extends ActiviteWebService{
         //get the data from WebService
         informationEntrante = recupereDonnees("ModeMarche",celluleUrl);
 
-        if(informationEntrante != null){
+        if(informationEntrante != null)
+        {
             return gson.fromJson(informationEntrante,new TypeToken<List<Cellule>>(){}.getType());
         }
         return null;
     }
 
-    private void rafraichirListe(){
+    private void rafraichirListe()
+    {
 
 
         Toast.makeText(ActiviteModesMarche.this, R.string.rafraichissement, Toast.LENGTH_SHORT).show();
@@ -111,20 +120,26 @@ public class ActiviteModesMarche extends ActiviteWebService{
         vueRafraichissement.setRefreshing(true);
 
         //rafraichirListe long-time task in background thread
-        new Thread(new Runnable() {
+        new Thread(new Runnable()
+        {
             @Override
-            public void run() {
-                try {
+            public void run()
+            {
+                try
+                {
                     //dummy delay for 1 second
                     Thread.sleep(1000);
-                } catch (InterruptedException e) {
+                } catch (InterruptedException e)
+                {
                     e.printStackTrace();
                 }
 
                 //update ui on UI thread
-                runOnUiThread(new Runnable() {
+                runOnUiThread(new Runnable()
+                {
                     @Override
-                    public void run() {
+                    public void run()
+                    {
                         //set the action on up dating
 
                         //startService(serviceIntent);
@@ -142,7 +157,8 @@ public class ActiviteModesMarche extends ActiviteWebService{
 
     }
 
-    public void quitter(View v){
+    public void quitter(View v)
+    {
         ActiviteModesMarche.this.finish();
     }
 }

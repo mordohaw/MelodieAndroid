@@ -12,12 +12,14 @@ import fsa.williammordohay.melodienet_android_client.R;
  * Created by william.mordohay on 18/05/2017.
  */
 
-public class SettingFragment extends PreferenceFragment {
+public class SettingFragment extends PreferenceFragment
+{
     EditTextPreference urlPref;
     SwitchPreference switchPref;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         //load the preference xml
         addPreferencesFromResource(R.xml.preference);
@@ -26,14 +28,19 @@ public class SettingFragment extends PreferenceFragment {
         urlPref = (EditTextPreference) findPreference("editURL");
 
 
-        switchPref.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+        switchPref.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener()
+        {
 
             @Override
             public boolean onPreferenceChange(Preference preference,
-                                              Object newValue) {
-                if (!switchPref.isChecked()) {
+                                              Object newValue)
+            {
+                if (!switchPref.isChecked())
+                {
                     urlPref.setText(urlPref.getText());
-                } else {
+                }
+                else
+                {
                     //put the default value with this URL
                     urlPref.setDefaultValue("http://val-prod-002/MelodieNet_REST_Service/");
                     urlPref.setText("http://val-prod-002/MelodieNet_REST_Service/");

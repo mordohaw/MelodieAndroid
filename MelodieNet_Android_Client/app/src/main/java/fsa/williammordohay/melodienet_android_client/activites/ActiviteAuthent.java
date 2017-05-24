@@ -34,7 +34,8 @@ public class ActiviteAuthent extends ActiviteWebService {
     Button authentBoutton;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activite_authent);
 
@@ -55,47 +56,57 @@ public class ActiviteAuthent extends ActiviteWebService {
         });
     }
 
-    private void authentification() {
+    private void authentification()
+    {
         String baseURL, loginURL, langURL;
         String loginResultat = "";
         Gson gson = new Gson();
         ConstructeurUrl authentRequete;
 
 
-        if (utilisateurActuel.trim().equals("") || motPasseActuel.trim().equals("")) {
+        if (utilisateurActuel.trim().equals("") || motPasseActuel.trim().equals(""))
+        {
             Toast.makeText(ActiviteAuthent.this, getResources().getString(R.string.champs_vides), Toast.LENGTH_LONG).show();
-        } else {
+        } else
+            {
             baseURL = chargeParam();
             authentRequete = new ConstructeurUrl(baseURL);
             String requestUser, requestPassword;
             requestUser = utilisateurActuel;
-            try {
+            try
+            {
                 requestPassword = hashMdp(motPasseActuel);
                 loginURL = authentRequete.obtenirAccordLogin(requestUser, requestPassword);
                 //cherche les données sur le service Web
                     loginResultat = recupereDonnees("Authentification",loginURL);
 
-                    if(loginResultat != ""){
+                    if(loginResultat != "")
+                    {
                         ObjetAuthent connect = gson.fromJson(loginResultat,ObjetAuthent.class);
-                        if (connect.isAgreement()) {
+                        if (connect.isAgreement())
+                        {
                             envoiLangue(authentRequete);
                                 Toast.makeText(ActiviteAuthent.this, R.string.succes_authent, Toast.LENGTH_LONG).show();
                                 startActivity(new Intent(ActiviteAuthent.this, ActiviteMenu.class));
-                        } else {
+                        } else
+                        {
                             Toast.makeText(ActiviteAuthent.this, R.string.echec_authent, Toast.LENGTH_LONG).show();
                         }
-                    }else{
+                    }else
+                        {
                         Toast.makeText(ActiviteAuthent.this, R.string.erreur_connexion, Toast.LENGTH_LONG).show();
-                    }
+                        }
 
-            } catch (NoSuchAlgorithmException e) {
+            } catch (NoSuchAlgorithmException e)
+            {
                 e.printStackTrace();
             }
 
         }
     }
 
-    public void envoiLangue(ConstructeurUrl requete) {
+    public void envoiLangue(ConstructeurUrl requete)
+    {
         String langURL, langueEnvoiResultat="";
 
         String langString = Locale.getDefault().getLanguage();
@@ -103,17 +114,20 @@ public class ActiviteAuthent extends ActiviteWebService {
         langueEnvoiResultat=envoiDonnees("Authentification",langURL,langString);
     }
 
-    public void quitter(View v) {
+    public void quitter(View v)
+    {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(R.string.demande_quitter)
                 .setTitle(R.string.quitter_dialogue_titre)
-                .setPositiveButton(R.string.oui, new DialogInterface.OnClickListener() {
+                .setPositiveButton(R.string.oui, new DialogInterface.OnClickListener()
+                {
                     public void onClick(DialogInterface dialog, int id) {
                         // CONFIRM
                         ActiviteAuthent.this.finish();
                     }
                 })
-                .setNegativeButton(R.string.non, new DialogInterface.OnClickListener() {
+                .setNegativeButton(R.string.non, new DialogInterface.OnClickListener()
+                {
                     public void onClick(DialogInterface dialog, int id) {
                         // CANCEL
                     }
@@ -123,7 +137,8 @@ public class ActiviteAuthent extends ActiviteWebService {
         dialog.show();
     }
 
-    public void allerAuxParam(View v){
+    public void allerAuxParam(View v)
+    {
         startActivity(new Intent(this, VueParametres.class));
     }
 

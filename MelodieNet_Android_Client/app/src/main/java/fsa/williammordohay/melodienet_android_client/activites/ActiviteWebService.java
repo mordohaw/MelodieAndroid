@@ -16,17 +16,24 @@ import fsa.williammordohay.melodienet_android_client.connexionserviceweb.Lecture
  * Created by william.mordohay on 22/05/2017.
  */
 
-public abstract class ActiviteWebService extends AppCompatActivity {
+public abstract class ActiviteWebService extends AppCompatActivity
+{
 
-    public String recupereDonnees(String nomActivite,String urlRequete){
+    public String recupereDonnees(String nomActivite,String urlRequete)
+    {
         //réception de données provenants du service Web
         String donneesEntrantes="";
-        try {
+        try
+        {
             donneesEntrantes = new LectureDonneesWeb().execute(urlRequete).get();
-        } catch (InterruptedException e) {
+        }
+        catch (InterruptedException e)
+        {
             debugActivite(nomActivite);
             e.printStackTrace();
-        } catch (ExecutionException e) {
+        }
+        catch (ExecutionException e)
+        {
             debugActivite(nomActivite);
             e.printStackTrace();
         }
@@ -36,12 +43,17 @@ public abstract class ActiviteWebService extends AppCompatActivity {
     public String envoiDonnees(String nomActivite,String urlRequete, String langue){
         //envoi de données au service Web
         String donneesEntrantes="";
-        try {
+        try
+        {
             donneesEntrantes = new EcritureLangTel().execute(urlRequete,langue).get();
-        } catch (InterruptedException e) {
+        }
+        catch (InterruptedException e)
+        {
             debugActivite(nomActivite);
             e.printStackTrace();
-        } catch (ExecutionException e) {
+        }
+        catch (ExecutionException e)
+        {
             debugActivite(nomActivite);
             e.printStackTrace();
         }
@@ -49,9 +61,11 @@ public abstract class ActiviteWebService extends AppCompatActivity {
     }
 
 
-    public void debugActivite(String nomActivite){
+    public void debugActivite(String nomActivite)
+    {
         Toast.makeText(this, R.string.erreur_connexion, Toast.LENGTH_LONG).show();
-        switch(nomActivite){
+        switch(nomActivite)
+        {
             case "Authentification":
                 startActivity(new Intent(this, ActiviteAuthent.class));
                 break;
@@ -64,7 +78,8 @@ public abstract class ActiviteWebService extends AppCompatActivity {
         }
     }
 
-    public String chargeParam(){
+    public String chargeParam()
+    {
         SharedPreferences SharedParam = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         //load the value enter by user in editURL. Default value is "http://val-prod-jfc/MelodieNet_REST_Service/" here
         return(SharedParam.getString("editURL", "http://val-prod-jfc/MelodieNet_REST_Service/"));

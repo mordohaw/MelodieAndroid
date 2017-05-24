@@ -19,11 +19,13 @@ public class ActiviteMenu extends AppCompatActivity
         setContentView(R.layout.activite_menu);
     }
 
-    public void allerAuxParam(View v){
+    public void allerAuxParam(View v)
+    {
         startActivity(new Intent(this, VueParametres.class));
     }
 
-    public void quitter(View v){
+    public void quitter(View v)
+    {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(R.string.demande_deconnexion)
                 .setTitle(R.string.demande_deco_titre)
@@ -43,11 +45,13 @@ public class ActiviteMenu extends AppCompatActivity
         dialog.show();
     }
 
-    public void allerSuiviMachine(View v){
+    public void allerSuiviMachine(View v)
+    {
         startActivity(new Intent(ActiviteMenu.this, ActiviteMachinesParam.class));
     }
 
-    public void allerSuiviProd(View v){
+    public void allerSuiviProd(View v)
+    {
         startActivity(new Intent(ActiviteMenu.this, ActiviteProductionParam.class));
     }
 }
