@@ -49,7 +49,6 @@
     <string name="suivi_machines">Suivi Machines</string>
     <string name="num_celulle">Numéro</string>
     <string name="texte_cellule">Détails</string>
-    <string name="code_couleur_celulle">Couleur</string>
 
         <!-- Suivi production-->
     <string name="suivi_production">Suivi Production</string>

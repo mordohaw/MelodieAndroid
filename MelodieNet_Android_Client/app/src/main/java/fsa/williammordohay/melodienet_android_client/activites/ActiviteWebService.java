@@ -72,7 +72,13 @@ public abstract class ActiviteWebService extends AppCompatActivity
             case "MachinesParam":
                 startActivity(new Intent(this, ActiviteMenu.class));
                 break;
+            case "ActiviteProductionParam":
+                startActivity(new Intent(this, ActiviteMenu.class));
+                break;
             case "ModeMarche":
+                startActivity(new Intent(this, ActiviteMenu.class));
+                break;
+            case "ActiviteProduction":
                 startActivity(new Intent(this, ActiviteMenu.class));
                 break;
         }
